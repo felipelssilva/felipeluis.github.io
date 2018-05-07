@@ -1,0 +1,16 @@
+{
+  "name": "felipeluis",
+  "version": "1.0.0",
+  "description": "Este respositório será para o meu site pessoal: felipeluis.com.br",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://felipe_l@bitbucket.org/felipe_l/felipeluis.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/felipe_l/felipeluis#readme"
+}
