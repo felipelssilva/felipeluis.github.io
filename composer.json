@@ -1,4 +1,7 @@
 {
     "name": "root/felipeluis",
-    "require": {}
+    "require": {
+    	 "php": ">=7.0",
+    	  "kevinlebrun/slug.php": "1.*"
+    }
 }
