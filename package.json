@@ -12,5 +12,7 @@
   },
   "author": "",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/felipe_l/felipeluis#readme"
+  "homepage": "https://bitbucket.org/felipe_l/felipeluis#readme",
+  "dependencies": {},
+  "devDependencies": {}
 }
