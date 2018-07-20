@@ -204,8 +204,12 @@
 
     <script src="/js/jquery.validate.js"></script>
 
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    <script src="/js/contact.form.js"></script>
+
     <script type="text/javascript">
-        $(document).ready(function(){
+        /*$(document).ready(function(){
             $('#formcontato').validate({
                 rules: {
                     nome: { required: true, minlength: 2 },
@@ -235,7 +239,7 @@
                     return false;
                 }
             });
-        });
+        });*/
     </script>
 
     <script>

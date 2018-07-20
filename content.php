@@ -96,6 +96,11 @@
 				</div>
 				<div class="form-group">
 					<div class="col-xs-offset-1 col-xs-10 col-md-9 col-md-offset-2">
+						<div class="g-recaptcha" data-sitekey="6LeN7WQUAAAAACIN69-HcevBNdTPCC-DIshNvch4"></div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-xs-offset-1 col-xs-10 col-md-9 col-md-offset-2">
 						<button name="send" type="submit" class="btn btn-primary btn-lg">Enviar contato!</button>
 					</div>
 				</div>
