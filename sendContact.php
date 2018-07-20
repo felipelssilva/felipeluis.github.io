@@ -7,7 +7,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 {
 
 	/* date */
-	$data = date('d-m-Y H:i:s');
+	$date = date('d-m-Y H:i:s');
 
 	/* multiple recipients */
 	$to = "contato@felipeluis.com.br" ;
@@ -28,7 +28,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	<p><b>Mensagem:</b> <br> '.getPost('mensagem').'</p>
 	<br>
 	<hr>
-	<h5 style="color:#666;">Horário do envio: '.$data.'</h5>
+	<h5 style="color:#666;">Horário do envio: '.$date.'</h5>
 	</body>
 	</html>
 	';
@@ -44,11 +44,11 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	/* Mail it */
 	if (mail($to, $subject, $message, $headers))
 	{
-		echo "Email enviado com sucesso, em breve eu retornarei este contato!";
+		return '{ "data" : "Email enviado com sucesso, em breve eu retornarei este contato!" }';
 	}
 	else
 	{
-		echo "Ichi, alguma coisa deu errado, por favor tente novamente.";
+		return '{ "data" : "Ichi, alguma coisa deu errado, por favor tente novamente." }';
 	}
 
 }
