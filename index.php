@@ -193,6 +193,9 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="/js/bootstrap.min.js"></script>
 
+    <!-- Sweetalert2 JavaScript -->
+    <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <!-- Plugin JavaScript -->
     <script src="/js/scrollreveal.min.js"></script>
     <script src="/js/jquery.easing.min.js"></script>
