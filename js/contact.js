@@ -24,10 +24,14 @@ $('button[name=send]').on('click', function(e) {
                     data: dados,
                     success: function( data )
                     {
-                        alert( data );
+                        swal( data );
                     },
-                    beforeSend: function(data){ console.log("beforeSend "+data); swal("Hello world!"); },
-                    complete: function(data){ console.log("complete "+data); }
+                    beforeSend: function(data) {
+                        // console.log("beforeSend "+data);
+                    },
+                    complete: function(data) {
+                        // console.log("complete "+data);
+                    }
                 });
 
                 return false;
