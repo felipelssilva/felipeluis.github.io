@@ -1,21 +1,99 @@
 <?php
 
-ini_set('display_errors', true);
+// Turn off all error reporting
+error_reporting(0);
+
+// Report simple running errors
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
+
+// Reporting E_NOTICE can be good too (to report uninitialized
+// variables or catch variable name misspellings …)
+error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+
+// Report all errors except E_NOTICE
+error_reporting(E_ALL & ~E_NOTICE);
+
+// Report all PHP errors (see changelog)
 error_reporting(E_ALL);
 
-if( $_SERVER['REQUEST_METHOD'] == 'POST' )
+// Report all PHP errors
+error_reporting(-1);
+
+// Same as error_reporting(E_ALL);
+ini_set(‘error_reporting’, E_ALL);
+
+// header('Content-type: application/json');
+
+function test_input($data)
+{
+	$data=trim($data);
+	$data=stripslashes($data);
+	$data=htmlspecialchars($data);
+	return $data;
+}
+
+function getPost( $key )
+{
+	return isset( $_POST[ $key ] ) ? filter( $_POST[ $key ] ) : null;
+}
+
+function filter( $var )
+{
+	return $var;
+}
+
+function jsonReturn($success)
+{
+	if ($success == 1)
+	{
+		$data = array('data' => 'Email enviado com sucesso, em breve eu retornarei este contato!');
+		return json_encode($data);
+	}
+	else
+	{
+		$data = array('data' => 'Ichi, alguma coisa deu errado, por favor tente novamente.');
+		return json_encode($data);
+	}
+}
+
+if( strtoupper($_SERVER['REQUEST_METHOD']) === 'POST' )
 {
 
-	/* date */
+	if(empty($_POST["name"])){
+		$nameErr="Name is required!!!";
+	} else {
+		$name=test_input($_POST["name"]);
+	}
+
+	if(empty($_POST["email"])){
+		$emailErr="Email is required";
+	} else {
+		$email=test_input($_POST["email"]);
+	}
+
+	// if(empty($_POST["comment"])){
+	// 	$commentErr="Comment is required";
+	// } else {
+	// 	$comment=test_input($_POST["comment"]);
+	// }
+
+	// if (empty($_POST["comment"])){
+	// 	$comment = "";
+	// } else {
+	// 	$comment = test_input($_POST["comment"]);
+	// }
+
+	// if (empty($_POST["gender"])){
+	// 	$genderErr = "Gender is required";
+	// } else {
+	// 	$gender = test_input($_POST["gender"]);
+	// }
+ 
+
 	$date = date('d-m-Y H:i:s');
-
-	/* multiple recipients */
 	$to = "contato@felipeluis.com.br" ;
-
-	/* subject */
 	$subject = 'CONTATO DO SITE';
 
-	/* message */
 	$message = '
 	<html>
 	<head>
@@ -33,34 +111,22 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 	</html>
 	';
 
-	/* To send HTML mail, the Content-type header must be set */
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
-	/* Additional headers */
-	/* $headers .= 'To: Felipe Luis <'.$to.'>' . "\r\n"; */
 	$headers .= 'From: '.getPost('nome').' <'.getPost('email').'>' . "\r\n";
 
-	/* Mail it */
 	if (mail($to, $subject, $message, $headers))
 	{
-		return '{ "data" : "Email enviado com sucesso, em breve eu retornarei este contato!" }';
+		return jsonReturn(1);
 	}
 	else
 	{
-		return '{ "data" : "Ichi, alguma coisa deu errado, por favor tente novamente." }';
+		return jsonReturn();
 	}
 
 }
-
-function getPost( $key )
+else
 {
-	return isset( $_POST[ $key ] ) ? filter( $_POST[ $key ] ) : null;
+	return jsonReturn();
 }
-
-function filter( $var )
-{
-	return $var; /* faça o tratamento */
-}
-
-?>
