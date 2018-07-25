@@ -13,6 +13,8 @@
   "author": "",
   "license": "ISC",
   "homepage": "https://bitbucket.org/felipe_l/felipeluis#readme",
-  "dependencies": {},
+  "dependencies": {
+    "sweetalert2": "^7.25.6"
+  },
   "devDependencies": {}
 }
