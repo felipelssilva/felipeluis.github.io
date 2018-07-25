@@ -26,8 +26,8 @@ $('button[name=send]').on('click', function(e) {
                     {
                         alert( data );
                     },
-                    beforeSend: function(data){ console.log("beforeSend "+data) },
-                    complete: function(data){ console.log("complete "+data) }
+                    beforeSend: function(data){ console.log("beforeSend "+data); swal("Hello world!"); },
+                    complete: function(data){ console.log("complete "+data); }
                 });
 
                 return false;

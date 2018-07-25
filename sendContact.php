@@ -22,13 +22,13 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' )
 		<title>CONTATO DO SITE</title>
 	</head>
 	<body>
-	<p><b>Nome:</b> <br> '.getPost('nome').'</p>
-	<p><b>Email:</b> <br> '.getPost('email').'</p>
-	<p><b>Assunto:</b> <br> '.getPost('assunto').'</p>
-	<p><b>Mensagem:</b> <br> '.getPost('mensagem').'</p>
-	<br>
-	<hr>
-	<h5 style="color:#666;">Horário do envio: '.$date.'</h5>
+		<p><b>Nome:</b> <br> '.getPost('nome').'</p>
+		<p><b>Email:</b> <br> '.getPost('email').'</p>
+		<p><b>Assunto:</b> <br> '.getPost('assunto').'</p>
+		<p><b>Mensagem:</b> <br> '.getPost('mensagem').'</p>
+		<br>
+		<hr>
+		<h5 style="color:#666;">Horário do envio: '.$date.'</h5>
 	</body>
 	</html>
 	';
