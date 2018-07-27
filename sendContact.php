@@ -20,76 +20,65 @@ error_reporting(E_ALL);
 error_reporting(-1);
 
 // Same as error_reporting(E_ALL);
-ini_set(‘error_reporting’, E_ALL);
+ini_set('error_reporting', E_ALL);
 
-// header('Content-type: application/json');
+header('Content-type: application/json');
 
-function test_input($data)
-{
+function test_input($data) {
 	$data=trim($data);
 	$data=stripslashes($data);
 	$data=htmlspecialchars($data);
 	return $data;
 }
 
-function getPost( $key )
-{
-	return isset( $_POST[ $key ] ) ? filter( $_POST[ $key ] ) : null;
+function getPost($key) {
+	return isset($_POST[$key]) ? filter($_POST[$key]) : null;
 }
 
-function filter( $var )
-{
+function filter($var) {
 	return $var;
 }
 
-function jsonReturn($success)
-{
-	if ($success == 1)
-	{
+function jsonReturn($success=false) {
+	if ($success == true) {
 		$data = array('data' => 'Email enviado com sucesso, em breve eu retornarei este contato!');
 		return json_encode($data);
-	}
-	else
-	{
+	} else {
 		$data = array('data' => 'Ichi, alguma coisa deu errado, por favor tente novamente.');
 		return json_encode($data);
 	}
 }
 
-if( strtoupper($_SERVER['REQUEST_METHOD']) === 'POST' )
-{
-
-	if(empty($_POST["name"])){
+if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
+	if(empty($_POST["name"])) {
 		$nameErr="Name is required!!!";
+		echo $nameErr;
+		break;
 	} else {
 		$name=test_input($_POST["name"]);
 	}
-
-	if(empty($_POST["email"])){
+	if(empty($_POST["email"])) {
 		$emailErr="Email is required";
+		echo $emailErr;
+		break;
 	} else {
 		$email=test_input($_POST["email"]);
 	}
-
-	// if(empty($_POST["comment"])){
-	// 	$commentErr="Comment is required";
-	// } else {
-	// 	$comment=test_input($_POST["comment"]);
-	// }
-
-	// if (empty($_POST["comment"])){
-	// 	$comment = "";
-	// } else {
-	// 	$comment = test_input($_POST["comment"]);
-	// }
-
-	// if (empty($_POST["gender"])){
-	// 	$genderErr = "Gender is required";
-	// } else {
-	// 	$gender = test_input($_POST["gender"]);
-	// }
+	if(empty($_POST["assunto"])){
+		$subjectErr="Subject is required";
+		echo $subjectErr;
+		break;
+	} else {
+		$subject=test_input($_POST["assunto"]);
+	}
+	if (empty($_POST["mensagem"])){
+		$messageErr = "Message is required";
+		echo $messageErr;
+		break;
+	} else {
+		$message = test_input($_POST["mensagem"]);
+	}
  
-
 	$date = date('d-m-Y H:i:s');
 	$to = "contato@felipeluis.com.br" ;
 	$subject = 'CONTATO DO SITE';
@@ -113,20 +102,13 @@ if( strtoupper($_SERVER['REQUEST_METHOD']) === 'POST' )
 
 	$headers  = 'MIME-Version: 1.0' . "\r\n";
 	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
 	$headers .= 'From: '.getPost('nome').' <'.getPost('email').'>' . "\r\n";
 
-	if (mail($to, $subject, $message, $headers))
-	{
-		return jsonReturn(1);
+	if (mail($to, $subject, $message, $headers)) {
+		echo jsonReturn(true);
+	} else {
+		echo jsonReturn(false);
 	}
-	else
-	{
-		return jsonReturn();
-	}
-
-}
-else
-{
-	return jsonReturn();
+} else {
+	echo jsonReturn(false);
 }
