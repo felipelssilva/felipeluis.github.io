@@ -23,10 +23,10 @@ $('button[name=send]').on('click', function(e) {
                     url: "sendContact.php",
                     data: dados,
                     success: function(data){
-                        swal("Contato envido com sucesso!", data.data, "success");
+                        swal(data.title, data.body, "success");
                     },
                     error: function(data){
-                        swal("Oops", data.data, "error");
+                        swal(data.title, data.body, "error");
                     },
                     beforeSend: function(data) {
                         // console.log("beforeSend "+data);

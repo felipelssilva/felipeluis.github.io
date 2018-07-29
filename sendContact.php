@@ -40,11 +40,21 @@ function filter($var) {
 }
 
 function jsonReturn($success=false) {
-	if ($success == true) {
-		$data = array('data' => 'Email enviado com sucesso, em breve eu retornarei este contato!');
+	if ($success == true){
+
+		$title = "Contato enviado com sucesso!";
+		$body = "Email enviado, em breve eu retornarei este contato!";
+
+		$data = array('title' => $title,'body' => $body);
+
 		return json_encode($data);
 	} else {
-		$data = array('data' => 'Ichi, alguma coisa deu errado, por favor tente novamente.');
+
+		$title = "Oops!";
+		$body = "Alguma coisa deu errado, por favor tente novamente.";
+
+		$data = array('title' => $title,'body' => $body);
+
 		return json_encode($data);
 	}
 }
