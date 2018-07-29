@@ -22,9 +22,11 @@ $('button[name=send]').on('click', function(e) {
                     type: "POST",
                     url: "sendContact.php",
                     data: dados,
-                    success: function( data )
-                    {
-                        swal( data );
+                    success: function(data){
+                        swal("Contato envido com sucesso!", data.data, "success");
+                    },
+                    error: function(data){
+                        swal("Oops", data.data, "error");
                     },
                     beforeSend: function(data) {
                         // console.log("beforeSend "+data);

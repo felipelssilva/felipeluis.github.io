@@ -50,12 +50,12 @@ function jsonReturn($success=false) {
 }
 
 if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
-	if(empty($_POST["name"])) {
+	if(empty($_POST["nome"])) {
 		$nameErr="Name is required!!!";
 		echo $nameErr;
 		break;
 	} else {
-		$name=test_input($_POST["name"]);
+		$name=test_input($_POST["nome"]);
 	}
 	if(empty($_POST["email"])) {
 		$emailErr="Email is required";
