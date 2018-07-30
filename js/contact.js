@@ -16,12 +16,13 @@ $('button[name=send]').on('click', function(e) {
                 mensagem: { required: 'Escreva uma mensagem', minlength: 'Diga-me mais coisas, poucas informações no contato não enviará (30 letras)'},
             },
             submitHandler: function( form ){
-                var dados = $( form ).serialize();
+                $dados = $( form ).serialize();
+                $thisForm = $('#formcontato input, select, textarea');
 
                 $.ajax({
                     type: "POST",
                     url: "sendContact.php",
-                    data: dados,
+                    data: $dados,
                     success: function(data){
                         swal(data.title, data.body, "success");
                     },
@@ -29,10 +30,8 @@ $('button[name=send]').on('click', function(e) {
                         swal(data.title, data.body, "error");
                     },
                     beforeSend: function(data) {
-                        // console.log("beforeSend "+data);
-                    },
-                    complete: function(data) {
-                        // console.log("complete "+data);
+                        $thisForm.val('');
+                        $thisForm.animate({ scrollTop: $("#social-medias").position().top },'slow');
                     }
                 });
 
