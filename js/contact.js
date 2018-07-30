@@ -42,6 +42,6 @@ $('button[name=send]').on('click', function(e) {
     } else {
         e.preventDefault();
         e.stopPropagation();
-        alert( "Recaptcha é obrigatório" );
+        swal("Oops!", "Recaptcha é obrigatório", "error");
     }
 });
