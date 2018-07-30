@@ -86,18 +86,11 @@
                         <a href="/curriculo.pdf" target="_blank">Currículo</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="/blog/">Blog</a>
-                    </li>
-                    <li>
                         <a class="page-scroll" href="#social-medias">Minhas redes sociais</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#contact">Entre em contato</a>
                     </li>
-                    <li>
-                        <a href="/fotografias">Fotografias</a>
-                    </li>
-
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -111,10 +104,7 @@
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
-
-
         <!-- Wrapper for Slides -->
         <div class="carousel-inner">
             <div class="item active">
@@ -147,22 +137,6 @@
                 </div>
                 <div class="carousel-caption">
                     <h2></h2>
-                </div>
-            </div>
-            <div class="item">
-                <!-- Set the third background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('/img/header.jpg');">
-                    <div class="header-content">
-                        <div class="header-content-inner">
-                            <h1><img alt="Felipe Luis" src="/img/logo-felipe-luis-menor.png" width="300" height="118" class="sr-top" /></h1>
-                            <hr class="sr-top">
-                            <h1 class="sr-top"> Fotógrafo </h1>
-                            <a href="/fotografia" class="btn btn-primary btn-xl page-scroll sr-top">Veja minhas fotos</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-caption">
-                    <h2> </h2>
                 </div>
             </div>
         </div>
