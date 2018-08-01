@@ -1,11 +1,7 @@
 $('button[name=send]').on('click', function(e) {
-    let $recaptcha = $('#formcontato textarea#g-recaptcha-response').val();
-    let $nome = $('#formcontato input#nome').val();
-    let $email = $('#formcontato input#email').val();
-    let $assunto = $('#formcontato select#assunto').val();
-    let $mensagem = $('#formcontato textarea#mensagem').val();
+    let recaptcha = $('textarea#g-recaptcha-response').val();
 
-    if (!!$recaptcha && !!$nome && !!$email && !!$assunto && !!$mensagem) {
+    if (recaptcha) {
         $('#formcontato').validate({
             rules: {
                 nome: { required: true, minlength: 2 },
@@ -35,7 +31,7 @@ $('button[name=send]').on('click', function(e) {
                     },
                     beforeSend: function(data) {
                         $thisForm.val('');
-                        document.documentElement.scrollTop = $("#social-medias").position().top 
+                        $thisForm.animate({ scrollTop: $("#social-medias").position().top },'slow');
                     }
                 });
 
@@ -45,6 +41,6 @@ $('button[name=send]').on('click', function(e) {
     } else {
         e.preventDefault();
         e.stopPropagation();
-        swal("Oops!", "Todos os campos são obrigatórios, tente novamente com mais informações", "error");
+        swal("Oops!", "Recaptcha é obrigatório", "error");
     }
 });
