@@ -25,7 +25,7 @@ $('button[name=send]').on('click', function(e) {
 
                 $.ajax({
                     type: "POST",
-                    url: "sendContact.php",
+                    url: "/v1/sendContact.php",
                     data: $dados,
                     success: function(data){
                         swal(data.title, data.body, "success");
