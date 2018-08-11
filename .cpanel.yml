@@ -1,0 +1,3 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/felipeluiscom/public_html/v1/ 
