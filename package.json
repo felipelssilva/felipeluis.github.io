@@ -16,7 +16,7 @@
   "dependencies": {},
   "devDependencies": {
     "del": "^2.0.2",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-autoprefixer": "latest",
     "gulp-clean-css": "^3.9.4",
     "gulp-cli": "^2.0.1",
