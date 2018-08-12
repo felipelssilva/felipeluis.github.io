@@ -1,6 +1,11 @@
 {
   "short_name": "Felipe Luis",
   "name": "Felipe Luis Developer",
+  "background_color": "#2196F3",
+  "theme_color": "#2196F3",
+  "start_url": "/v1",
+  "display": "standalone",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "/v1/public/logo-felipe-luis.png",
@@ -17,6 +22,5 @@
       "type": "image/png",
       "sizes": "192x192"
     }
-  ],
-  "start_url": "/v1"
+  ]
 }
