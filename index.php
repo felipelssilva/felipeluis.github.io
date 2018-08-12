@@ -25,32 +25,32 @@
     <meta property="og:url" content="http://www.felipeluis.com.br" />
     <meta property="og:description" content="Trabalho com web designer, desenvolvimento e sou freelancer" />
     <meta property="og:locale" content="pt_br" />
-    <meta property="og:image" content="/img/felipeluis.png" />
+    <meta property="og:image" content="/v1/img/felipeluis.png" />
     <meta property="og:image:width" content="88" />
     <meta property="og:image:height" content="107" />
     <meta property="og:image:type" content="image/jpeg" />
     <!-- END Metadata -->
 
-    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <link rel="shortcut icon" href="/v1/img/favicon.ico" />
 
     <title>Felipe Luis - Web Designer, Desenvolvedor</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/v1/css/bootstrap.min.css" type="text/css">
 
     <!-- Custom Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/v1/font-awesome/css/font-awesome.min.css" type="text/css">
 
     <!-- Plugin CSS -->
-    <link rel="stylesheet" href="/css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="/v1/css/magnific-popup.css" type="text/css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/creative.css" type="text/css">
+    <link rel="stylesheet" href="/v1/css/creative.css" type="text/css">
 
     <!-- Custom CSS -->
-    <link href="css/full-slider.css" rel="stylesheet">
+    <link href="/v1/css/full-slider.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -83,7 +83,7 @@
                         <a href="/">Início</a>
                     </li>
                     <li>
-                        <a href="/curriculo.pdf" target="_blank">Currículo</a>
+                        <a href="/v1/curriculo.pdf" target="_blank">Currículo</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#social-medias">Minhas redes sociais</a>
@@ -109,10 +109,10 @@
         <div class="carousel-inner">
             <div class="item active">
                 <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('/img/webdesigner.jpg');">
+                <div class="fill" style="background-image:url('/v1/img/webdesigner.jpg');">
                     <div class="header-content">
                         <div class="header-content-inner">
-                            <h1><img alt="Felipe Luis" src="/img/logo-felipe-luis-menor.png" width="300" height="118" class="sr-top" /></h1>
+                            <h1><img alt="Felipe Luis" src="/v1/img/logo-felipe-luis-menor.png" width="300" height="118" class="sr-top" /></h1>
                             <hr class="sr-top">
                             <h1 class="sr-top"> Front-end </h1>
                             <a href="#contact" class="btn btn-primary btn-xl page-scroll sr-top">Entre em contato</a>
@@ -125,10 +125,10 @@
             </div>
             <div class="item">
                 <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('/img/developer.jpg');">
+                <div class="fill" style="background-image:url('/v1/img/developer.jpg');">
                     <div class="header-content">
                         <div class="header-content-inner">
-                            <h1><img alt="Felipe Luis" src="/img/logo-felipe-luis-menor.png" width="300" height="118" class="sr-top" /></h1>
+                            <h1><img alt="Felipe Luis" src="/v1/img/logo-felipe-luis-menor.png" width="300" height="118" class="sr-top" /></h1>
                             <hr class="sr-top">
                             <h1 class="sr-top"> Back-end </h1>
                             <a href="#contact" class="btn btn-primary btn-xl page-scroll sr-top">Entre em contato</a>
@@ -162,35 +162,34 @@
 
 
     <!-- jQuery -->
-    <script src="/js/jquery.js"></script>
+    <script src="/v1/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="/v1/js/bootstrap.min.js"></script>
 
     <!-- Sweetalert2 JavaScript -->
     <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="/js/scrollreveal.min.js"></script>
-    <script src="/js/jquery.easing.min.js"></script>
-    <script src="/js/jquery.fittext.js"></script>
-    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script src="/v1/js/scrollreveal.min.js"></script>
+    <script src="/v1/js/jquery.easing.min.js"></script>
+    <script src="/v1/js/jquery.fittext.js"></script>
+    <script src="/v1/js/jquery.magnific-popup.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="/js/creative.js"></script>
+    <script src="/v1/js/creative.js"></script>
 
-    <script src="/js/jquery.validate.js"></script>
+    <script src="/v1/js/jquery.validate.js"></script>
     
-    <script src='//www.google.com/recaptcha/api.js'></script>
+    <script src="//www.google.com/recaptcha/api.js"></script>
 
-    <script src="/js/contact.js"></script>
+    <script src="/v1/js/contact.js"></script>
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
           m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
       ga('create', 'UA-79531618-1', 'auto');
       ga('send', 'pageview');
   </script>
