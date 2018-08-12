@@ -15,7 +15,6 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="#303549">
 
     <!-- BEGIN Metadata  -->
-
     <meta name="author" content="Felipe Luis">
     <meta name="description" content="Trabalho com web designer, desenvolvimento e sou freelancer">
     <meta name="keywords" content="job, dev, developer, freelancer, freela, web, designer, web designer, desenvolvimento, fullstack, front-end, frontend, backend, back-end" />
@@ -32,6 +31,8 @@
     <!-- END Metadata -->
 
     <link rel="shortcut icon" href="/img/favicon.ico" />
+
+    <link rel="manifest" href="/v1/manifest.json">
 
     <title>Felipe Luis - Web Designer, Desenvolvedor</title>
 
