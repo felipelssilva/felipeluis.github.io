@@ -26,27 +26,24 @@ const AUTOPREFIXER_BROWSERS = [
 ];
 
 // Gulp task to minify CSS files
-gulp.task('css', function () {
+gulp.task('css', gulp.parallel('clean'), function () {
   return gulp.src('./src/css/**/*.css')
-    // Auto-prefix css styles for cross browser compatibility
     .pipe(autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
-    // Minify the file
     .pipe(csso())
     .pipe(concat('styles_2.css'))
-    // Output
     .pipe(gulp.dest('./public/css'))
 });
 
 // Gulp task to minify JavaScript files
-gulp.task('scripts', function() {
-  return gulp.src(['./src/js/**/*.js',])
-    // .pipe(uglify())
+gulp.task('scripts', gulp.parallel('clean'), function() {
+  return gulp.src(['./src/js/main.js',])
     .pipe(concat('scripts.js'))
+    .pipe(uglify())
     .pipe(gulp.dest('./public/js'))
 });
 
 // Optimize CSS
-gulp.task('less', function () {
+gulp.task('less', gulp.parallel('clean'), function () {
   return gulp.src('./src/less/creative.less')
     .pipe(less({
   		paths: [ path.join(__dirname, 'less', 'includes') ],
@@ -56,14 +53,14 @@ gulp.task('less', function () {
     .pipe(gulp.dest('./public/css'));
 });
 
-gulp.task('minify-css', function () {
+gulp.task('minify-css', gulp.parallel('clean'),  function () {
   return gulp.src('./public/css/styles.css')
     .pipe(cleanCSS({ compatibility: AUTOPREFIXER_BROWSERS }))
     .pipe(gulp.dest('./public/css'));
 });
 
 // Optimize PNG, JPEG, GIF, SVG images with gulp task.
-gulp.task('image', function () {
+gulp.task('image', gulp.parallel('clean'), function () {
   gulp.src('./src/img/**')
     .pipe(image({
 		pngquant: true,
@@ -80,15 +77,28 @@ gulp.task('image', function () {
 });
 
 // Clean output directory
-gulp.task('clean', () => del(['public']));
+gulp.task('clean', () => del.sync(['public']));
 
 // Gulp task to minify all files
-gulp.task('default', ['clean'], function () {
-  runSequence(
-    'less',
-    'minify-css',
-    'css',
-    'scripts',
-    'image'
-  );
-});
+// gulp.task('default', ['clean'], function () {
+//   runSequence(
+//     'less',
+//     'minify-css',
+//     'css',
+//     'scripts',
+//     'image'
+//   );
+// });
+
+gulp.task('default', 
+  gulp.series('clean',
+    gulp.parallel(
+      'less', 
+      'css', 
+      'minify-css', 
+      'scripts', 
+      'image'
+    )
+  )
+);
+
