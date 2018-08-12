@@ -1,8 +1,8 @@
 {
   "short_name": "Felipe Luis",
   "name": "Felipe Luis Developer",
-  "background_color": "#2196F3",
-  "theme_color": "#2196F3",
+  "background_color": "#303549",
+  "theme_color": "#303549",
   "start_url": "/v1",
   "display": "standalone",
   "orientation": "portrait",
