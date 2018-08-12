@@ -3,17 +3,17 @@
   "name": "Felipe Luis Developer",
   "icons": [
     {
-      "src": "launcher-icon-1x.png",
+      "src": "/v1/public/logo-felipe-luis.png",
       "type": "image/png",
       "sizes": "48x48"
     },
     {
-      "src": "launcher-icon-2x.png",
+      "src": "/v1/public/logo-felipe-luis.png",
       "type": "image/png",
       "sizes": "96x96"
     },
     {
-      "src": "launcher-icon-4x.png",
+      "src": "/v1/public/logo-felipe-luis.png",
       "type": "image/png",
       "sizes": "192x192"
     }
