@@ -14,21 +14,22 @@
   "license": "ISC",
   "homepage": "https://bitbucket.org/felipe_l/felipeluis#readme",
   "dependencies": {
-    "font-awesome": "^4.7.0",
-    "sweetalert2": "^7.26.11",
+    "gulp": "^3.9.1",
+    "gulp-cli": "^2.0.1"
+  },
+  "devDependencies": {
     "del": "^2.0.2",
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "latest",
+    "font-awesome": "^4.7.0",
+    "gulp-autoprefixer": "^5.0.0",
     "gulp-clean-css": "^3.9.4",
-    "gulp-cli": "^2.0.1",
+    "gulp-coffee": "^3.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^2.0.0",
-    "gulp-htmlmin": "^3.0.0",
     "gulp-image": "^4.3.0",
+    "gulp-imagemin": "^4.1.0",
     "gulp-less": "^4.0.1",
-    "gulp-sass": "^4.0.1",
     "gulp-uglify": "^2.0.0",
-    "run-sequence": "^1.2.2"
-  },
-  "devDependencies": {}
+    "run-sequence": "^1.2.2",
+    "sweetalert2": "^7.26.11"
+  }
 }
