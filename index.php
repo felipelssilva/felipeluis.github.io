@@ -24,21 +24,21 @@
     <meta property="og:url" content="http://www.felipeluis.com.br" />
     <meta property="og:description" content="Trabalho com web designer, desenvolvimento e sou freelancer" />
     <meta property="og:locale" content="pt_br" />
-    <meta property="og:image" content="/v1/img/felipeluis.png" />
+    <meta property="og:image" content="/img/felipeluis.png" />
     <meta property="og:image:width" content="88" />
     <meta property="og:image:height" content="107" />
     <meta property="og:image:type" content="image/jpeg" />
     <!-- END Metadata -->
 
-    <link rel="shortcut icon" href="/v1/public/img/favicon.ico" />
+    <link rel="shortcut icon" href="/public/img/favicon.ico" />
 
-    <link rel="manifest" href="/v1/manifest.json">
+    <link rel="manifest" href="/manifest.json">
 
     <title>Felipe Luis - Web Designer, Desenvolvedor</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/v1/public/css/styles.css" type="text/css">
-    <link rel="stylesheet" href="/v1/public/css/styles_2.css" type="text/css">
+    <link rel="stylesheet" href="/public/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="/public/css/styles_2.css" type="text/css">
 
     <!-- Custom Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
@@ -75,7 +75,7 @@
                         <a href="/">Início</a>
                     </li>
                     <li>
-                        <a href="/v1/public/pdf/curriculo.pdf" target="_blank">Currículo</a>
+                        <a href="/public/pdf/curriculo.pdf" target="_blank">Currículo</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#social-medias">Minhas redes sociais</a>
@@ -101,10 +101,10 @@
         <div class="carousel-inner">
             <div class="item active">
                 <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('/v1/public/img/webdesigner.jpg');">
+                <div class="fill" style="background-image:url('/public/img/webdesigner.jpg');">
                     <div class="header-content">
                         <div class="header-content-inner">
-                            <h1><img alt="Felipe Luis" src="/v1/public/img/logo-felipe-luis.png" width="300" height="118" class="sr-top" /></h1>
+                            <h1><img alt="Felipe Luis" src="/public/img/logo-felipe-luis.png" width="300" height="118" class="sr-top" /></h1>
                             <hr class="sr-top">
                             <h1 class="sr-top"> Front-end </h1>
                             <a href="#contact" class="btn btn-primary btn-xl page-scroll sr-top">Entre em contato</a>
@@ -117,10 +117,10 @@
             </div>
             <div class="item">
                 <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('/v1/public/img/developer.jpg');">
+                <div class="fill" style="background-image:url('/public/img/developer.jpg');">
                     <div class="header-content">
                         <div class="header-content-inner">
-                            <h1><img alt="Felipe Luis" src="/v1/img/logo-felipe-luis-menor.png" width="300" height="118" class="sr-top" /></h1>
+                            <h1><img alt="Felipe Luis" src="/img/logo-felipe-luis-menor.png" width="300" height="118" class="sr-top" /></h1>
                             <hr class="sr-top">
                             <h1 class="sr-top"> Back-end </h1>
                             <a href="#contact" class="btn btn-primary btn-xl page-scroll sr-top">Entre em contato</a>
@@ -153,7 +153,7 @@
 
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     
-    <script src="/v1/public/js/scripts.js"></script>
+    <script src="/public/js/scripts.js"></script>
 
     <!-- Sweetalert2 JavaScript -->
     <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
