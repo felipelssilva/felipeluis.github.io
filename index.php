@@ -143,7 +143,6 @@
 
     </header>
 
-
     <?php
         $ir = $_GET['page'];
         $ext = (isset($_GET['ext']));
@@ -152,7 +151,8 @@
         if (file_exists($ir)){ include $ir; } else { include "errors/404.php"; }
     ?>
 
-
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    
     <script src="/v1/public/js/scripts.js"></script>
 
     <!-- Sweetalert2 JavaScript -->
