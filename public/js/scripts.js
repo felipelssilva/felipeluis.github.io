@@ -6520,10 +6520,11 @@ $('button[name=send]').on('click', function(e) {
             submitHandler: function( form ){
                 $dados = $( form ).serialize();
                 $thisForm = $('#formcontato input, select, textarea');
+                $url = window.location.href + 'src/sendContact.php';
 
                 $.ajax({
                     type: "POST",
-                    url: "/src/sendContact.php",
+                    url: $url,
                     data: $dados,
                     success: function(data){
                         swal(data.title, data.body, "success");
@@ -6533,7 +6534,7 @@ $('button[name=send]').on('click', function(e) {
                     },
                     beforeSend: function(data) {
                         $thisForm.val('');
-                        document.documentElement.scrollTop = $("#social-medias").position().top 
+                        $('body,html').animate({scrollTop: $('#social-medias').position().top}, 800);
                     }
                 });
 
