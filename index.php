@@ -151,7 +151,7 @@
         if (file_exists($ir)){ include $ir; } else { include "errors/404.php"; }
     ?>
 
-    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     
     <script src="/public/js/scripts.js"></script>
 
