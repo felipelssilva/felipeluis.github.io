@@ -35,7 +35,7 @@ gulp.task('css', function () {
 });
 
 // Gulp task to minify JavaScript files
-gulp.task('scripts', function() {
+gulp.task('js', function() {
   return gulp.src(['./src/js/*.js',])
     .pipe(concat('scripts.js'))
     .pipe(gulp.dest('./public/js'))
@@ -59,7 +59,7 @@ gulp.task('minify-css',  function () {
 });
 
 // Optimize PNG, JPEG, GIF, SVG images with gulp task.
-gulp.task('image', function () {
+gulp.task('img', function () {
   gulp.src('./src/img/**')
     .pipe(image({
 		pngquant: true,
@@ -94,8 +94,8 @@ gulp.task('default', ['clean'], function () {
     'less',
     'minify-css',
     'css',
-    'scripts',
-    'image',
+    'js',
+    'img',
     'fonts',
     'pdf'
   );
