@@ -75,6 +75,16 @@ gulp.task('image', function () {
     .pipe(gulp.dest('./public/img'));
 });
 
+gulp.task('fonts', function () {
+  gulp.src('./src/fonts/*')
+    .pipe(gulp.dest('./public/fonts'));
+});
+
+gulp.task('pdf', function () {
+  gulp.src('./src/pdf/*')
+    .pipe(gulp.dest('./public/pdf'));
+});
+
 // Clean output directory
 gulp.task('clean', function clean() { del.sync(['public']) } );
 
@@ -85,6 +95,8 @@ gulp.task('default', ['clean'], function () {
     'minify-css',
     'css',
     'scripts',
-    'image'
+    'image',
+    'fonts',
+    'pdf'
   );
 });
