@@ -22,10 +22,11 @@ $('button[name=send]').on('click', function(e) {
             submitHandler: function( form ){
                 $dados = $( form ).serialize();
                 $thisForm = $('#formcontato input, select, textarea');
+                $url = window.location.href + 'src/sendContact.php';
 
                 $.ajax({
                     type: "POST",
-                    url: "/src/sendContact.php",
+                    url: $url,
                     data: $dados,
                     success: function(data){
                         swal(data.title, data.body, "success");
