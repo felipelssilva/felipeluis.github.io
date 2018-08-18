@@ -1,8 +1,8 @@
 <?php
     include 'src/baseURI.php';
     $uri = URI::base();
-    echo $uri;
 ?>
+
 <!DOCTYPE html>
 <html lang="pt_br">
 
@@ -26,24 +26,24 @@
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Felipe Luis" />
     <meta property="og:title" content="Felipe Luis" />
-    <meta property="og:url" content="http://www.felipeluis.com.br" />
+    <meta property="og:url" content="<?php echo $uri; ?>" />
     <meta property="og:description" content="Trabalho com web designer, desenvolvimento e sou freelancer" />
     <meta property="og:locale" content="pt_br" />
-    <meta property="og:image" content="/img/felipeluis.png" />
+    <meta property="og:image" content="<?php echo $uri; ?>img/felipeluis.png" />
     <meta property="og:image:width" content="88" />
     <meta property="og:image:height" content="107" />
     <meta property="og:image:type" content="image/jpeg" />
     <!-- END Metadata -->
 
-    <link rel="shortcut icon" href="/public/img/favicon.ico" />
+    <link rel="shortcut icon" href="<?php echo $uri; ?>public/img/favicon.ico" />
 
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href<?php echo $uri; ?>manifest.json">
 
     <title>Felipe Luis - Web Designer, Desenvolvedor</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/public/css/styles.css" type="text/css">
-    <link rel="stylesheet" href="/public/css/styles_2.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo $uri; ?>public/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo $uri; ?>public/css/styles_2.css" type="text/css">
 
     <!-- Custom Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
@@ -80,7 +80,7 @@
                         <a href="/">Início</a>
                     </li>
                     <li>
-                        <a href="/public/pdf/curriculo.pdf" target="_blank">Currículo</a>
+                        <a href="<?php echo $uri; ?>public/pdf/curriculo.pdf" target="_blank">Currículo</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#social-medias">Minhas redes sociais</a>
@@ -106,10 +106,10 @@
         <div class="carousel-inner">
             <div class="item active">
                 <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('/public/img/webdesigner.jpg');">
+                <div class="fill" style="background-image:url('<?php echo $uri; ?>public/img/webdesigner.jpg');">
                     <div class="header-content">
                         <div class="header-content-inner">
-                            <h1><img alt="Felipe Luis" src="/public/img/logo-felipe-luis.png" width="300" height="118" class="sr-top" /></h1>
+                            <h1><img alt="Felipe Luis" src="<?php echo $uri; ?>public/img/logo-felipe-luis.png" width="300" height="118" class="sr-top" /></h1>
                             <hr class="sr-top">
                             <h1 class="sr-top"> Front-end </h1>
                             <a href="#contact" class="btn btn-primary btn-xl page-scroll sr-top">Entre em contato</a>
@@ -122,10 +122,10 @@
             </div>
             <div class="item">
                 <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('/public/img/developer.jpg');">
+                <div class="fill" style="background-image:url('<?php echo $uri; ?>public/img/developer.jpg');">
                     <div class="header-content">
                         <div class="header-content-inner">
-                            <h1><img alt="Felipe Luis" src="/public/img/logo-felipe-luis.png" width="300" height="118" class="sr-top" /></h1>
+                            <h1><img alt="Felipe Luis" src="<?php echo $uri; ?>public/img/logo-felipe-luis.png" width="300" height="118" class="sr-top" /></h1>
                             <hr class="sr-top">
                             <h1 class="sr-top"> Back-end </h1>
                             <a href="#contact" class="btn btn-primary btn-xl page-scroll sr-top">Entre em contato</a>
@@ -158,7 +158,7 @@
 
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     
-    <script src="/public/js/scripts.js"></script>
+    <script src="<?php echo $uri; ?>public/js/scripts.js"></script>
 
     <!-- Sweetalert2 JavaScript -->
     <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
