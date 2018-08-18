@@ -1,3 +1,8 @@
+<?php
+    include 'src/baseURI.php';
+    $uri = URI::base();
+    echo $uri;
+?>
 <!DOCTYPE html>
 <html lang="pt_br">
 
