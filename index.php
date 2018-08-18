@@ -120,7 +120,7 @@
                 <div class="fill" style="background-image:url('/public/img/developer.jpg');">
                     <div class="header-content">
                         <div class="header-content-inner">
-                            <h1><img alt="Felipe Luis" src="/img/logo-felipe-luis.png" width="300" height="118" class="sr-top" /></h1>
+                            <h1><img alt="Felipe Luis" src="/public/img/logo-felipe-luis.png" width="300" height="118" class="sr-top" /></h1>
                             <hr class="sr-top">
                             <h1 class="sr-top"> Back-end </h1>
                             <a href="#contact" class="btn btn-primary btn-xl page-scroll sr-top">Entre em contato</a>
