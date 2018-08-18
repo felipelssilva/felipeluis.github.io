@@ -59,14 +59,14 @@ class URI
 		 * Faz a verificação se for
 		 * diferente de https
 		 */
-		if(strpos(strtolower($_SERVER['SERVER_PROTOCOL']),'https') === false)
-		{
-			self::$protocolo = 'http://'; //Atribui o valor http
-		}
-		else
-		{
+		// if(strpos(strtolower($_SERVER['SERVER_PROTOCOL']),'https') === false)
+		// {
+			// self::$protocolo = 'http://'; //Atribui o valor http
+		// }
+		// else
+		// {
 			self::$protocolo = 'https://'; //Atribui o valor https
-		}
+		// }
 
 		/**
 		 * Retorna o protocolo em formato string
