@@ -25,7 +25,7 @@ $('button[name=send]').on('click', function(e) {
 
                 $.ajax({
                     type: "POST",
-                    url: "/v1/sendContact.php",
+                    url: "/src/sendContact.php",
                     data: $dados,
                     success: function(data){
                         swal(data.title, data.body, "success");
@@ -35,7 +35,7 @@ $('button[name=send]').on('click', function(e) {
                     },
                     beforeSend: function(data) {
                         $thisForm.val('');
-                        document.documentElement.scrollTop = $("#social-medias").position().top 
+                        $('body,html').animate({scrollTop: $('#social-medias').position().top}, 800);
                     }
                 });
 

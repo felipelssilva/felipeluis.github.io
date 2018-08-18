@@ -6523,7 +6523,7 @@ $('button[name=send]').on('click', function(e) {
 
                 $.ajax({
                     type: "POST",
-                    url: "/v1/sendContact.php",
+                    url: "/src/sendContact.php",
                     data: $dados,
                     success: function(data){
                         swal(data.title, data.body, "success");
