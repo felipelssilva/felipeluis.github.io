@@ -28,19 +28,15 @@ const AUTOPREFIXER_BROWSERS = [
 // Gulp task to minify CSS files
 gulp.task('css', function () {
   return gulp.src('./src/css/**/*.css')
-    // Auto-prefix css styles for cross browser compatibility
     .pipe(autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
-    // Minify the file
     .pipe(csso())
     .pipe(concat('styles_2.css'))
-    // Output
     .pipe(gulp.dest('./public/css'))
 });
 
 // Gulp task to minify JavaScript files
 gulp.task('scripts', function() {
-  return gulp.src(['./src/js/**/*.js',])
-    // .pipe(uglify())
+  return gulp.src(['./src/js/*.js',])
     .pipe(concat('scripts.js'))
     .pipe(gulp.dest('./public/js'))
 });
@@ -56,8 +52,8 @@ gulp.task('less', function () {
     .pipe(gulp.dest('./public/css'));
 });
 
-gulp.task('minify-css', function () {
-  return gulp.src('./public/css/styles.css')
+gulp.task('minify-css',  function () {
+  return gulp.src('./public/css/*.css')
     .pipe(cleanCSS({ compatibility: AUTOPREFIXER_BROWSERS }))
     .pipe(gulp.dest('./public/css'));
 });
@@ -79,8 +75,18 @@ gulp.task('image', function () {
     .pipe(gulp.dest('./public/img'));
 });
 
+gulp.task('fonts', function () {
+  gulp.src('./src/fonts/*')
+    .pipe(gulp.dest('./public/fonts'));
+});
+
+gulp.task('pdf', function () {
+  gulp.src('./src/pdf/*')
+    .pipe(gulp.dest('./public/pdf'));
+});
+
 // Clean output directory
-gulp.task('clean', () => del(['public']));
+gulp.task('clean', function clean() { del.sync(['public']) } );
 
 // Gulp task to minify all files
 gulp.task('default', ['clean'], function () {
@@ -89,6 +95,8 @@ gulp.task('default', ['clean'], function () {
     'minify-css',
     'css',
     'scripts',
-    'image'
+    'image',
+    'fonts',
+    'pdf'
   );
 });
