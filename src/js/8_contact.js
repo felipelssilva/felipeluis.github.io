@@ -35,7 +35,7 @@ $('button[name=send]').on('click', function(e) {
                     },
                     beforeSend: function(data) {
                         $thisForm.val('');
-                        document.documentElement.scrollTop = $("#social-medias").position().top 
+                        $('body,html').animate({scrollTop: $('#social-medias').position().top}, 800);
                     }
                 });
 
