@@ -37,7 +37,7 @@
 
     <link rel="shortcut icon" href="<?php echo $uri; ?>public/img/favicon.ico" />
 
-    <link rel="manifest" href<?php echo $uri; ?>manifest.json">
+    <link rel="manifest" href="<?php echo $uri; ?>manifest.json">
 
     <title>Felipe Luis - Web Designer, Desenvolvedor</title>
 
