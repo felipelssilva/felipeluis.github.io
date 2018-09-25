@@ -1,3 +1,2 @@
-/vendor/
-/node_modules/
-/.phpintel/
+.phpintel/
+node_modules/
