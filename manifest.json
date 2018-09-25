@@ -1,0 +1,26 @@
+{
+  "short_name": "Felipe Luis",
+  "name": "Felipe Luis Developer",
+  "background_color": "#303549",
+  "theme_color": "#303549",
+  "start_url": "/v1",
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/v1/public/logo-felipe-luis.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "/v1/public/logo-felipe-luis.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "/v1/public/logo-felipe-luis.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ]
+}
