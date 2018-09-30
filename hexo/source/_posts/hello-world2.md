@@ -1,8 +1,30 @@
 ---
+<<<<<<< HEAD
 title: Hello World
 categories: []
+=======
+title: Hello World 2
+tags:
+  - hello
+  - world
+  - ''
+categories: []
+author: Felipe Luis
+date: 2018-09-29 17:05:00
+>>>>>>> dev
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+![img caption](img url)
+
+{% fancybox img_url [img_thumbnail] [img_caption] %}
+
+
+
+{% callout info %}
+#### {% fa info-circle %} Info tip
+This is some callout content
+{% endcallout %}
+
+
 
 ## Quick Start
 
@@ -29,11 +51,3 @@ $ hexo generate
 ```
 
 More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/deployment.html)
