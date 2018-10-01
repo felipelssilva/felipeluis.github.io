@@ -77,7 +77,7 @@ permalink_defaults:
 
 # Directory
 source_dir: source
-public_dir: public
+public_dir: ../blog/
 tag_dir: tags
 archive_dir: archives
 category_dir: categories
@@ -137,16 +137,17 @@ lazyload:
 
 ## Plugins: https://hexo.io/plugins/
 # Themes: https://hexo.io/themes/
-theme: bootstrap-blog
+theme: theme
+# theme: bootstrap-blog
 # theme: clean-blog
 # theme: landscape
 
 # Header
 menu:
-  - Home: /
-  - Archives: /archives
-  - Tags: /tags
-  - Categories: /categories
+  Home: /
+  Archives: /archives
+  Tags: /tags
+  Categories: /categories
 
 # Title on top left of menu. Leave empty to use main blog title
 menu_title: Configurable Title
@@ -216,7 +217,7 @@ admin:
 # PWA
 pwa:
   manifest:
-    path: /blog/manifest.json
+    path: /manifest.json
     body:
       name: hexo
       short_name: hexo
@@ -225,7 +226,7 @@ pwa:
           sizes: 192x192
           type: image/png
   serviceWorker:
-    path: /blog/service-worker.js
+    path: /sw.js
     preload:
       urls:
         - /
