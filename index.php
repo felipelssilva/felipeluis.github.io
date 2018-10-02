@@ -86,6 +86,9 @@
                         <a class="page-scroll" href="#social-medias">Minhas redes sociais</a>
                     </li>
                     <li>
+                        <a href="/blog">Blog</a>
+                    </li>
+                    <li>
                         <a class="page-scroll" href="#contact">Entre em contato</a>
                     </li>
                 </ul>
@@ -157,7 +160,7 @@
     ?>
 
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    
+
     <script src="<?php echo $uri; ?>public/js/scripts.js"></script>
 
     <!-- Sweetalert2 JavaScript -->
