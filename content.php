@@ -1,4 +1,4 @@
-<? /*
+<?php /*
 	<header>
 		<div class="header-content">
 			<div class="header-content-inner">
@@ -15,7 +15,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 text-center">
-				<h2 class="section-heading">Minhas redes sociais \o/</h2>
+				<h2 class="section-heading">My Social Medias \o/</h2>
 				<hr class="light">
 				<!-- p class="text-faded"></p -->
 				<nav class="social-medias">
@@ -37,14 +37,18 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2 text-center">
-				<h2 class="section-heading">Contatos</h2>
+				<h2 class="section-heading">My contacts</h2>
 				<hr class="primary">
-				<p>Meu telefone e meu email :)</p>
+				<p>My email :)</p>
 			</div>
-			<div class="col-lg-4 col-lg-offset-2 text-center">
+			<?php
+			/*
+			 <div class="col-lg-4 col-lg-offset-2 text-center">
 				<i class="fa fa-phone fa-3x sr-contact"></i>
 				<p><a href="tel:+55 (41) 99809-0620">+55 (41) 99809-0620</a></p>
 			</div>
+			*/
+			?>
 			<div class="col-lg-4 text-center">
 				<i class="fa fa-envelope-o fa-3x sr-contact"></i>
 				<p><a href="mailto:contato@felipeluis.com.br">contato@felipeluis.com.br</a></p>
@@ -54,42 +58,41 @@
 		<div>
 			<div class="col-lg-8 col-lg-offset-2 text-center">
 				<hr class="primary">
-				<p>Você também pode me enviar uma mensagem por este contato abaixo!</p>
+				<p>You can also send me a message by this contact below!</p>
 			</div>
 			<br clear="all">
 			<form name="formcontato" id="formcontato" method="post" action="" class="form-horizontal">
 				<div class="form-group">
-					<label for="inputNome" class="col-xs-10 col-xs-offset-1 col-md-2 col-md-offset-0 control-label">Seu nome</label>
+					<label for="inputNome" class="col-xs-10 col-xs-offset-1 col-md-2 col-md-offset-0 control-label">Your name</label>
 					<div class="col-xs-10 col-xs-offset-1 col-md-9 col-md-offset-0">
-						<input class="form-control" name="nome" type="text" id="nome" size="20" required="required" placeholder="Fulano de Tal da Silva" />
+						<input class="form-control" name="nome" type="text" id="nome" size="20" required="required" placeholder="Your name here" />
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="inputEmail" class="col-xs-10 col-xs-offset-1 col-md-2 col-md-offset-0 control-label">Seu e-mail</label>
+					<label for="inputEmail" class="col-xs-10 col-xs-offset-1 col-md-2 col-md-offset-0 control-label">Your e-mail</label>
 					<div class="col-xs-10 col-xs-offset-1 col-md-9 col-md-offset-0">
-						<input class="form-control" name="email" type="email" id="email" size="20" required="required" placeholder="email@servidor.com" />
+						<input class="form-control" name="email" type="email" id="email" size="20" required="required" placeholder="email@server.com" />
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="inputAssunto" class="col-xs-10 col-xs-offset-1 col-md-2 col-md-offset-0 control-label">Assunto</label>
+					<label for="inputAssunto" class="col-xs-10 col-xs-offset-1 col-md-2 col-md-offset-0 control-label">Subject</label>
 					<div class="col-xs-10 col-xs-offset-1 col-md-9 col-md-offset-0">
 						<select class="form-control" name="assunto" id="assunto" required>
-							<option selected>--- Escolha uma opção ---</option>
-							<option value="Duvidas">Dúvidas</option>
-							<option value="Sujestoes">Sujestões</option>
-							<option value="Reclamacoes">Reclamações</option>
-							<option value="Depoimentos">Depoimentos</option>
+							<option selected>--- Choose an option ---</option>
+							<option value="Doubts">Doubts</option>
+							<option value="Suggestions">Suggestions</option>
+							<option value="Claims">Claims</option>
+							<option value="Testimonial">Testimonial</option>
 							<option> ------ </option>
-							<option value="Desenvolvimento">Desenvolvimento</option>
+							<option value="Development">Development</option>
 							<option value="Design">Design</option>
-							<option value="Fotografia">Fotografia</option>
 							<option> ------ </option>
-							<option value="Outros">Outros</option>
+							<option value="Others">Others</option>
 						</select>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="inputMensagem" class="col-xs-10 col-xs-offset-1 col-md-2 col-md-offset-0 control-label">Mensagem</label>
+					<label for="inputMensagem" class="col-xs-10 col-xs-offset-1 col-md-2 col-md-offset-0 control-label">Message</label>
 					<div class="col-xs-10 col-xs-offset-1 col-md-9 col-md-offset-0">
 						<textarea class="form-control" name="mensagem" id="mensagem" required rows="8"></textarea>
 					</div>
@@ -101,7 +104,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-xs-offset-1 col-xs-10 col-md-9 col-md-offset-2">
-						<button name="send" type="submit" class="btn btn-primary btn-lg">Enviar contato!</button>
+						<button name="send" type="submit" class="btn btn-primary btn-lg">Send contact!</button>
 					</div>
 				</div>
 			</form>

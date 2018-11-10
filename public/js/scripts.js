@@ -6512,10 +6512,21 @@ $('button[name=send]').on('click', function(e) {
                 mensagem: { required: true, minlength: 30 },
             },
             messages: {
-                nome: { required: 'Preencha o campo nome', minlength: 'No mínimo 2 letras' },
-                email: { required: 'Informe o seu email', email: 'Ops, informe um email válido' },
-                assunto: { required: 'Nos diga o assunto' },
-                mensagem: { required: 'Escreva uma mensagem', minlength: 'Diga-me mais coisas, poucas informações no contato não enviará (30 letras)'},
+                nome: {
+                  required: 'Fill in the field name',
+                  minlength: 'At least 2 letters'
+                },
+                email: {
+                  required: 'Enter your email',
+                  email: 'Oops, fill in a valid email address'
+                },
+                assunto: {
+                  required: 'Tell us the subject'
+                },
+                mensagem: {
+                  required: 'Write a message',
+                  minlength: 'Tell me more things, little information on the contact will not send (30 letters)'
+                },
             },
             submitHandler: function( form ){
                 $dados = $( form ).serialize();
@@ -6544,6 +6555,6 @@ $('button[name=send]').on('click', function(e) {
     } else {
         e.preventDefault();
         e.stopPropagation();
-        swal("Oops!", "Todos os campos são obrigatórios, tente novamente com mais informações", "error");
+        swal("Oops!", "All fields are required, please try again with more information", "error");
     }
 });

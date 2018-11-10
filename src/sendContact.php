@@ -42,8 +42,8 @@ function filter($var) {
 function jsonReturn($success=false) {
 	if ($success == true){
 
-		$title = "Contato enviado com sucesso!";
-		$body = "Email enviado, em breve eu retornarei este contato!";
+		$title = "Contact sent successfully!";
+		$body = "Email sent, I will return this contact soon!";
 
 		$data = array('title' => $title,'body' => $body);
 
@@ -51,7 +51,7 @@ function jsonReturn($success=false) {
 	} else {
 
 		$title = "Oops!";
-		$body = "Alguma coisa deu errado, por favor tente novamente.";
+		$body = "Something went wrong, please try again.";
 
 		$data = array('title' => $title,'body' => $body);
 
@@ -88,7 +88,7 @@ if(strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
 	} else {
 		$message = test_input($_POST["mensagem"]);
 	}
- 
+
 	$date = date('d-m-Y H:i:s');
 	$to = "contato@felipeluis.com.br" ;
 	$subject = 'CONTATO DO SITE';
