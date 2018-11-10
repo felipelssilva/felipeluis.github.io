@@ -4,7 +4,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="pt_br">
+<html lang="en">
 
 <head>
 
@@ -21,14 +21,14 @@
 
     <!-- BEGIN Metadata  -->
     <meta name="author" content="Felipe Luis">
-    <meta name="description" content="Trabalho com web designer, desenvolvimento e sou freelancer">
+    <meta name="description" content="I'm work with web designer, development and I'm a freelancer">
     <meta name="keywords" content="job, dev, developer, freelancer, freela, web, designer, web designer, desenvolvimento, fullstack, front-end, frontend, backend, back-end" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Felipe Luis" />
     <meta property="og:title" content="Felipe Luis" />
     <meta property="og:url" content="<?php echo $uri; ?>" />
-    <meta property="og:description" content="Trabalho com web designer, desenvolvimento e sou freelancer" />
-    <meta property="og:locale" content="pt_br" />
+    <meta property="og:description" content="I'm work with web designer, development and I'm a freelancer" />
+    <meta property="og:locale" content="en" />
     <meta property="og:image" content="<?php echo $uri; ?>img/felipeluis.png" />
     <meta property="og:image:width" content="88" />
     <meta property="og:image:height" content="107" />
@@ -39,7 +39,7 @@
 
     <link rel="manifest" href="<?php echo $uri; ?>manifest.json">
 
-    <title>Felipe Luis - Web Designer, Desenvolvedor</title>
+    <title>Felipe Luis - Developer</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="<?php echo $uri; ?>public/css/styles.css" type="text/css">
@@ -49,12 +49,10 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,900' rel='stylesheet' type='text/css'>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 
@@ -77,16 +75,16 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Início</a>
+                        <a href="/">Home</a>
                     </li>
                     <li>
-                        <a href="<?php echo $uri; ?>public/pdf/curriculo.pdf" target="_blank">Currículo</a>
+                        <a href="<?php echo $uri; ?>public/pdf/curriculo.pdf" target="_blank">My Resume</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#social-medias">Minhas redes sociais</a>
+                        <a class="page-scroll" href="#social-medias">My Social Media</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Entre em contato</a>
+                        <a class="page-scroll" href="#contact">Contact me</a>
                     </li>
                 </ul>
             </div>
@@ -112,7 +110,7 @@
                             <h1><img alt="Felipe Luis" src="<?php echo $uri; ?>public/img/logo-felipe-luis.png" width="300" height="118" class="sr-top" /></h1>
                             <hr class="sr-top">
                             <h1 class="sr-top"> Front-end </h1>
-                            <a href="#contact" class="btn btn-primary btn-xl page-scroll sr-top">Entre em contato</a>
+                            <a href="#contact" class="btn btn-primary btn-xl page-scroll sr-top">Contact me</a>
                         </div>
                     </div>
                 </div>
@@ -128,7 +126,7 @@
                             <h1><img alt="Felipe Luis" src="<?php echo $uri; ?>public/img/logo-felipe-luis.png" width="300" height="118" class="sr-top" /></h1>
                             <hr class="sr-top">
                             <h1 class="sr-top"> Back-end </h1>
-                            <a href="#contact" class="btn btn-primary btn-xl page-scroll sr-top">Entre em contato</a>
+                            <a href="#contact" class="btn btn-primary btn-xl page-scroll sr-top">Contact me</a>
                         </div>
                     </div>
                 </div>
@@ -157,7 +155,7 @@
     ?>
 
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    
+
     <script src="<?php echo $uri; ?>public/js/scripts.js"></script>
 
     <!-- Sweetalert2 JavaScript -->
