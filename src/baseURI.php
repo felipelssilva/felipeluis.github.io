@@ -44,7 +44,7 @@ class URI
 	 */
 	static private $finalBase;
 
-	
+
 	/**
 	 * protected function Protocolo()
 	 * ----------------------------------------------
@@ -120,7 +120,7 @@ class URI
 		 */
 		if(!empty($scr) || substr_count($scr, '/') > 1)
 		{
-			self::$scriptName = $scr . '/'; //atribui o valor do diretório com uma "/" na sequência
+			self::$scriptName = $scr . ''; //atribui o valor do diretório com uma "/" na sequência
 		}
 		else
 		{
