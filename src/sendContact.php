@@ -1,26 +1,42 @@
 <?php
+require 'vendor/autoload.php';
+use Mailgun\Mailgun;
 
-// Turn off all error reporting
-error_reporting(0);
+# First, instantiate the SDK with your API credentials
+$mg = Mailgun::create('02b8b10e62cfd20c7dcb2ee2db1807a3-4a62b8e8-ba948473');
 
-// Report simple running errors
-error_reporting(E_ERROR | E_WARNING | E_PARSE);
+# Now, compose and send your message.
+# $mg->messages()->send($domain, $params);
+$mg->messages()->send('sandbox5e89452e69d14a0fb39c69a16926465c.mailgun.org', [
+  'from'    => 'Support - Felipe Luis <postmaster@sandbox5e89452e69d14a0fb39c69a16926465c.mailgun.org>',
+  'to'      => 'felipeluis.6@gmail.com',
+  'subject' => 'Hello',
+  'text'    => 'Testing some Mailgun awesomness!'
+]);
 
-// Reporting E_NOTICE can be good too (to report uninitialized
-// variables or catch variable name misspellings …)
-error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 
-// Report all errors except E_NOTICE
-error_reporting(E_ALL & ~E_NOTICE);
 
-// Report all PHP errors (see changelog)
-error_reporting(E_ALL);
+// // Turn off all error reporting
+// error_reporting(0);
 
-// Report all PHP errors
-error_reporting(-1);
+// // Report simple running errors
+// error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
-// Same as error_reporting(E_ALL);
-ini_set('error_reporting', E_ALL);
+// // Reporting E_NOTICE can be good too (to report uninitialized
+// // variables or catch variable name misspellings …)
+// error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+
+// // Report all errors except E_NOTICE
+// error_reporting(E_ALL & ~E_NOTICE);
+
+// // Report all PHP errors (see changelog)
+// error_reporting(E_ALL);
+
+// // Report all PHP errors
+// error_reporting(-1);
+
+// // Same as error_reporting(E_ALL);
+// ini_set('error_reporting', E_ALL);
 
 header('Content-type: application/json');
 
