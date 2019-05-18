@@ -29,21 +29,25 @@
     <meta property="og:url" content="<?php echo $uri; ?>" />
     <meta property="og:description" content="I'm work with web designer, development and I'm a freelancer" />
     <meta property="og:locale" content="en" />
-    <meta property="og:image" content="<?php echo $uri; ?>img/felipeluis.png" />
+    <meta property="og:image" content="/img/felipeluis.png" />
     <meta property="og:image:width" content="88" />
     <meta property="og:image:height" content="107" />
     <meta property="og:image:type" content="image/jpeg" />
     <!-- END Metadata -->
 
-    <link rel="shortcut icon" href="<?php echo $uri; ?>public/img/favicon.ico" />
+    <link rel="shortcut icon" href="/public/img/favicon.ico" />
 
-    <link rel="manifest" href="<?php echo $uri; ?>manifest.json">
+    <link rel="manifest" href="/manifest.json">
 
     <title>Felipe Luis - Developer</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="<?php echo $uri; ?>public/css/styles.css" type="text/css">
-    <link rel="stylesheet" href="<?php echo $uri; ?>public/css/styles_2.css" type="text/css">
+    <link rel="stylesheet" href="/public/vendors/bootstrap/css/bootstrap.min.css" type="text/css">
+
+    <link rel="stylesheet" href="/public/custom/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="/public/custom/css/styles_2.css" type="text/css">
+
+    <link rel="stylesheet" href="/public/vendors/sweetalert/sweetalert2.min.css" type="text/css">
 
     <!-- Custom Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
@@ -78,7 +82,7 @@
                         <a href="/">Home</a>
                     </li>
                     <li>
-                        <a href="<?php echo $uri; ?>public/pdf/curriculo.pdf" target="_blank">My Resume</a>
+                        <a href="/public/pdf/curriculo.pdf" target="_blank">My Resume</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#social-medias">My Social Media</a>
@@ -104,28 +108,12 @@
         <div class="carousel-inner">
             <div class="item active">
                 <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('<?php echo $uri; ?>public/img/webdesigner.jpg');">
+                <div class="fill" style="background-image:url('/public/img/webdesigner.jpg');">
                     <div class="header-content">
                         <div class="header-content-inner">
-                            <h1><img alt="Felipe Luis" src="<?php echo $uri; ?>public/img/logo-felipe-luis.png" width="300" height="118" class="sr-top" /></h1>
+                            <h1><img alt="Felipe Luis" src="/public/img/logo-felipe-luis.png" width="300" height="118" class="sr-top" /></h1>
                             <hr class="sr-top">
                             <h1 class="sr-top"> Front-end </h1>
-                            <a href="#contact" class="btn btn-primary btn-xl page-scroll sr-top">Contact me</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-caption">
-                    <h2></h2>
-                </div>
-            </div>
-            <div class="item">
-                <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('<?php echo $uri; ?>public/img/developer.jpg');">
-                    <div class="header-content">
-                        <div class="header-content-inner">
-                            <h1><img alt="Felipe Luis" src="<?php echo $uri; ?>public/img/logo-felipe-luis.png" width="300" height="118" class="sr-top" /></h1>
-                            <hr class="sr-top">
-                            <h1 class="sr-top"> Back-end </h1>
                             <a href="#contact" class="btn btn-primary btn-xl page-scroll sr-top">Contact me</a>
                         </div>
                     </div>
@@ -154,12 +142,11 @@
         if (file_exists($ir)){ include $ir; } else { include "errors/404.php"; }
     ?>
 
-    <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="/public/vendors/jquery/jquery.min.js"></script>
+    <script src="/public/vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/public/vendors/sweetalert/sweetalert2.min.js"></script>
 
-    <script src="<?php echo $uri; ?>public/js/scripts.js"></script>
-
-    <!-- Sweetalert2 JavaScript -->
-    <script src="//unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="/public/js/scripts-min.js"></script>
 
     <script src="//www.google.com/recaptcha/api.js"></script>
 
