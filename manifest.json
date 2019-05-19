@@ -8,19 +8,9 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/public/img/logo-felipe-luis.png",
-      "type": "image/png",
-      "sizes": "48x48"
-    },
-    {
-      "src": "/public/img/logo-felipe-luis.png",
-      "type": "image/png",
-      "sizes": "96x96"
-    },
-    {
-      "src": "/public/img/logo-felipe-luis.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "/public/img/favicon.ico",
+      "type": "image/ico",
+      "sizes": "120x120"
     }
   ]
 }
