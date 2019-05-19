@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "Este respositório será para o meu site pessoal: felipeluis.com.br",
   "scripts": {
-    "start": "gulp"
+    "start": "gulp",
+    "postinstall": "npm run start"
   },
   "author": "Felipe Luis",
   "license": "ISC",
@@ -13,7 +14,9 @@
     "gulp": "^3.9.1",
     "gulp-cli": "^2.0.1",
     "jquery": "^3.4.1",
-    "popper.js": "^1.15.0"
+    "popper.js": "^1.15.0",
+    "font-awesome": "^4.7.0",
+    "sweetalert2": "^7.26.11"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -27,7 +30,6 @@
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
     "del": "^2.0.2",
-    "font-awesome": "^4.7.0",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^3.9.4",
@@ -37,7 +39,6 @@
     "gulp-imagemin": "^4.1.0",
     "gulp-less": "^4.0.1",
     "gulp-minify": "^3.1.0",
-    "run-sequence": "^1.2.2",
-    "sweetalert2": "^7.26.11"
+    "run-sequence": "^1.2.2"
   }
 }
