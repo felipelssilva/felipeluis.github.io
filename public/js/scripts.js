@@ -4106,7 +4106,7 @@ $('button[name=send]').on('click', e => {
         $assunto = $('#formcontato select#assunto').val(),
         $mensagem = $('#formcontato textarea#mensagem').val();
 
-    if (!!$recaptcha && !!$nome && !!$email && !!$assunto && !!$mensagem) {
+    if (!!$nome && !!$email && !!$assunto && !!$mensagem) {
         $('#formcontato').validate({
             rules: {
                 nome: { required: true, minlength: 2 },
