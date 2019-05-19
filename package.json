@@ -4,7 +4,7 @@
   "description": "Este respositório será para o meu site pessoal: felipeluis.com.br",
   "scripts": {
     "start": "gulp",
-    "postinstall": "npm i && npm run start"
+    "postinstall": "npm install && npm run start"
   },
   "author": "Felipe Luis",
   "license": "ISC",
