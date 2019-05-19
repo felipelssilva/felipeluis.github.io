@@ -1,3 +1,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/
+    - npm run start
