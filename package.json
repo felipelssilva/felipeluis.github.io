@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "description": "Este respositório será para o meu site pessoal: felipeluis.com.br",
   "scripts": {
-    "start": "gulp",
-    "postinstall": "npm run start"
+    "start": "gulp"
   },
   "author": "Felipe Luis",
   "license": "ISC",
