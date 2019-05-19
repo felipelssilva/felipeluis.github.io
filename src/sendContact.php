@@ -1,10 +1,6 @@
 <?php
 require '../vendor/autoload.php';
-use Mailgun\Mailgun;
-
-# First, instantiate the SDK with your API credentials
-$mg = Mailgun::create('2085f31942fc72990ca17c10831337e2-4a62b8e8-67a9d9e0');
-
+$apiKey = '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';
 
 header('Content-type: application/json');
 
@@ -73,7 +69,7 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
 	}
 
 	$date = date('d-m-Y H:i:s');
-	$to = "contato@felipeluis.com.br";
+	// $email = "contato@felipeluis.com.br";
 	$subject = 'CONTATO DO SITE';
 
 	$message = '
@@ -93,16 +89,17 @@ if (strtoupper($_SERVER['REQUEST_METHOD']) === 'POST') {
 	</html>
 	';
 
+	$from = new SendGrid\Email($name, $email);
+	$to = new SendGrid\Email('Felipe Luis', "contato@felipeluis.com.br");
+	$content = new SendGrid\Content("text/html", $message);
+	$mail = new SendGrid\Mail($from, $subject, $to, $content);
+
+	$sg = new \SendGrid($apiKey);
+
 	try {
+		$response = $sg->client->mail()->send()->post($mail);
 
-		$result = $mg->messages()->send('sandbox8932aa55ece24eadb7f1210bd7724cfb.mailgun.org', [
-			'from'    => 'postmaster@sandbox8932aa55ece24eadb7f1210bd7724cfb.mailgun.org',
-			'to'      => $to,
-			'subject' => $subject,
-			'html'    => $message
-		]);
-
-		if ($result) {
+		if ($response) {
 			echo jsonReturn(true);
 		} else {
 			echo jsonReturn(false);
