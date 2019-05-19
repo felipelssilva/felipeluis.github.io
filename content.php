@@ -22,13 +22,13 @@
 				<!-- p class="text-faded"></p -->
 				<nav class="offset-md-1 social-medias">
 					<ul>
-						<li><a href="https://bit.ly/2JQla2m" target="_blank"><i class="fa fa-facebook-official fa-4x sr-icons" rel="tooltip" title="Facebook"></i></a></li>
-						<li><a href="https://bit.ly/2VKCNYq" target="_blank"><i class="fa fa-instagram fa-4x sr-icons" rel="tooltip" title="Instagram"></i></a></li>
-						<li><a href="https://bit.ly/2HqfB8X" target="_blank"><i class="fa fa-twitter-square fa-4x sr-icons" rel="tooltip" title="Twitter"></i></a></li>
+						<li><a href="https://bit.ly/2JQla2m" rel="noreferrer" target="_blank"><i class="fa fa-facebook-official fa-4x sr-icons" rel="tooltip" title="Facebook"></i></a></li>
+						<li><a href="https://bit.ly/2VKCNYq" rel="noreferrer" target="_blank"><i class="fa fa-instagram fa-4x sr-icons" rel="tooltip" title="Instagram"></i></a></li>
+						<li><a href="https://bit.ly/2HqfB8X" rel="noreferrer" target="_blank"><i class="fa fa-twitter-square fa-4x sr-icons" rel="tooltip" title="Twitter"></i></a></li>
 						<!-- <li><a href="http://goo.gl/dGCx8w" target="_blank"><i class="fa fa-google-plus-square fa-4x sr-icons" rel="tooltip" title="Google+"></i></a></li> -->
-						<li><a href="https://bit.ly/2HpsobL" target="_blank"><i class="fa fa-linkedin-square fa-4x sr-icons" rel="tooltip" title="LinkedIn"></i></a></li>
+						<li><a href="https://bit.ly/2HpsobL" rel="noreferrer" target="_blank"><i class="fa fa-linkedin-square fa-4x sr-icons" rel="tooltip" title="LinkedIn"></i></a></li>
 						<!-- <li><a href="http://goo.gl/bX3ltl" target="_blank"><i class="fa fa-behance-square fa-4x sr-icons" rel="tooltip" title="Behance"></i></a></li> -->
-						<li><a href="https://bit.ly/2EluK9Q" target="_blank"><i class="fa fa-github-square fa-4x sr-icons" rel="tooltip" title="GitHub"></i></a></li>
+						<li><a href="https://bit.ly/2EluK9Q" rel="noreferrer" target="_blank"><i class="fa fa-github-square fa-4x sr-icons" rel="tooltip" title="GitHub"></i></a></li>
 					</ul>
 				</nav>
 			</div>
