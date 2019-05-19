@@ -89,7 +89,7 @@ $uri = URI::base();
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="/public/img/webdesigner.jpg" width="100%" class="bd-placeholder-img">
+          <img src="/public/img/webdesigner.jpg" alt="Front-end developer" width="100%" class="bd-placeholder-img">
           <div class="container">
             <div class="carousel-caption">
               <h1><img alt="Felipe Luis" src="/public/img/logo-felipe-luis.png" width="300" height="118" class="sr-top" /></h1>
