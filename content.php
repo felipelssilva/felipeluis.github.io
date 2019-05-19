@@ -5,7 +5,7 @@
 				<h2 class="section-heading">About Me</h2>
 				<hr class="light">
 				<p class="lead">
-					Today I'm working on front-end development for throughout the Brazilian and European territory e-commerce, for a B2B and B2C projects using SAP C/4HANA platform. jQuery, JavaScript (Vanilla, ES6), React, Grunt, Gulp, SASS, Less, CSS3 are some of the languages I have everyday contact. Let's talk?
+					I'm working on front-end development in Brazilian and European e-commerce territory with B2B and B2C projects, using the SAP C / 4HANA platform. jQuery, JavaScript (Vanilla, ES6), React, Grunt, Gulp, SASS, Less, CSS3 are some of the programming languages that ​​I have daily contact. Let's talk?
 				</p>
 				<a href="#contact" class="js-scroll-trigger btn btn-primary btn-lg">Send me a message</a>
 			</div>
