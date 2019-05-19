@@ -1,9 +1,9 @@
-$('button[name=send]').on('click', function(e) {
-    let $recaptcha = $('#formcontato textarea#g-recaptcha-response').val();
-    let $nome = $('#formcontato input#nome').val();
-    let $email = $('#formcontato input#email').val();
-    let $assunto = $('#formcontato select#assunto').val();
-    let $mensagem = $('#formcontato textarea#mensagem').val();
+$('button[name=send]').on('click', e => {
+    let $recaptcha = $('#formcontato textarea#g-recaptcha-response').val(),
+        $nome = $('#formcontato input#nome').val(),
+        $email = $('#formcontato input#email').val(),
+        $assunto = $('#formcontato select#assunto').val(),
+        $mensagem = $('#formcontato textarea#mensagem').val();
 
     if (!!$recaptcha && !!$nome && !!$email && !!$assunto && !!$mensagem) {
         $('#formcontato').validate({
@@ -15,40 +15,40 @@ $('button[name=send]').on('click', function(e) {
             },
             messages: {
                 nome: {
-                  required: 'Fill in the field name',
-                  minlength: 'At least 2 letters'
+                    required: 'Fill in the field name',
+                    minlength: 'At least 2 letters'
                 },
                 email: {
-                  required: 'Enter your email',
-                  email: 'Oops, fill in a valid email address'
+                    required: 'Enter your email',
+                    email: 'Oops, fill in a valid email address'
                 },
                 assunto: {
-                  required: 'Tell us the subject'
+                    required: 'Tell us the subject'
                 },
                 mensagem: {
-                  required: 'Write a message',
-                  minlength: 'Tell me more things, little information on the contact will not send (30 letters)'
+                    required: 'Write a message',
+                    minlength: 'Tell me more things, little information on the contact will not send (30 letters)'
                 },
             },
-            submitHandler: function( form ){
-                $dados = $( form ).serialize();
+            submitHandler: form => {
+                $dados = $(form).serialize();
                 $thisForm = $('#formcontato input, select, textarea');
-                $url = window.location.href + 'src/sendContact.php';
+                $url = '/src/sendContact.php';
 
                 $.ajax({
                     type: "POST",
                     url: $url,
                     data: $dados,
-                    success: function(data){
-                        swal(data.title, data.body, "success");
+                    success: data => {
+                        if (data.type === 'success') {
+                            swal.fire(data.title, data.body, "success");
+                            $thisForm.val('');
+                            $('body,html').animate({ scrollTop: $('#social-medias').position().top }, 600);
+                        } else {
+                            swal.fire(data.title, data.body, "error");
+                        }
                     },
-                    error: function(data){
-                        swal(data.title, data.body, "error");
-                    },
-                    beforeSend: function(data) {
-                        $thisForm.val('');
-                        $('body,html').animate({scrollTop: $('#social-medias').position().top}, 800);
-                    }
+                    error: data => swal.fire(data.title, data.body, "error")
                 });
 
                 return false;
@@ -57,6 +57,6 @@ $('button[name=send]').on('click', function(e) {
     } else {
         e.preventDefault();
         e.stopPropagation();
-        swal("Oops!", "All fields are required, please try again with more information", "error");
+        swal.fire("Oops!", "All fields are required, please try again with more information", "error");
     }
 });

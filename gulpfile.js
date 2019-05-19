@@ -1,16 +1,18 @@
 'use strict';
 
-const autoprefixer = require('gulp-autoprefixer');
-const csso = require('gulp-csso');
-const del = require('del');
-const gulp = require('gulp');
-const runSequence = require('run-sequence');
-const uglify = require('gulp-uglify');
-const less = require('gulp-less');
-const path = require('path');
-const concat = require('gulp-concat');
-const image = require('gulp-image');
-const cleanCSS = require('gulp-clean-css');
+const autoprefixer = require('gulp-autoprefixer'),
+      csso = require('gulp-csso'),
+      del = require('del'),
+      gulp = require('gulp'),
+      runSequence = require('run-sequence'),
+      less = require('gulp-less'),
+      path = require('path'),
+      concat = require('gulp-concat'),
+      image = require('gulp-image'),
+      cleanCSS = require('gulp-clean-css'),
+      minify = require('gulp-minify'),
+      babel = require("gulp-babel");
+      
 
 // Set the browser that you want to support
 const AUTOPREFIXER_BROWSERS = [
@@ -26,13 +28,13 @@ const AUTOPREFIXER_BROWSERS = [
 ];
 
 // Gulp task to minify CSS files
-gulp.task('css', function () {
-  return gulp.src('./src/css/**/*.css')
-    .pipe(autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
-    .pipe(csso())
-    .pipe(concat('styles_2.css'))
-    .pipe(gulp.dest('./public/css'))
-});
+// gulp.task('css', function () {
+//   return gulp.src('./src/css/**/*.css')
+//     .pipe(autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
+//     .pipe(csso())
+//     .pipe(concat('styles_2.css'))
+//     .pipe(gulp.dest('./public/custom/css'))
+// });
 
 // Gulp task to minify JavaScript files
 gulp.task('js', function() {
@@ -41,18 +43,25 @@ gulp.task('js', function() {
     .pipe(gulp.dest('./public/js'))
 });
 
+gulp.task('minifyJs', function () {
+  return gulp.src('./public/js/*.js')
+    .pipe(concat('scripts.js'))
+    .pipe(minify())
+    .pipe(gulp.dest('./public/js'))
+});
+
 // Optimize CSS
 gulp.task('less', function () {
-  return gulp.src('./src/less/creative.less')
+  return gulp.src('./src/less/main.less')
     .pipe(less({
   		paths: [ path.join(__dirname, 'less', 'includes') ],
     	onError: console.error.bind(console, 'Less error:')
     }))
     .pipe(concat('styles.css'))
-    .pipe(gulp.dest('./public/css'));
+    .pipe(gulp.dest('./public/custom/css'));
 });
 
-gulp.task('minify-css',  function () {
+gulp.task('minifyCss',  function () {
   return gulp.src('./public/css/*.css')
     .pipe(cleanCSS({ compatibility: AUTOPREFIXER_BROWSERS }))
     .pipe(gulp.dest('./public/css'));
@@ -65,7 +74,7 @@ gulp.task('img', function () {
 		pngquant: true,
 		optipng: false,
 		zopflipng: true,
-		jpegRecompress: false,
+		jpegRecompress: true,
 		mozjpeg: true,
 		guetzli: false,
 		gifsicle: true,
@@ -75,28 +84,62 @@ gulp.task('img', function () {
     .pipe(gulp.dest('./public/img'));
 });
 
-gulp.task('fonts', function () {
-  gulp.src('./src/fonts/*')
-    .pipe(gulp.dest('./public/fonts'));
-});
+// gulp.task('fonts', function () {
+//   gulp.src('./src/fonts/*')
+//     .pipe(gulp.dest('./public/fonts'));
+// });
 
 gulp.task('pdf', function () {
   gulp.src('./src/pdf/*')
     .pipe(gulp.dest('./public/pdf'));
 });
 
+gulp.task('bootstrap', function () {
+  gulp.src('./node_modules/bootstrap/dist/**/*')
+    .pipe(gulp.dest('./public/vendors/bootstrap'));
+});
+
+gulp.task('jquery', function () {
+  gulp.src('./node_modules/jquery/dist/**/*')
+    .pipe(gulp.dest('./public/vendors/jquery'));
+});
+
+gulp.task('sweetalert', function () {
+  gulp.src('./node_modules/sweetalert2/dist/**/*')
+    .pipe(gulp.dest('./public/vendors/sweetalert'));
+});
+
+gulp.task('fontawesomeCss', function () {
+  gulp.src('./node_modules/font-awesome/css/*')
+    .pipe(gulp.dest('./public/vendors/fontawesome/css'));
+});
+
+gulp.task('fontawesomeFonts', function () {
+  gulp.src('./node_modules/font-awesome/fonts/*')
+    .pipe(gulp.dest('./public/vendors/fontawesome/fonts'));
+});
+
+gulp.task('popperJs', function () {
+  gulp.src('./node_modules/popper.js/dist/*.js')
+    .pipe(gulp.dest('./public/vendors/popper.js'));
+});
 // Clean output directory
 gulp.task('clean', function clean() { del.sync(['public']) } );
 
 // Gulp task to minify all files
 gulp.task('default', ['clean'], function () {
   runSequence(
+    'jquery',
+    'bootstrap',
+    'sweetalert',
+    'fontawesomeCss',
+    'fontawesomeFonts',
+    'popperJs',
     'less',
-    'minify-css',
-    'css',
     'js',
     'img',
-    'fonts',
-    'pdf'
+    'pdf',
+    'minifyCss',
+    'minifyJs'
   );
 });
