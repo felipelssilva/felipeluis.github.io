@@ -1,6 +1,10 @@
 <?php
 require '../vendor/autoload.php';
-$apiKey = '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';
+
+$dotenv = Dotenv\Dotenv::create(__DIR__.'/../');
+$dotenv->load();
+
+$apiKey = getenv('SG_API_KEY');
 
 header('Content-type: application/json');
 
