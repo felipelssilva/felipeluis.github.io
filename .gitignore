@@ -3,3 +3,4 @@
 /.phpintel/
 package-lock.json
 /public
+.env
