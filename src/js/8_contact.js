@@ -30,29 +30,29 @@ $('button[name=send]').on('click', e => {
                     minlength: 'Tell me more things, little information on the contact will not send (30 letters)'
                 },
             },
-            submitHandler: form => {
-                $dados = $(form).serialize();
-                $thisForm = $('#formcontato input, select, textarea');
-                $url = '/src/sendContact.php';
+            // submitHandler: form => {
+            //     $dados = $(form).serialize();
+            //     $thisForm = $('#formcontato input, select, textarea');
+            //     $url = '/src/sendContact.php';
 
-                $.ajax({
-                    type: "POST",
-                    url: $url,
-                    data: $dados,
-                    success: data => {
-                        if (data.type === 'success') {
-                            swal.fire(data.title, data.body, "success");
-                            $thisForm.val('');
-                            $('body,html').animate({ scrollTop: $('#social-medias').position().top }, 600);
-                        } else {
-                            swal.fire(data.title, data.body, "error");
-                        }
-                    },
-                    error: data => swal.fire(data.title, data.body, "error")
-                });
+            //     $.ajax({
+            //         type: "POST",
+            //         url: $url,
+            //         data: $dados,
+            //         success: data => {
+            //             if (data.type === 'success') {
+            //                 swal.fire(data.title, data.body, "success");
+            //                 $thisForm.val('');
+            //                 $('body,html').animate({ scrollTop: $('#social-medias').position().top }, 600);
+            //             } else {
+            //                 swal.fire(data.title, data.body, "error");
+            //             }
+            //         },
+            //         error: data => swal.fire(data.title, data.body, "error")
+            //     });
 
-                return false;
-            }
+            //     return false;
+            // }
         });
     } else {
         e.preventDefault();

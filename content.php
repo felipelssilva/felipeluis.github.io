@@ -64,7 +64,7 @@
 				<p>You can also send me a message by this contact below!</p>
 			</div>
 
-			<form name="formcontato" id="formcontato" method="post" action="" class="col-lg-8 offset-lg-2 form-horizontal">
+			<form name="formcontato" id="formcontato" method="post" action="mailto:contato@felipeluis.com.br" class="col-lg-8 offset-lg-2 form-horizontal">
 				<div class="form-group row">
 					<label for="nome" class="col-xs-10 offset-xs-1 col-md-2 offset-md-0 control-label">Your name</label>
 					<div class="col-xs-10 offset-xs-1 col-md-9 offset-md-0">

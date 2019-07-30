@@ -16,14 +16,14 @@ $uri = URI::base();
   <meta name="apple-mobile-web-app-status-bar-style" content="#303549">
 
   <meta name="author" content="Felipe Luis">
-  <meta name="description" content="I'm working on with development for SAP Hybris Front-end">
-  <meta name="keywords" content="job, dev, developer, freelancer, freela, web, desenvolvimento, front-end, frontend, sap, hybris, c4hana, hana, c4, c4 hana" />
+  <meta name="description" content="I'm working on with development for SAP C/4HANA Front-end">
+  <meta name="keywords" content="job, dev, developer, freelancer, freela, web, desenvolvimento, front-end, frontend, sap, hybris, c4hana, hana, c4, c4 hana, jQuery, JavaScript, Vanilla, ES6, ES5, React, Grunt, Gulp, SASS, Less, CSS3" />
   
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Felipe Luis" />
   <meta property="og:title" content="Felipe Luis" />
   <meta property="og:url" content="<?php echo $uri; ?>" />
-  <meta property="og:description" content="I'm working on with development for SAP Hybris Front-end" />
+  <meta property="og:description" content="I'm working on with development for SAP C/4HANA Front-end" />
   <meta property="og:locale" content="en" />
   <meta property="og:image" content="/img/logo-felipe-luis.png" />
   <meta property="og:image:width" content="88" />
@@ -34,7 +34,7 @@ $uri = URI::base();
 
   <link rel="manifest" href="/manifest.json">
 
-  <title>Felipe Luis - SAP Hybris Front-end Developer</title>
+  <title>Felipe Luis - SAP C/4HANA Front-end Developer</title>
 
   <link rel="stylesheet" href="/public/vendors/bootstrap/css/bootstrap.min.css" type="text/css">
   <link rel="stylesheet" href="/public/vendors/sweetalert/sweetalert2.min.css" type="text/css">
