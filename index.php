@@ -17,7 +17,7 @@ $uri = URI::base();
 
   <meta name="author" content="Felipe Luis">
   <meta name="description" content="I'm working on with development for SAP C/4HANA Front-end">
-  <meta name="keywords" content="job, dev, developer, freelancer, freela, web, desenvolvimento, front-end, frontend, sap, hybris, c4hana, hana, c4, c4 hana, jQuery, JavaScript, Vanilla, ES6, ES5, React, Grunt, Gulp, SASS, Less, CSS3" />
+  <meta name="keywords" content="job, dev, developer, freelancer, freela, web, desenvolvimento, front-end, frontend, sap, hybris, c4hana, hana, c4, c4 hana, jQuery, JavaScript, Vanilla, ES6, ES5, React, Angular, Grunt, Gulp, SASS, Less, CSS3" />
   
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Felipe Luis" />
