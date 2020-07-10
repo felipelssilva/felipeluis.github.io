@@ -8,4 +8,5 @@ export class ConstantsService {
   readonly keywords: string = 'job, dev, developer, freelancer, freela, web, desenvolvimento, front-end, frontend, sap, hybris, c4hana, hana, c4, c4 hana, jQuery, JavaScript, Vanilla, ES6, ES5, React, Angular, Grunt, Gulp, SASS, Less, CSS3';
   readonly urlBase: string = window.location.pathname;
   readonly actualUrl: string = window.location.href;
+  readonly year : number = new Date().getFullYear();
 }

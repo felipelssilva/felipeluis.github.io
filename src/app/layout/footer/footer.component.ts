@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConstantsService } from '../../common/services/constants.service';
 
 @Component({
   selector: 'app-footer',
@@ -6,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.sass']
 })
 export class FooterComponent implements OnInit {
+  year: number;
+  author: string;
 
-  constructor() { }
+  constructor(private _constant: ConstantsService) {
+    this.year = this._constant.year;
+    this.author = this._constant.author;
+   }
 
   ngOnInit(): void {
   }
