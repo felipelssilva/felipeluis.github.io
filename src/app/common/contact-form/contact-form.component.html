@@ -1,4 +1,4 @@
-<form name="formcontato" id="formcontato" method="post" action="mailto:contato@felipeluis.com.br" class="col-lg-8 offset-lg-2 form-horizontal">
+<form action="https://formspree.io/mgennpap" method="POST" class="col-lg-8 offset-lg-2 form-horizontal">
   <div class="form-group row">
     <label for="nome" class="col-xs-10 offset-xs-1 col-md-2 offset-md-0 control-label">Your name</label>
     <div class="col-xs-10 offset-xs-1 col-md-9 offset-md-0">
@@ -6,15 +6,15 @@
     </div>
   </div>
   <div class="form-group row">
-    <label for="email" class="col-xs-10 offset-xs-1 col-md-2 offset-md-0 control-label">Your e-mail</label>
+    <label for="_replyto" class="col-xs-10 offset-xs-1 col-md-2 offset-md-0 control-label">Your e-mail</label>
     <div class="col-xs-10 offset-xs-1 col-md-9 offset-md-0">
-      <input class="form-control" name="email" type="email" id="email" size="20" required="required" placeholder="email@server.com" />
+      <input class="form-control" name="_replyto" type="email" id="_replyto" size="20" required="required" placeholder="email@server.com" />
     </div>
   </div>
   <div class="form-group row">
-    <label for="assunto" class="col-xs-10 offset-xs-1 col-md-2 offset-md-0 control-label">Subject</label>
+    <label for="subject" class="col-xs-10 offset-xs-1 col-md-2 offset-md-0 control-label">Subject</label>
     <div class="col-xs-10 offset-xs-1 col-md-9 offset-md-0">
-      <select class="form-control" name="assunto" id="assunto" required>
+      <select class="form-control" name="subject" id="subject" required>
         <option selected>--- Choose an option ---</option>
         <option value="Doubts">Doubts</option>
         <option value="Suggestions">Suggestions</option>
@@ -29,9 +29,9 @@
     </div>
   </div>
   <div class="form-group row">
-    <label for="mensagem" class="col-xs-10 offset-xs-1 col-md-2 offset-md-0 control-label">Message</label>
+    <label for="message" class="col-xs-10 offset-xs-1 col-md-2 offset-md-0 control-label">Message</label>
     <div class="col-xs-10 offset-xs-1 col-md-9 offset-md-0">
-      <textarea class="form-control" name="mensagem" id="mensagem" required rows="8"></textarea>
+      <textarea class="form-control" name="message" id="message" required rows="8"></textarea>
     </div>
   </div>
   <div class="form-group row">
@@ -45,3 +45,4 @@
     </div>
   </div>
 </form>
+
