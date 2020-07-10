@@ -1,15 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
-import { HomeComponent } from './pages/home/home.component';
+
 import { ConstantsService } from './common/services/constants.service';
-import { ContactComponent } from './pages/contact/contact.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { AboutMeComponent } from './common/about-me/about-me.component';
+import { ContactFormComponent } from './common/contact-form/contact-form.component';
+import { SocialMediasComponent } from './common/social-medias/social-medias.component';
+
+import { ContactComponentPage } from './pages/contact/contact.component';
+import { HomeComponentPage } from './pages/home/home.component';
+import { NotFoundComponentPage } from './pages/not-found/not-found.component';
+import { AboutMeComponentPage } from './pages/about-me/about-me.component';
+import { SocialMediasComponentPage } from './pages/social-medias/social-medias.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +25,19 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     NavbarComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
-    ContactComponent,
-    NotFoundComponent
+    HomeComponentPage,
+    ContactComponentPage,
+    NotFoundComponentPage,
+    ContactFormComponent,
+    AboutMeComponent,
+    SocialMediasComponent,
+    AboutMeComponentPage,
+    SocialMediasComponentPage
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FontAwesomeModule
   ],
   providers: [ConstantsService],
   bootstrap: [AppComponent]

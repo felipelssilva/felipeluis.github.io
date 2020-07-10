@@ -7,7 +7,7 @@ import { ConstantsService } from '../../common/services/constants.service';
   styleUrls: ['./navbar.component.sass']
 })
 export class NavbarComponent implements OnInit {
-author : string;
+  author : string;
   // title = ConstantsService.title;
   // description = ConstantsService.description;
   // keywords = ConstantsService.keywords;
