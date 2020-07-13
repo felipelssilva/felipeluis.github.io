@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-contact-page',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.sass']
+  styleUrls: ['./contact.component.less']
 })
 export class ContactComponentPage implements OnInit {
 

@@ -4,7 +4,7 @@ import { ConstantsService } from '../../common/services/constants.service';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.sass']
+  styleUrls: ['./footer.component.less']
 })
 export class FooterComponent implements OnInit {
   year: number;

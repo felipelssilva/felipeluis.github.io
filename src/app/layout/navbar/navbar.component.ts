@@ -4,7 +4,7 @@ import { ConstantsService } from '../../common/services/constants.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.sass']
+  styleUrls: ['./navbar.component.less']
 })
 export class NavbarComponent implements OnInit {
   author : string;
