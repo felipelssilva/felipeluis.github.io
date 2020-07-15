@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { HomeComponentPage } from './pages/home/home.component';
 import { NotFoundComponentPage } from './pages/not-found/not-found.component';
 import { AboutMeComponentPage } from './pages/about-me/about-me.component';
 import { SocialMediasComponentPage } from './pages/social-medias/social-medias.component';
+import { MyResumeComponent } from './pages/my-resume/my-resume.component';
 
 @NgModule({
   declarations: [
@@ -32,12 +34,14 @@ import { SocialMediasComponentPage } from './pages/social-medias/social-medias.c
     AboutMeComponent,
     SocialMediasComponent,
     AboutMeComponentPage,
-    SocialMediasComponentPage
+    SocialMediasComponentPage,
+    MyResumeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgxExtendedPdfViewerModule
   ],
   providers: [ConstantsService],
   bootstrap: [AppComponent]

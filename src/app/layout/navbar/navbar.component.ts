@@ -8,11 +8,7 @@ import { ConstantsService } from '../../common/services/constants.service';
 })
 export class NavbarComponent implements OnInit {
   author : string;
-  // title = ConstantsService.title;
-  // description = ConstantsService.description;
-  // keywords = ConstantsService.keywords;
-  // urlBase = ConstantsService.urlBase;
-  // actualUrl = ConstantsService.actualUrl;
+  //href="/public/pdf/curriculo.pdf"
 
   constructor(private _constant: ConstantsService) {
     this.author = this._constant.author;
@@ -20,5 +16,4 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
