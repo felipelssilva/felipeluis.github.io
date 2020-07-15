@@ -58,7 +58,13 @@
 
 
 .btn-primary {
-    .button-variant(white; @theme-primary; @theme-primary);
+  .button-variant(white; @theme-primary; @theme-primary);
+  background-color: #303549;
+  background-image: -webkit-radial-gradient(90% 130%, circle cover, #50587b, #303549 100%);
+
+  &:hover {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
 }
 
 

@@ -8,9 +8,11 @@ import { ConstantsService } from '../../common/services/constants.service';
 })
 export class NavbarComponent implements OnInit {
   author : string;
+  isCollapsed: boolean;
   //href="/public/pdf/curriculo.pdf"
 
   constructor(private _constant: ConstantsService) {
+    this.isCollapsed = false;
     this.author = this._constant.author;
   }
 

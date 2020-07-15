@@ -404,12 +404,24 @@ body {
     }
 
     .carousel-caption {
+      @media (min-width: 768px) {
         margin-bottom: 100px;
+      }
+    }
+
+    .btn-primary {
+      background-color: #303549;
+      background-image: -webkit-radial-gradient(90% 130%, circle cover, #50587b, #303549 100%);
+
+      &:hover {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+      }
     }
 }
 
 #social-medias {
-    background: @theme-primary;
+    background-color: @theme-primary;
+    background-image: -webkit-radial-gradient(90% 130%, circle cover, #50587b, @theme-primary 100%);
 
     h2 {
         color: #ffffff;
@@ -435,3 +447,12 @@ body {
     }
 }
 
+#contact {
+  background-color: #ffffff;
+  background-image: -webkit-radial-gradient(90% 130%, circle cover, #d5d6dc, #ffffff 100%);
+}
+
+#about-me {
+  background-color: #ffffff;
+  background-image: -webkit-radial-gradient(90% 130%, circle cover, #f7f7f7, #ffffff 100%);
+}
