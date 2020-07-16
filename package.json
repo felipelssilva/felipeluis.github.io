@@ -6,6 +6,10 @@
     "start": "gulp",
     "postinstall": "npm run start"
   },
+  "engines": {
+    "node": "10.16.1",
+    "npm": "6.9.0"
+  },
   "author": "Felipe Luis",
   "license": "ISC",
   "dependencies": {
