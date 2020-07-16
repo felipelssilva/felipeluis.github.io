@@ -1,10 +1,21 @@
-<ngx-extended-pdf-viewer
-  [src]="'/assets/pdf/curriculo.pdf'"
-  height="100vh"
-  width="100vw"
-  [showOpenFileButton]="false"
-  [showDownloadButton]="false"
-  [showBookmarkButton]="false"
-  [showSecondaryToolbarButton]="false"
-  useBrowserLocale="true"
-></ngx-extended-pdf-viewer>
+<section class="container my-3">
+  <div class="row my-5 text-center">
+    <div class="col">
+      <h4 class="display-4">My Resume</h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <ngx-extended-pdf-viewer
+        [src]="'/assets/pdf/curriculo.pdf'"
+        height="100vh"
+        width="100vw"
+        [showOpenFileButton]="false"
+        [showDownloadButton]="false"
+        [showBookmarkButton]="false"
+        [showSecondaryToolbarButton]="false"
+        useBrowserLocale="true"
+      ></ngx-extended-pdf-viewer>
+    </div>
+  </div>
+</section>

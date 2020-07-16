@@ -134,7 +134,7 @@ p {
 }
 
 section {
-    padding: 100px 0;
+    padding: 200px 0;
 }
 
 aside {
@@ -445,6 +445,39 @@ body {
             }
         }
     }
+
+    .title {
+      h2 {
+        font-size: 150px;
+        line-height: 125px;
+        font-weight: bold;
+        color: #4b5373;
+        opacity: .5;
+
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: -moz-none;
+        -o-user-select: none;
+        user-select: none;
+      }
+
+      position: absolute;
+
+      transform: translate(-50%, -35%);
+
+      @media all and (min-wdth: 1400px) {
+        transform: translate(-100%, -35%);
+      }
+
+      width: 100px;
+      z-index: 10;
+    }
+
+    .content {
+      &>div {
+        z-index: 11;
+      }
+    }
 }
 
 #contact {
@@ -455,4 +488,37 @@ body {
 #about-me {
   background-color: #ffffff;
   background-image: -webkit-radial-gradient(90% 130%, circle cover, #f7f7f7, #ffffff 100%);
+
+  .title {
+    h2 {
+      font-size: 150px;
+      line-height: 125px;
+      font-weight: bold;
+      color: #4b5373;
+      opacity: .2;
+
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: -moz-none;
+      -o-user-select: none;
+      user-select: none;
+    }
+
+    position: absolute;
+
+    transform: translate(-50%, -15%);
+
+    @media all and (min-wdth: 1400px) {
+      transform: translate(-100%, -15%);
+    }
+
+    width: 100px;
+    z-index: 10;
+  }
+
+  .content {
+    &>div {
+      z-index: 11;
+    }
+  }
 }
