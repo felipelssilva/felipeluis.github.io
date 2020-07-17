@@ -134,7 +134,11 @@ p {
 }
 
 section {
-    padding: 200px 0;
+    padding: 100px 0;
+
+    @media (min-width: 768px) {
+        padding: 200px 0;
+    }
 }
 
 aside {
@@ -425,6 +429,11 @@ body {
 
     h2 {
         color: #ffffff;
+    }
+
+    .row {
+        display: flex;
+        justify-content: center;
     }
 
     nav {
