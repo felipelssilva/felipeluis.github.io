@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-about-me',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about-me.component.less']
 })
 export class AboutMeComponent implements OnInit {
+  @Input() isForPage: boolean;
 
   constructor() { }
 
