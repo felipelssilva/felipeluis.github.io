@@ -6,12 +6,13 @@ import { NotFoundComponentPage } from './pages/not-found/not-found.component';
 import { AboutMeComponentPage } from './pages/about-me/about-me.component';
 import { SocialMediasComponentPage } from './pages/social-medias/social-medias.component';
 import { MyResumeComponent } from './pages/my-resume/my-resume.component';
+import { MyProjectsComponentPage } from './pages/my-projects/my-projects.component';
 
 
 const routes: Routes = [
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
   {path: 'home', component: HomeComponentPage},
-  {path: 'my-resume', component: MyResumeComponent},
+  {path: 'my-projects', component: MyProjectsComponentPage},
   {path: 'about-me', component: AboutMeComponentPage},
   {path: 'social-medias', component: SocialMediasComponentPage},
   {path: 'contact', component: ContactComponentPage},

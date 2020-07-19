@@ -20,6 +20,7 @@ import { NotFoundComponentPage } from './pages/not-found/not-found.component';
 import { AboutMeComponentPage } from './pages/about-me/about-me.component';
 import { SocialMediasComponentPage } from './pages/social-medias/social-medias.component';
 import { MyResumeComponent } from './pages/my-resume/my-resume.component';
+import { MyProjectsComponentPage } from './pages/my-projects/my-projects.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MyResumeComponent } from './pages/my-resume/my-resume.component';
     SocialMediasComponent,
     AboutMeComponentPage,
     SocialMediasComponentPage,
-    MyResumeComponent
+    MyResumeComponent,
+    MyProjectsComponentPage
   ],
   imports: [
     BrowserModule,
