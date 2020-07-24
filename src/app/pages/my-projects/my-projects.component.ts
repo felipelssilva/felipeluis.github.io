@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConstantsService } from 'src/app/common/services/constants.service';
 
 @Component({
   selector: 'app-my-projects',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-projects.component.less']
 })
 export class MyProjectsComponentPage implements OnInit {
+  projects: any;
 
-  constructor() { }
+  constructor(private _constant: ConstantsService) {
+    this.projects = this._constant.projects;
+   }
 
   ngOnInit(): void {
   }

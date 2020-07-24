@@ -1,1 +1,38 @@
-<p>my-projects works!</p>
+<section class="container my-3">
+    <div class="row my-5 text-center">
+        <div class="col">
+            <h4 class="display-4">My Projects</h4>
+            <hr />
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center projects">
+
+        <div class="col-xs-12 col-md-6 card-deck" *ngFor="let project of projects.projects; let i = index">
+            <div class="card mb-4 shadow-sm">
+
+                <div class="image"
+                    style="background-image: -webkit-radial-gradient(90% 130%, circle cover, #50587b1c, #303549d6 100%), url('/assets/img/projects/{{project.image}}');">
+                </div>
+
+                <div class="card-body">
+                    <p class="card-text">
+                        {{project.title}}
+                    </p>
+
+                    <div [innerHTML]="project.description"></div>
+                </div>
+
+                <div class="card-footer bg-transparent">
+                    <a href="{{project.url}}" target="_blank"
+                        class="btn btn-block {{project.released ? 'btn-primary' : 'btn-secondary'}} ">
+                        Open
+                        <span *ngIf="!project.released">
+                            (Not fully released yet)
+                        </span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
