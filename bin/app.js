@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const path = require('path')
 const nomeApp = process.env.npm_package_name
 
 require('dotenv').config();
@@ -47,11 +46,14 @@ process.on('SIGINT', () => {
 
 
 // Load routes
+app.use(express.static(`dist/${nomeApp}`));
 const indexRoutes = require('./routes/index-routes');
-app.use('/api', indexRoutes);
+app.use('/', indexRoutes);
+
+const apiRoutes = require('./routes/api-routes');
+app.use('/api', apiRoutes);
+
 const mentionsRoutes = require('./routes/mentions-routes');
 app.use('/api/mentions', mentionsRoutes);
-
-app.use(express.static(`${__dirname}/dist/${nomeApp}`))
 
 module.exports = app;
