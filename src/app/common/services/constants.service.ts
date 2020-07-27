@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Projects } from '../interfaces/projects';
 import { Certificates } from '../interfaces/certificates';
-import { Graduation } from '../interfaces/graduation';
+import { Graduations } from '../interfaces/graduations';
 
 
 @Injectable()
@@ -80,11 +80,11 @@ export class ConstantsService {
       'url': 'https://cursos.alura.com.br/certificate/f42bc7a1-d716-4fc0-85e0-d8ad8250bb46'
     }
   ];
-  readonly graduation: Graduation[] = [
+  readonly graduations: Graduations[] = [
     {
-      'title': '',
-      'image': '',
-      'description': ''
+      'title': 'Analysis and Systems Development (in progress)',
+      'image': 'puc-pr.png',
+      'description': 'Pontifícia Universidade Católica do Paraná - PUCPR'
     }
   ];
 
