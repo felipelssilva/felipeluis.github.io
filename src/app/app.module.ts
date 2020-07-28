@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,7 +47,9 @@ import { BlogComponent } from './pages/blog/blog.component';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    NgxExtendedPdfViewerModule
+    NgxExtendedPdfViewerModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [ConstantsService],
   bootstrap: [AppComponent]

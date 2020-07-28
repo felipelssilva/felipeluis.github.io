@@ -1,0 +1,19 @@
+<h1>login</h1>
+
+<form action="/secure/login" method="POST">
+    <input type="text" name="username" placeholder="user" value="fikipi">
+    <input type="password" name="password" placeholder="password" value="fikipis">
+    <button>login</button>
+</form>
+
+<% if(locals.message){ %>
+<p>
+    <%=message.success%>
+    <%=message.error%>
+</p>
+<% } %>
+
+<h1>This is home page</h1>
+
+<li><a href="/secure/login">Login</a></li>
+<li><a href="/secure/logout">Logout</a></li>
