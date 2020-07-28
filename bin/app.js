@@ -46,14 +46,14 @@ process.on('SIGINT', () => {
 
 
 // Load routes
-app.use(express.static(`dist/${nomeApp}`));
 const indexRoutes = require('./routes/index-routes');
+const apiRoutes = require('./routes/api-routes');
+const mentionsRoutes = require('./routes/mentions-routes');
+
+app.use(express.static(`dist/${nomeApp}`));
 app.use('/', indexRoutes);
 
-const apiRoutes = require('./routes/api-routes');
 app.use('/api', apiRoutes);
-
-const mentionsRoutes = require('./routes/mentions-routes');
 app.use('/api/mentions', mentionsRoutes);
 
 module.exports = app;
