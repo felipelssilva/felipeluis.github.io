@@ -65,7 +65,7 @@ $uri = URI::base();
             <a class="nav-link js-scroll-trigger" href="#page-top">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a data-toggle="tooltip" data-placement="bottom" title="Will open in another window" class="nav-link" target="_blank" href="/public/pdf/curriculo.pdf">My Resume</a>
+            <a data-toggle="tooltip" data-placement="bottom" title="Will open in another window" class="nav-link" target="_blank" href="#">My Resume</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#about-me">About me</a>
