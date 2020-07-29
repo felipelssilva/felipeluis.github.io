@@ -1,0 +1,16 @@
+{
+  "short_name": "Felipe Luis",
+  "name": "Felipe Luis Developer",
+  "background_color": "#303549",
+  "theme_color": "#303549",
+  "start_url": "https://felipeluis.com.br/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/assets/img/favicon.ico",
+      "type": "image/ico",
+      "sizes": "120x120"
+    }
+  ]
+}

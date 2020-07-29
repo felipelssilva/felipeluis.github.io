@@ -1,0 +1,66 @@
+// Variables
+
+@theme-primary: #303549;
+@theme-dark: #222222;
+
+
+#social-medias {
+    background: @theme-primary;
+
+    h2 {
+        color: #ffffff;
+    }
+
+    nav {
+        ul {
+            li {
+                float     : left;
+                padding   : 15px;
+                margin    : 10px;
+                list-style: none;
+
+                a {
+                    color: rgba(255, 255, 255, 0.7);
+                }
+
+                &:hover {
+                    color: rgba(255, 255, 255, 1);
+                }
+            }
+        }
+    }
+}
+
+
+
+.social-medias {
+  //background: @theme-primary;
+
+  h2 {
+    color: #ffffff;
+  }
+}
+
+nav {
+  ul {
+    @media all and (min-width: 1024px) {
+      display: flex;
+      justify-content: center;
+    }
+    
+    li {
+      float: left;
+      padding: 15px;
+      margin: 10px;
+      list-style: none;
+
+      a {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      &:hover {
+        color: rgba(255, 255, 255, 1);
+      }
+    }
+  }
+}

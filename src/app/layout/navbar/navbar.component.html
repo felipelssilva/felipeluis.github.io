@@ -1,0 +1,50 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+    <a class="navbar-brand"  routerLink="/home">
+      
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-label="Toggle navigation"
+            (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed"
+      >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse {{!isCollapsed ? '' : 'show'}}" id="navbarCollapse">
+      <ul class="navbar-nav ml-auto mr-3">
+
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/home">Home</a>
+        </li>
+
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/about-me">About me</a>
+        </li>
+
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/social-medias">My Social Media</a>
+        </li>
+
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/my-projects">My Projects</a>
+        </li>
+
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/blog">Blog</a>
+        </li>
+        
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/contact">Contact me</a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+</header>

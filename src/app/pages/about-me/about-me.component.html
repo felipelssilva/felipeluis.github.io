@@ -1,0 +1,58 @@
+<section class="container my-3">
+
+  <div class="row my-5 text-center">
+    <div class="col">
+      <h4 class="display-4">About me</h4>
+      <hr />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <app-about-me [isForPage]=true></app-about-me>
+    </div>
+  </div>
+
+  <div class="row my-5 text-center">
+    <div class="col">
+      <h4 class="display-4">Certificates</h4>
+      <hr />
+    </div>
+  </div>
+  <div class="row row-cols-1 row-cols-md-4">
+    <div class="col mb-4" *ngFor="let certificate of certificates; let i = index">
+      <div class="card h-100">
+        <a href="{{certificate.url}}" target="_blank">
+          <img src="/assets/img/certificates/{{certificate.image}}" class="card-img-top"
+            alt="{{certificate.company}} - Certificate - {{certificate.title}}">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title text-center">{{certificate.title}}</h5>
+          <div [innerHTML]="certificate.description"></div>
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-block btn-primary" href="{{certificate.url}}" target="_blank">Open certificate</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-5 text-center">
+    <div class="col">
+      <h4 class="display-4">Graduation</h4>
+      <hr />
+    </div>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3">
+    <div class="col mb-4" *ngFor="let graduation of graduations; let i = index">
+      <div class="card h-100">
+          <img src="/assets/img/graduations/{{graduation.image}}" class="card-img-top"
+            alt="{{graduation.title}}">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{graduation.title}}</h5>
+          <div [innerHTML]="graduation.description"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
