@@ -1,0 +1,51 @@
+<h1>Detalhe do contato</h1>
+
+<a href="/secure/contacts/">Voltar</a>
+
+<div class="js-contact-detail">
+    loading...
+</div>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        const $doc = $(document),
+            contactsContainer = $doc.find('.js-contact-detail');
+
+        $.ajax({
+            type: 'GET',
+            url: "/api/contacts/<%= id %>",
+        })
+            .done(function (data) {
+                contactsContainer.html(bodyHtml(data));
+            })
+            .fail(function (err) {
+                console.error(err);
+            })
+            .always(function () {
+            });
+    });
+
+    function bodyHtml(handler) {
+        const html = `
+            <div class="js-name">
+                <p><strong>Nome</strong></p>
+                <span>${handler.name}</span>
+            </div>
+            <div class="js-email">
+                <p><strong>Email</strong></p>
+                <span>${handler.email}</span>
+            </div>
+            <div class="js-subject">
+                <p><strong>Assunto</strong></p>
+                <span>${handler.subject}</span>
+            </div>
+            <div class="js-message">
+                <p><strong>Message</strong></p>
+                <span>${handler.message}</span>
+            </div>
+        `;
+
+        return html;
+    }
+
+</script>

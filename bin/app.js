@@ -1,14 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const passport = require("passport");
-const bodyParser = require("body-parser");
-const LocalStrategy = require('passport-local').Strategy;
-const passportLocalMongoose = require("passport-local-mongoose");
-const Admins = require("./models/admins");
+// const bodyParser = require("body-parser");
+// const LocalStrategy = require('passport-local').Strategy;
+// const passportLocalMongoose = require("passport-local-mongoose");
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const bcrypt = require('bcryptjs');
+// const bcrypt = require('bcryptjs');
 
 const nomeApp = process.env.npm_package_name
 
@@ -17,6 +16,7 @@ require('dotenv').config();
 // Load models
 const Mentions = require('./models/mentions');
 const Contacts = require('./models/contacts');
+const Admins = require("./models/admins");
 
 // App
 const app = express();
@@ -42,30 +42,6 @@ app.use(function (req, res, next) {
     res.locals.message = req.flash();
     next();
 });
-
-// passport.use(new LocalStrategy(Admins.authenticate()));
-
-// passport.use(new LocalStrategy({
-//     usernameField: 'username',
-//     passwordField: 'password'
-// },
-//     (username, password, done) => {
-//         findUser(username, (err, user) => {
-//             if (err) { return done(err) }
-
-//             if (!user) { return done(null, false) }
-
-//             bcrypt.compare(password, user.password, (err, isValid) => {
-//                 if (err) { return done(err) }
-//                 if (!isValid) { return done(null, false) }
-//                 return done(null, user)
-//             })
-//         })
-//     }
-// ));
-
-// passport.serializeUser(Admins.serializeUser());
-// passport.deserializeUser(Admins.deserializeUser());
 
 // Database
 mongoose.connect(process.env.DATABASE_CONNECTION_STRING, {
@@ -113,5 +89,11 @@ app.use('/secure', secureRoutes);
 app.use('/api', apiRoutes);
 app.use('/api/mentions', mentionsRoutes);
 app.use('/api/contacts', contactsRoutes);
+
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
 
 module.exports = app;

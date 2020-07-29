@@ -1,0 +1,63 @@
+<h1>Lista de contatos</h1>
+
+<div class="js-contacts-list">
+    loading...
+</div>
+
+<script type="text/javascript">
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const $doc = $(document),
+            contactsContainer = $doc.find('.js-contacts-list');
+
+        $.ajax({
+            type: 'GET',
+            url: "/api/contacts",
+        })
+            .done(function (data) {
+                let html = `<div><table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Assunto</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table></div>`;
+
+                let tbody = '';
+
+                data.forEach(element => {
+                    let btn = getHtmlActions(element);
+
+                    tbody += `
+                    <tr>
+                        <td>${element.name}</td>
+                        <td>${element.email}</td>
+                        <td>${element.subject}</td>
+                        <td>${btn}</td>
+                    </tr>`;
+
+                });
+
+                html = $(html).find('tbody').html(tbody).parents('div').html();
+                contactsContainer.html(html);
+
+            })
+            .fail(function (err) {
+                console.error(err);
+            })
+            .always(function () {
+                contactsContainer.find('table').DataTable();
+            });
+    });
+
+    function getHtmlActions(data) {
+        const btn = `<a href="/secure/contacts/${data._id}">Abrir</a>`;
+        return btn;
+    }
+
+</script>

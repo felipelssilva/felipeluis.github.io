@@ -2,66 +2,36 @@ const express = require('express');
 const router = express.Router();
 const path = require('path')
 const passport = require("passport");
-const LocalStrategy = require('passport-local').Strategy;
-const Admins = require('../models/admins');
+const adminsController = require('../controllers/admins-controller');
 
-router.get('/', isLoggedIn, (req, res, next) => {
-  res.render(path.resolve(`bin/views/secure.ejs`))
+router.get('/', adminsController.isLoggedIn, (req, res, next) => {
+    res.render(path.resolve(`bin/views/index.ejs`), { user: req.user, page: 'home' })
+});
+
+router.get("/contacts", adminsController.isLoggedIn, function (req, res) {
+    res.render(path.resolve(`bin/views/index.ejs`), { user: req.user, page: 'contacts' })
+});
+
+router.get("/contacts/:id", adminsController.isLoggedIn, function (req, res) {
+    res.render(path.resolve(`bin/views/index.ejs`), { user: req.user, page: 'contacts-details', id: req.param('id') })
 });
 
 router.get("/login", function (req, res) {
-  res.render(path.resolve(`bin/views/login.ejs`))
+    res.render(path.resolve(`bin/views/index.ejs`), { user: '', page: 'login' })
 });
 
-//Handling user login 
 router.post("/login", passport.authenticate("local", {
-  successFlash: "Bem vindo!",
-  successRedirect: "/secure",
-  failureFlash: 'Usuário ou senha inválido',
-  failureRedirect: "/secure/login?error=true",
+    failureFlash: true,
+    failureRedirect: "/secure/login?error=true",
 }), function (req, res) {
-  req.flash('success', 'Você está logado!!!');
-  // res.redirect('/');
+    console.log("LOGGED IN " + req.user.name)
+    res.redirect('/secure');
 });
 
-//Handling user logout  
 router.get("/logout", function (req, res) {
-  req.logout();
-  res.redirect("/secure");
+    console.log("LOGGIN OUT " + req.user.name)
+    req.logout();
+    res.redirect('/secure/login');
 });
-
-function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) return next();
-  res.redirect("/secure/login");
-}
-
-passport.serializeUser(function (username, done) {
-  done(null, username.id);
-});
-
-passport.deserializeUser(function (id, done) {
-  Admins.getUserById(id, function (err, username) {
-    done(err, username);
-  });
-});
-
-passport.use(new LocalStrategy(function (username, password, done) {
-  Admins.getUserByUsername(username, function (err, admin) {
-    if (err) throw err;
-    if (!admin) {
-      return done(null, false, { message: 'Usuário não existente.' });
-    }
-
-    Admins.comparePassword(password, Admins.password, function (err, isMatch) {
-      if (err) return done(err);
-      if (isMatch) {
-        return done(null, admin);
-      } else {
-        return done(null, false, { message: 'Senha inválida' });
-      }
-    });
-  });
-}));
-
 
 module.exports = router;

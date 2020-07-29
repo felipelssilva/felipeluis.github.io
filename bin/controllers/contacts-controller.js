@@ -11,6 +11,15 @@ exports.list = async (req, res) => {
     }
 };
 
+exports.details = async (req, res) => {
+    try {
+        const data = await repository.details(req.param('id'));
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({ message: 'Failed to load the contact info!' });
+    }
+};
+
 // create
 exports.create = async (req, res) => {
     const { errors } = validationResult(req);

@@ -4,6 +4,7 @@ const { check } = require('express-validator');
 const contactsController = require('../controllers/contacts-controller');
 
 router.get('/', contactsController.list);
+router.get('/:id', contactsController.details);
 
 router.post('/', [
     check('name')
