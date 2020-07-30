@@ -26,6 +26,15 @@
     });
 
     function bodyHtml(handler) {
+        let options = {
+            day: 'numeric',
+            month: 'numeric',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+        };
+        let date = new Date(Number(handler.date)).toLocaleDateString('pt-br', options);
+
         const html = `
             <div class="js-name">
                 <p><strong>Nome</strong></p>
@@ -38,6 +47,10 @@
             <div class="js-subject">
                 <p><strong>Assunto</strong></p>
                 <span>${handler.subject}</span>
+            </div>
+            <div class="js-date">
+                <p><strong>Data</strong></p>
+                <span>${!!handler.date ? date : '-'}</span>
             </div>
             <div class="js-message">
                 <p><strong>Message</strong></p>

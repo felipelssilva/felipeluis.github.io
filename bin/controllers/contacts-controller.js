@@ -33,7 +33,8 @@ exports.create = async (req, res) => {
             name: req.body.name,
             email: req.body.email,
             subject: req.body.subject,
-            message: req.body.message
+            message: req.body.message,
+            date: Date.now()
         });
         return res.status(201).send({ message: 'Contact successfully registered!' });
     } catch (e) {

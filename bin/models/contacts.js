@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { timeStamp } = require('console');
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
@@ -16,6 +17,10 @@ const schema = new Schema({
     required: true,
   },
   message: {
+    type: String,
+    required: true
+  },
+  date: {
     type: String,
     required: true
   }

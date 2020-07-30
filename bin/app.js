@@ -90,10 +90,8 @@ app.use('/api', apiRoutes);
 app.use('/api/mentions', mentionsRoutes);
 app.use('/api/contacts', contactsRoutes);
 
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+app.use(function (req, res, next) {
+    res.status(404).send('404');
 });
 
 module.exports = app;

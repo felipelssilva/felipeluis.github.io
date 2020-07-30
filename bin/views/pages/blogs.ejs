@@ -1,6 +1,6 @@
-<h1>Lista de contatos</h1>
+<h1>Blogs</h1>
 
-<div class="js-contacts-list">
+<div class="js-blogs-list">
     loading...
 </div>
 
@@ -8,19 +8,17 @@
 
     document.addEventListener("DOMContentLoaded", function () {
         const $doc = $(document),
-            contactsContainer = $doc.find('.js-contacts-list');
+            contactsContainer = $doc.find('.js-blogs-list');
 
         $.ajax({
             type: 'GET',
-            url: "/api/contacts",
+            url: "/api/blogs",
         })
             .done(function (data) {
                 let html = `<div><table>
                     <thead>
                         <tr>
-                            <th>Nome</th>
-                            <th>Email</th>
-                            <th>Assunto</th>
+                            <th>Titulo</th>
                             <th>Data</th>
                             <th>Ações</th>
                         </tr>
@@ -45,8 +43,6 @@
                     tbody += `
                     <tr>
                         <td>${element.name}</td>
-                        <td>${element.email}</td>
-                        <td>${element.subject}</td>
                         <td>${!!element.date ? date : '-'}</td>
                         <td>${btn}</td>
                     </tr>`;
@@ -66,7 +62,7 @@
     });
 
     function getHtmlActions(data) {
-        const btn = `<a href="/secure/contacts/${data._id}">Abrir</a>`;
+        const btn = `<a href="/secure/blogs/${data._id}">Abrir</a>`;
         return btn;
     }
 
