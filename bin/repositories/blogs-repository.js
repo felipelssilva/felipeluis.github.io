@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Blogs = mongoose.model('Blogs');
 
 exports.list = async () => {
-  const res = await Blogs.find({}, 'title permalink content date');
+  const res = await Blogs.find({}, 'title permalink content created_at updated_at deleted_at');
   return res;
 };
 

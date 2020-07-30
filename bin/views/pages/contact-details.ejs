@@ -31,7 +31,7 @@
             hour: '2-digit',
             minute: '2-digit',
         };
-        let date = new Date(Number(handler.date)).toLocaleDateString('pt-br', options);
+        let date = new Date(handler.date).toLocaleDateString('pt-br', options);
 
         const html = `
             <div class="js-name">

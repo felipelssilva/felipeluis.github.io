@@ -33,7 +33,7 @@ exports.create = async (req, res) => {
             title: req.body.title,
             permalink: this.permalink(req.body.title),
             content: req.body.content,
-            date: Date.now()
+            created_at: Date.now()
         });
         return res.status(201).send({ message: 'Blogs successfully registered!' });
     } catch (e) {

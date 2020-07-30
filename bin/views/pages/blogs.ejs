@@ -19,7 +19,8 @@
                     <thead>
                         <tr>
                             <th>Titulo</th>
-                            <th>Data</th>
+                            <th>Criado</th>
+                            <th>Editado</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -38,12 +39,14 @@
                         hour: '2-digit',
                         minute: '2-digit',
                     };
-                    let date = new Date(Number(element.date)).toLocaleDateString('pt-br', options);
+                    let created_at = new Date(element.created_at).toLocaleDateString('pt-br', options);
+                    let updated_at = new Date(element.updated_at).toLocaleDateString('pt-br', options);
 
                     tbody += `
                     <tr>
                         <td>${element.title}</td>
-                        <td>${!!element.date ? date : '-'}</td>
+                        <td>${!!element.created_at ? created_at : '-'}</td>
+                        <td>${!!element.updated_at ? updated_at : '-'}</td>
                         <td>${btn}</td>
                     </tr>`;
 

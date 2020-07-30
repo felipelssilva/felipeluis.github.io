@@ -15,9 +15,14 @@ const schema = new Schema({
     type: String,
     required: true
   },
-  date: {
-    type: String,
-    required: true
+  created_at: {
+    type: Date
+  },
+  updated_at: {
+    type: Date
+  },
+  deleted_at: {
+    type: Date
   }
 });
 
