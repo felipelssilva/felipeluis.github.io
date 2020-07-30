@@ -1,4 +1,7 @@
-<h1> <a href="/secure/contacts/" class="btn btn-link"> <i class="fas fa-chevron-left"></i></a> Detalhe do contato</h1>
+<h1>
+    <a href="/secure/contacts/" class="btn btn-link"> <i class="fas fa-chevron-left"></i></a>
+    Detalhes do contato
+</h1>
 
 <div class="my-5 js-contact-detail">
     <i class="fas fa-circle-notch fa-spin fa-3x"></i>
@@ -34,25 +37,35 @@
         let date = new Date(handler.date).toLocaleDateString('pt-br', options);
 
         const html = `
-            <div class="js-name">
-                <p><strong>Nome</strong></p>
-                <span>${handler.name}</span>
+            <div>
+                <p>
+                    <strong>Nome</strong> <br>
+                    ${handler.name}
+                </p>
             </div>
-            <div class="js-email">
-                <p><strong>Email</strong></p>
-                <span>${handler.email}</span>
+            <div>
+                <p>
+                    <strong>Email</strong> <br>
+                    ${handler.email}
+                </p>
             </div>
-            <div class="js-subject">
-                <p><strong>Assunto</strong></p>
-                <span>${handler.subject}</span>
+            <div>
+                <p>
+                    <strong>Assunto</strong> <br>
+                    ${handler.subject}
+                </p>
             </div>
-            <div class="js-date">
-                <p><strong>Data</strong></p>
-                <span>${!!handler.date ? date : '-'}</span>
+            <div>
+                <p>
+                    <strong>Data</strong> <br>
+                    ${!!handler.date ? date : '-'}
+                </p>
             </div>
-            <div class="js-message">
-                <p><strong>Message</strong></p>
-                <span>${handler.message}</span>
+            <div>
+                <p>
+                    <strong>Message</strong> <br>
+                    ${handler.message}
+                </p>
             </div>
         `;
 
