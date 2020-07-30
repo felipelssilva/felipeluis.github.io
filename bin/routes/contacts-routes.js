@@ -5,11 +5,10 @@ const contactsController = require('../controllers/contacts-controller');
 
 router.get('/', contactsController.list);
 router.get('/:id', contactsController.details);
-
 router.post('/', [
     check('name')
     .isLength({ min: 4 })
-    .withMessage("Your email isn't correct, the minimum is 4 letters"),
+    .withMessage("Your name isn't correct, the minimum is 4 letters"),
     
     check('email')
     .isEmail()

@@ -1,7 +1,7 @@
 <h1>Blogs</h1>
 
-<div class="js-blogs-list">
-    loading...
+<div class="my-5 js-blogs-list">
+    <i class="fas fa-circle-notch fa-spin fa-3x"></i>
 </div>
 
 <script type="text/javascript">
@@ -15,7 +15,7 @@
             url: "/api/blogs",
         })
             .done(function (data) {
-                let html = `<div><table>
+                let html = `<div><table class="table table-striped table-bordered">
                     <thead>
                         <tr>
                             <th>Titulo</th>
@@ -42,7 +42,7 @@
 
                     tbody += `
                     <tr>
-                        <td>${element.name}</td>
+                        <td>${element.title}</td>
                         <td>${!!element.date ? date : '-'}</td>
                         <td>${btn}</td>
                     </tr>`;
@@ -62,7 +62,11 @@
     });
 
     function getHtmlActions(data) {
-        const btn = `<a href="/secure/blogs/${data._id}">Abrir</a>`;
+        const btn = `
+        <a class="btn btn-link" href="/secure/blogs/${data._id}" title="Abrir"><i class="far fa-eye"></i></a>
+        <a class="btn btn-link" href="/secure/blogs/${data._id}/edit" title="Editar"><i class="far fa-edit"></i></a>
+        <a class="btn btn-link text-danger" href="/secure/blogs/${data._id}/delete" title="Deletar"><i class="far fa-trash-alt"></i></a>
+        `;
         return btn;
     }
 

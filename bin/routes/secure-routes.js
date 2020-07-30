@@ -17,7 +17,7 @@ router.get("/contacts/:id", adminsController.isLoggedIn, function (req, res) {
 });
 
 router.get("/blogs", adminsController.isLoggedIn, function (req, res) {
-    res.render(path.resolve(`bin/views/index.ejs`), { user: req.user, page: 'blogs', id: req.param('id') })
+    res.render(path.resolve(`bin/views/index.ejs`), { user: req.user, page: 'blogs' })
 });
 
 // router.get("/blogs/:id", adminsController.isLoggedIn, function (req, res) {
@@ -29,7 +29,7 @@ router.get("/login", function (req, res) {
 });
 
 router.post("/login", passport.authenticate("local", {
-    failureFlash: true,
+    failureFlash: "Incorrect username or password",
     failureRedirect: "/secure/login?error=true",
 }), function (req, res) {
     console.log("LOGGED IN " + req.user.name)
