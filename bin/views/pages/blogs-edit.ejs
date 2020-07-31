@@ -1,0 +1,63 @@
+<h1>
+    <a href="/secure/blogs/" class="btn btn-link"> <i class="fas fa-chevron-left"></i></a>
+    Editando do blog
+</h1>
+
+<div class="my-5">
+    <a href="/secure/blogs/" class="btn btn-danger"> Cancelar</a>
+    <a href="#" class="btn btn-primary js-blog-edit-save"> Salvar edição</a>
+</div>
+
+<div class="my-5 js-blogs-edit">
+    <i class="fas fa-circle-notch fa-spin fa-3x"></i>
+</div>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function () {
+        const $doc = $(document),
+            blogsContainer = $doc.find('.js-blogs-edit');
+
+        $.ajax({
+            type: 'GET',
+            url: "/api/blogs/<%= id %>/edit",
+        })
+            .done(function (data) {
+                blogsContainer.html(bodyHtml(data));
+
+                tinymce.init({
+                    selector: 'textarea',
+                    plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                    toolbar_mode: 'floating',
+                });
+            })
+            .fail(function (err) {
+                console.error(err);
+            })
+            .always(function () {
+            });
+    });
+
+    function bodyHtml(handler) {
+        const html = `
+            <div>
+                <p>
+                    <strong>Título</strong> <br>
+                    <input value="${handler.title}">
+                </p>
+            </div>
+            <div>
+                <p>
+                    <strong>Texto</strong> <br>
+                    <div class="card">
+                        <textarea>
+                            ${handler.content}
+                        </textarea>
+                    </div>
+                </p>
+            </div>
+        `;
+
+        return html;
+    }
+
+</script>

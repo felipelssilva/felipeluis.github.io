@@ -24,6 +24,10 @@ router.get("/blogs/:id", adminsController.isLoggedIn, function (req, res) {
     res.render(path.resolve(`bin/views/index.ejs`), { user: req.user, page: 'blogs-details', id: req.param('id') })
 });
 
+router.get("/blogs/:id/edit", adminsController.isLoggedIn, function (req, res) {
+    res.render(path.resolve(`bin/views/index.ejs`), { user: req.user, page: 'blogs-edit', id: req.param('id') })
+});
+
 router.get("/login", function (req, res) {
     res.render(path.resolve(`bin/views/index.ejs`), { user: '', page: 'login' })
 });
