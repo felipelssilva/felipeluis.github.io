@@ -1,6 +1,6 @@
 <h1>Lista de contatos</h1>
 
-<div class="my-5 js-contacts-list">
+<div class="my-3 js-contacts-list">
     <i class="fas fa-circle-notch fa-spin fa-3x"></i>
 </div>
 
@@ -61,7 +61,7 @@
                 console.error(err);
             })
             .always(function () {
-                contactsContainer.find('table').DataTable();
+                contactsContainer.find('table').DataTable({"order": [[ 3, "desc" ]]});
             });
     });
 

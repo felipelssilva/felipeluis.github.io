@@ -3,7 +3,7 @@
     Detalhes do contato
 </h1>
 
-<div class="my-5 js-contact-detail">
+<div class="my-3 js-contact-detail">
     <i class="fas fa-circle-notch fa-spin fa-3x"></i>
 </div>
 
@@ -37,35 +37,29 @@
         let date = new Date(handler.date).toLocaleDateString('pt-br', options);
 
         const html = `
-            <div>
-                <p>
-                    <strong>Nome</strong> <br>
-                    ${handler.name}
-                </p>
-            </div>
-            <div>
-                <p>
-                    <strong>Email</strong> <br>
-                    ${handler.email}
-                </p>
-            </div>
-            <div>
-                <p>
-                    <strong>Assunto</strong> <br>
-                    ${handler.subject}
-                </p>
-            </div>
-            <div>
-                <p>
-                    <strong>Data</strong> <br>
-                    ${!!handler.date ? date : '-'}
-                </p>
-            </div>
-            <div>
-                <p>
-                    <strong>Message</strong> <br>
-                    ${handler.message}
-                </p>
+            <div class="card">
+                <div class="card-body">
+                    <p>
+                        <strong>Nome</strong> <br>
+                        ${handler.name}
+                    </p>
+                    <p>
+                        <strong>Email</strong> <br>
+                        ${handler.email}
+                    </p>
+                    <p>
+                        <strong>Assunto</strong> <br>
+                        ${handler.subject}
+                    </p>
+                    <p>
+                        <strong>Data</strong> <br>
+                        ${!!handler.date ? date : '-'}
+                    </p>
+                    <p>
+                        <strong>Message</strong> <br>
+                        ${handler.message}
+                    </p>
+                </div>
             </div>
         `;
 

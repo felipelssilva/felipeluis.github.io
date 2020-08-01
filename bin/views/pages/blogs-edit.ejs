@@ -1,63 +1,137 @@
 <h1>
     <a href="/secure/blogs/" class="btn btn-link"> <i class="fas fa-chevron-left"></i></a>
-    Editando do blog
+    Editando blog
 </h1>
 
-<div class="my-5">
-    <a href="/secure/blogs/" class="btn btn-danger"> Cancelar</a>
-    <a href="#" class="btn btn-primary js-blog-edit-save"> Salvar edição</a>
-</div>
-
-<div class="my-5 js-blogs-edit">
+<div class="my-3 js-blogs-edit">
     <i class="fas fa-circle-notch fa-spin fa-3x"></i>
 </div>
 
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function () {
-        const $doc = $(document),
-            blogsContainer = $doc.find('.js-blogs-edit');
+        const _doc = $(document),
+            _blogsContainer = _doc.find('.js-blogs-edit'),
+            _self = this;
 
         $.ajax({
             type: 'GET',
-            url: "/api/blogs/<%= id %>/edit",
+            url: "/api/blogs/<%= id %>",
         })
             .done(function (data) {
-                blogsContainer.html(bodyHtml(data));
+                _blogsContainer.html(bodyHtml(data));
 
                 tinymce.init({
                     selector: 'textarea',
-                    plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-                    toolbar_mode: 'floating',
+                    plugins: 'print preview searchreplace autolink autosave save directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help  charmap quickbars code',
+                    mobile: {
+                        plugins: 'print preview searchreplace autolink autosave save directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount textpattern noneditable help charmap quickbars'
+                    },
+                    menubar: 'file edit view insert format tools table tc help',
+                    toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor casechange  removeformat | pagebreak | charmap | fullscreen  preview save print | insertfile image media template link anchor codesample | a11ycheck ltr rtl | code',
+                    image_advtab: true,
+                    content_css: '//www.tiny.cloud/css/codepen.min.css',
+                    template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
+                    template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
+                    height: 600,
+                    image_caption: true,
+                    quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
+                    toolbar_mode: 'sliding',
+                    contextmenu: "link image imagetools table",
+                    a11y_advanced_options: true,
                 });
+
+                _doc.on('click', '.js-blog-edit-save', e => save(e));
+
             })
             .fail(function (err) {
                 console.error(err);
             })
             .always(function () {
             });
+
     });
 
     function bodyHtml(handler) {
+        const btns = `
+        <div class="row">
+            <div class="col">
+                <a href="/secure/blogs/" class="btn btn-danger btn-block">
+                    Cancelar
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="btn btn-primary btn-block js-blog-edit-save">
+                    Salvar alterações
+                </a>
+            </div>
+        </div>
+        `;
+
         const html = `
-            <div>
-                <p>
-                    <strong>Título</strong> <br>
-                    <input value="${handler.title}">
-                </p>
+            <div class="card">
+                <div class="card-header">
+                    ${btns}
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="title">Título</label>
+                            <input type="text" class="form-control" 
+                                id="title" name="title" value="${handler.title}">
+                        </div>
+                        <div class="form-group">
+                            <label for="permalink">Permalink</label>
+                            <input type="text" class="form-control" 
+                                id="permalink" name="permalink" disabled value="${handler.permalink}">
+                        </div>
+                        <div class="form-group">
+                            <label for="content">Conteúdo</label>
+                            <textarea class="form-control" id="content" name="content">
+                                ${handler.content}
+                            </textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    ${btns}
+                </div>
             </div>
-            <div>
-                <p>
-                    <strong>Texto</strong> <br>
-                    <div class="card">
-                        <textarea>
-                            ${handler.content}
-                        </textarea>
-                    </div>
-                </p>
-            </div>
+
         `;
 
         return html;
+    }
+
+    function save(evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+
+        const _doc = $(document),
+            _self = this,
+            $form = _doc.find('form'),
+            data = {
+                title: $form.find('input[name=title]').val().trim(),
+                content: tinymce.activeEditor.getContent()
+            };
+
+        $.ajax({
+            type: 'PUT',
+            data: data,
+            url: "/api/blogs/<%= id %>/save",
+        })
+            .done(function (data) {
+                toast({ data: data, type: 'success' });
+
+                setTimeout(() => {
+                    window.location.href = '/secure/blogs';
+                }, 2000);
+            })
+            .fail(function (err) {
+                toast({ data: err, type: 'error' });
+            })
+            .always(function () {
+            });
+
     }
 
 </script>

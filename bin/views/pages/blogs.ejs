@@ -1,6 +1,9 @@
-<h1>Blogs</h1>
+<h1>
+    Lista de Postagens 
+    <a class="ml-4 btn btn-primary" href="/secure/blog/add" title="Novo">Nova postagem</a>
+</h1>
 
-<div class="my-5 js-blogs-list">
+<div class="my-3 js-blogs-list">
     <i class="fas fa-circle-notch fa-spin fa-3x"></i>
 </div>
 
@@ -8,7 +11,7 @@
 
     document.addEventListener("DOMContentLoaded", function () {
         const $doc = $(document),
-            contactsContainer = $doc.find('.js-blogs-list');
+            blogsContainer = $doc.find('.js-blogs-list');
 
         $.ajax({
             type: 'GET',
@@ -53,14 +56,14 @@
                 });
 
                 html = $(html).find('tbody').html(tbody).parents('div').html();
-                contactsContainer.html(html);
+                blogsContainer.html(html);
 
             })
             .fail(function (err) {
                 console.error(err);
             })
             .always(function () {
-                contactsContainer.find('table').DataTable();
+                blogsContainer.find('table').DataTable({"order": [[ 1, "desc" ]]});
             });
     });
 

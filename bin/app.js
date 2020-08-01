@@ -28,7 +28,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.set("view engine", "ejs")
 
 app.use(cookieParser('secret'));
