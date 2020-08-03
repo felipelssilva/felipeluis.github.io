@@ -5,6 +5,9 @@ const repository = require('../repositories/blogs-repository');
 exports.list = async (req, res) => {
     try {
         const data = await repository.list();
+        console.log('data');
+        console.log(data);
+        // deleted_at
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({ message: 'Failed to load blogs!' });

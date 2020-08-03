@@ -15,7 +15,7 @@ router
             .isLength({ min: 20 })
             .withMessage("O conteúdo do blog precisa ter pelo menos 20 caracteres")
     ], blogsController.saving)
-    .delete('/:id/delete', blogsController.delete)
+    .delete('/:id', blogsController.delete)
     .put('/add', [
         check('title')
             .isLength({ min: 4 })

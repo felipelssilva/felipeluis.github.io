@@ -3,6 +3,7 @@ const passport = require("passport");
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const path = require('path')
 
 require('dotenv').config();
 
@@ -60,8 +61,10 @@ app.use('/api/mentions', mentionsRoutes);
 app.use('/api/contacts', contactsRoutes);
 app.use('/api/blogs', blogsRoutes);
 
-// app.use(function (req, res) {
-//     res.status(404).render(path.resolve(`bin/views/pages/error`), { response: res.statusCode })
-// })
+app.use('/secure/*', function (req, res) {
+    res.status(404).render(path.resolve(`bin/views/index`),
+        { user: req.user, page: 'error', response: res.statusCode }
+    )
+})
 
 module.exports = app;

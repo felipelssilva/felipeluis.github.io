@@ -66,9 +66,10 @@
     });
 
     function getHtmlActions(data) {
+        // <a class="btn btn-link text-danger" href="/secure/contacts/${data._id}/delete" title="Deletar"><i class="far fa-trash-alt"></i></a>
+
         const btn = `
-        <a class="btn btn-link" href="/secure/contacts/${data._id}" title="Abrir"><i class="far fa-eye"></i></a>
-        <a class="btn btn-link text-danger" href="/secure/contacts/${data._id}/delete" title="Deletar"><i class="far fa-trash-alt"></i></a>
+            <a class="btn btn-link" href="/secure/contacts/${data._id}" title="Abrir"><i class="far fa-eye"></i></a>
         `;
         return btn;
     }
