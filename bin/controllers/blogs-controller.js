@@ -1,13 +1,9 @@
 const { validationResult } = require('express-validator');
 const repository = require('../repositories/blogs-repository');
 
-// list
 exports.list = async (req, res) => {
     try {
         const data = await repository.list();
-        console.log('data');
-        console.log(data);
-        // deleted_at
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({ message: 'Failed to load blogs!' });
@@ -49,14 +45,17 @@ exports.saving = async (req, res) => {
 
 exports.delete = async (req, res) => {
     try {
-        const data = await repository.details(req.params.id);
-        res.status(200).send(data);
+        await repository.saving({
+            id: req.params.id,
+            updated_at: Date.now(),
+            deleted_at: Date.now()
+        });
+        res.status(200).send({ message: `Blog successfully deleted!` });
     } catch (e) {
-        res.status(500).send({ message: 'Failed to load the blogs info!' });
+        res.status(500).send({ message: 'Failed to delete the blog!' });
     }
 };
 
-// create
 exports.create = async (req, res) => {
     const { errors } = validationResult(req);
 

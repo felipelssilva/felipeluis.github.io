@@ -86,8 +86,13 @@
         const btn = `
             <a class="btn btn-link" href="/secure/blogs/${data._id}" title="Abrir"><i class="far fa-eye"></i></a>
             <a class="btn btn-link" href="/secure/blogs/${data._id}/edit" title="Editar"><i class="far fa-edit"></i></a>
-            <a class="btn btn-link text-danger" href="#" title="Deletar" data-toggle="modal" data-target="#deleteModal_${data._id}" ><i class="far fa-trash-alt"></i></a>
-        `,
+            <a class="btn btn-link text-danger ${!!data.deleted_at ? 'd-none' : ''}" href="#" title="Deletar" data-toggle="modal" data-target="#deleteModal_${data._id}" >
+                <i class="far fa-trash-alt"></i>
+            </a>
+            <a class="btn btn-link text-success ${!!data.deleted_at ? '' : 'd-none'}" href="#" title="Publicar" data-toggle="modal" data-target="#postModal_${data._id}" >
+                <i class="fas fa-upload"></i>
+            </a>
+            `,
             modal = `
             <div class="modal fade" id="deleteModal_${data._id}" tabindex="-1" 
             role="dialog" aria-labelledby="deleteModal_${data._id}Label" aria-hidden="true">

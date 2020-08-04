@@ -22,10 +22,11 @@ exports.saving = async (data, callback) => {
   return res;
 }
 
-exports.delete = async (id, callback) => {
-  const res = await Blogs.findById(id, callback);
+/*exports.delete = async (data, callback) => {
+  const query = { _id: data.id };
+  const res = await Blogs.findOneAndUpdate(query, data, callback);
   return res;
-}
+}*/
 
 exports.create = async data => {
   const blogs = new Blogs(data);
