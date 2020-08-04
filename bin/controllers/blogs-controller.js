@@ -25,7 +25,7 @@ exports.page = async (req, res) => {
 
 exports.details = async (req, res) => {
     try {
-        const data = await repository.details(req.param('id'));
+        const data = await repository.details(req.params.id);
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({ message: 'Failed to load the blogs info!' });
@@ -35,7 +35,7 @@ exports.details = async (req, res) => {
 exports.saving = async (req, res) => {
     try {
         await repository.saving({
-            id: req.param('id'),
+            id: req.params.id,
             title: req.body.title,
             permalink: this.permalink(req.body.title),
             content: req.body.content,
@@ -49,7 +49,7 @@ exports.saving = async (req, res) => {
 
 exports.delete = async (req, res) => {
     try {
-        const data = await repository.details(req.param('id'));
+        const data = await repository.details(req.params.id);
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({ message: 'Failed to load the blogs info!' });

@@ -15,6 +15,9 @@
 
         $.ajax({
             type: 'GET',
+            headers: {
+                'x-access-token': getCookie('x-access-token')
+            },
             url: "/api/blogs/<%= id %>",
         })
             .done(function (data) {
@@ -44,7 +47,9 @@
 
             })
             .fail(function (err) {
-                console.error(err);
+                if (err.status === 500 && err.responseJSON.auth === false) {
+                    window.location.href = '/secure/logout';
+                }
             })
             .always(function () {
             });
@@ -117,6 +122,9 @@
         $.ajax({
             type: 'PUT',
             data: data,
+            headers: {
+                'x-access-token': getCookie('x-access-token')
+            },
             url: "/api/blogs/<%= id %>/save",
         })
             .done(function (data) {

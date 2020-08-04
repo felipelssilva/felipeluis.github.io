@@ -11,7 +11,6 @@ const nomeApp = process.env.npm_package_name
 const env = process.env.NODE_ENV
 
 // Load models
-const Mentions = require('./models/mentions');
 const Contacts = require('./models/contacts');
 const Admins = require("./models/admins");
 const Blogs = require("./models/blogs");
@@ -20,7 +19,7 @@ const Blogs = require("./models/blogs");
 const app = express();
 
 app.use(require("express-session")({
-    secret: 'secret',
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false
 }));
@@ -32,11 +31,11 @@ app.use(express.json());
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.set("view engine", "ejs")
 
-app.use(cookieParser('secret'));
+app.use(cookieParser(process.env.SECRET));
 app.use(session({ cookie: { maxAge: 60000 } }));
 app.use(flash());
 
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
     res.locals.message = req.flash();
     next();
 });
@@ -48,7 +47,6 @@ global.db = require('./db');
 const indexRoutes = require('./routes/index-routes');
 const secureRoutes = require('./routes/secure-routes');
 const apiRoutes = require('./routes/api-routes');
-const mentionsRoutes = require('./routes/mentions-routes');
 const contactsRoutes = require('./routes/contacts-routes');
 const blogsRoutes = require('./routes/blogs-routes');
 
@@ -57,11 +55,10 @@ app.use('/', indexRoutes);
 app.use('/secure', secureRoutes);
 
 app.use('/api', apiRoutes);
-app.use('/api/mentions', mentionsRoutes);
 app.use('/api/contacts', contactsRoutes);
 app.use('/api/blogs', blogsRoutes);
 
-app.use('/secure/*', function (req, res) {
+app.use('/secure/*', (req, res) => {
     res.status(404).render(path.resolve(`bin/views/index`),
         { user: req.user, page: 'error', response: res.statusCode }
     )

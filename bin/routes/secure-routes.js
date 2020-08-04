@@ -3,7 +3,6 @@ const router = express.Router();
 const path = require('path')
 const passport = require("passport");
 const adminsController = require('../controllers/admins-controller');
-const jwt = require('jsonwebtoken');
 
 router
     .get('/', adminsController.isLoggedIn, (req, res, next) => {
@@ -21,7 +20,7 @@ router
     .get("/contacts/:id", adminsController.isLoggedIn, (req, res) => {
         res.render(
             path.resolve(`bin/views/index.ejs`),
-            { user: req.user, page: 'contacts-details', id: req.param('id') }
+            { user: req.user, page: 'contacts-details', id: req.params.id }
         )
     })
     .get("/blogs", adminsController.isLoggedIn, (req, res) => {
@@ -33,13 +32,13 @@ router
     .get("/blogs/:id", adminsController.isLoggedIn, (req, res) => {
         res.render(
             path.resolve(`bin/views/index.ejs`),
-            { user: req.user, page: 'blogs-details', id: req.param('id') }
+            { user: req.user, page: 'blogs-details', id: req.params.id }
         )
     })
     .get("/blogs/:id/edit", adminsController.isLoggedIn, (req, res) => {
         res.render(
             path.resolve(`bin/views/index.ejs`),
-            { user: req.user, page: 'blogs-edit', id: req.param('id') }
+            { user: req.user, page: 'blogs-edit', id: req.params.id }
         )
     })
     .get("/blog/add", adminsController.isLoggedIn, (req, res) => {
@@ -57,41 +56,20 @@ router
     .post("/login", function (req, res, next) {
         passport.authenticate('local', function (err, user, info) {
             if (err) { return next(err); }
-            if (!user) { return res.send({ data: info }) }
+            if (!user) {
+                let data = {
+                    message: info.message,
+                    type: 'error'
+                };
+                return res.send(data)
+            }
             req.logIn(user, function (err) {
                 if (err) { return next(err); }
-                return loggedinSuccess(req, res);
+                return adminsController.loggedinSuccess(req, res);
             });
         })(req, res, next)
-
-        // passport.authenticate("local", {
-        //     failureFlash: "Incorrect username or password",
-        //     failureRedirect: "/secure/login?error=true",
-        // }),
-        // (req, res) => {
-        //     console.log("LOGGED IN " + req.user.name)
-
-        //     const userId = req.user._id;
-        //     let token = jwt.sign({ userId }, process.env.SECRET, {
-        //         expiresIn: '1d' // expires in 5min
-        //     });
-        //     return res.json({ auth: true, token: token });
-
     })
     .get("/logout",
-        (req, res) => {
-            console.log("LOGGIN OUT " + req.user.name)
-            req.logout();
-            res.redirect('/secure/login');
-        });
+        (req, res) => adminsController.logout(req, res));
 
 module.exports = router;
-
-function loggedinSuccess(req, res) {
-    console.log("LOGGED IN " + req.user.name)
-    const userId = req.user._id;
-    let token = jwt.sign({ userId }, process.env.SECRET, {
-        expiresIn: '1d' // expires in 5min
-    });
-    return res.json({ auth: true, token: token });
-}

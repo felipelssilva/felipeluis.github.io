@@ -2,12 +2,14 @@ const express = require('express');
 const router = express.Router();
 const { check } = require('express-validator');
 const blogsController = require('../controllers/blogs-controller');
+const { verifyJWT } = require('../auth');
 
 router
-    .get('/', blogsController.page)
-    .get('/:id', blogsController.details)
-    .get('/:id/edit', blogsController.details)
-    .put('/:id/save', [
+    .get('/', verifyJWT, blogsController.page)
+    .get('/:id', verifyJWT, blogsController.details)
+    .get('/:id/edit', verifyJWT, blogsController.details)
+    .delete('/:id', verifyJWT, blogsController.delete)
+    .put('/:id/save', verifyJWT, [
         check('title')
             .isLength({ min: 4 })
             .withMessage("O titulo do blog precisa ter pelo menos 4 letras"),
@@ -15,8 +17,7 @@ router
             .isLength({ min: 20 })
             .withMessage("O conteúdo do blog precisa ter pelo menos 20 caracteres")
     ], blogsController.saving)
-    .delete('/:id', blogsController.delete)
-    .put('/add', [
+    .put('/add', verifyJWT, [
         check('title')
             .isLength({ min: 4 })
             .withMessage("O titulo do blog precisa ter pelo menos 4 letras"),

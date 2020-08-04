@@ -44,7 +44,7 @@
                     </button>
                 </div>
                 <div class="toast-body">
-                    <p>${handler.data.responseJSON.message}</p>
+                    <p>${handler.data.message}</p>
                 </div>
             </div>
         `;
@@ -59,16 +59,17 @@
 <div style="width:300px;" class="js-toast fixed-top mt-3 ml-3"></div>
 
 <script type="text/javascript">
+    
     function getMessage(handler) {
         let message = '';
 
         if (handler.type === 'error') {
-            if (typeof handler.data.responseJSON.message !== 'string') {
-                handler.data.responseJSON.message.forEach(element => {
+            if (typeof handler.data.message !== 'string') {
+                handler.data.message.forEach(element => {
                     message += `<li>${element.msg}</li>`;
                 });
             } else {
-                message = `<li>${handler.data.responseJSON.message}</li>`;
+                message = `<li>${handler.data.message}</li>`;
             }
         } else {
             message = handler.data.message
@@ -81,34 +82,40 @@
         const _doc = $(document),
             _id = btoa(handler.data.responseText + Math.random()).replace(/[^\w\s]/gi, '');
 
-        const html = `
-            <div id="${_id}" role="alert" aria-live="polite" aria-atomic="true"
-                class="toast border ${handler.type === 'error' ? 'border-danger' : 'border-success'}" 
-                data-delay="10000">
-                <div class="toast-header">
-                    <strong class="mr-auto">
-                        ${handler.type === 'error' ? 'Atenção' : 'Sucesso!'}
-                    </strong>
-                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+        if (handler.data.status === 500 && handler.data.responseJSON.auth === false) {
+            window.location.href = '/secure/logout';
+        } else {
+            const html = `
+                <div id="${_id}" role="alert" aria-live="polite" aria-atomic="true"
+                    class="toast border ${handler.type === 'error' ? 'border-danger' : 'border-success'}" 
+                    data-delay="10000">
+                    <div class="toast-header">
+                        <strong class="mr-auto">
+                            ${handler.type === 'error' ? 'Atenção' : 'Sucesso!'}
+                        </strong>
+                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="toast-body">
+                        <ul>
+                            ${getMessage(handler)}
+                        </ul>
+                    </div>
                 </div>
-                <div class="toast-body">
-                    <ul>
-                        ${getMessage(handler)}
-                    </ul>
-                </div>
-            </div>
-        `;
+            `;
 
-        _doc.find('.js-toast').append(html);
-        $(`#${_id}`).toast('show');
+            _doc.find('.js-toast').append(html);
+            $(`#${_id}`).toast('show');
 
-        setTimeout(function () {
-            $(`#${_id}`).toast('hide');
             setTimeout(function () {
-                $(`#${_id}`).remove();
-            }, 500);
-        }, 10000);
+                $(`#${_id}`).toast('hide');
+                setTimeout(function () {
+                    $(`#${_id}`).remove();
+                }, 500);
+            }, 10000);
+
+        }
+
     }
 </script>

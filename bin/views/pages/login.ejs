@@ -31,7 +31,7 @@
         z-index: 2;
     }
 
-    .form-signin input[type="email"] {
+    .form-signin input[type="text"] {
         margin-bottom: -1px;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
@@ -71,29 +71,35 @@
         evt.preventDefault();
 
         const $doc = $(document),
-            $form = $(evt.currentTarget);
-
-        let form = new FormData();
-
-        form.append('username', $form.find('input#username').val());
-        form.append('password', $form.find('input#password').val());
+            $form = $(evt.currentTarget),
+            data = {
+                username: $form.find('input#username').val(),
+                password: $form.find('input#password').val()
+            },
+            btnText = 'Sing in <i class="fas fa-circle-notch fa-spin"></i>';
 
         $.ajax({
             type: 'POST',
-            data: { username: $form.find('input#username').val(), password: $form.find('input#password').val() },
+            data: data,
             url: "/secure/login",
             beforeSend: () => {
+                $form.find('button[type=submit]').attr('disabled', true);
+                $form.find('button[type=submit]').html(btnText);
             }
         })
             .done(function (data) {
-                console.log(data);
-
-                // window.location.href = "/secure";
+                if (!!data.auth) {
+                    window.location.href = '/secure';
+                } else {
+                    toast({ data, type: 'error' });
+                }
             })
             .fail(function (err) {
-                console.error(err);
+                $form.find('button[type=submit]').removeAttr('disabled', false);
+                toast({ err, type: 'error' });
             })
             .always(function () {
+                $form.find('button[type=submit]').html('Sing in');
             });
     }
 

@@ -98,6 +98,9 @@
 
         $.ajax({
             type: 'PUT',
+            headers: {
+                'x-access-token': getCookie('x-access-token')
+            },
             data: data,
             url: "/api/blogs/add",
         })

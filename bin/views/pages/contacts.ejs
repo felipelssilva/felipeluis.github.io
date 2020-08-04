@@ -12,6 +12,9 @@
 
         $.ajax({
             type: 'GET',
+            headers: {
+                'x-access-token': getCookie('x-access-token')
+            },
             url: "/api/contacts",
         })
             .done(function (data) {
@@ -58,7 +61,7 @@
 
             })
             .fail(function (err) {
-                console.error(err);
+                toast({ data: err, type: 'error' });
             })
             .always(function () {
                 contactsContainer.find('table').DataTable({"order": [[ 3, "desc" ]]});
