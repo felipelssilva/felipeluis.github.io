@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponentPage},
   {path: 'my-projects', component: MyProjectsComponentPage},
   {path: 'blog', component: BlogComponent},
-  {path: 'blog/:permalink', component: BlogDetailsComponent},
+  {path: 'blog/:id', component: BlogDetailsComponent},
   {path: 'about-me', component: AboutMeComponentPage},
   {path: 'social-medias', component: SocialMediasComponentPage},
   {path: 'contact', component: ContactComponentPage},

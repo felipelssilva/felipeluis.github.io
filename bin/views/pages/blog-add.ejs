@@ -27,6 +27,10 @@
                         <input type="text" class="form-control" id="title" name="title">
                     </div>
                     <div class="form-group">
+                        <label for="short_content">Conteúdo menor</label>
+                        <textarea class="form-control" id="short_content" name="short_content"></textarea>
+                    </div>
+                    <div class="form-group">
                         <label for="content">Conteúdo</label>
                         <textarea class="form-control" id="content" name="content"></textarea>
                     </div>
@@ -93,7 +97,8 @@
             $form = _doc.find('form'),
             data = {
                 title: $form.find('input[name=title]').val().trim(),
-                content: tinymce.activeEditor.getContent()
+                content: tinymce.editors[1].getContent(),
+                short_content: tinymce.editors[0].getContent()
             };
 
         $.ajax({
@@ -106,6 +111,8 @@
         })
             .done(function (data) {
                 toast({ data: data, type: 'success' });
+
+                window.onbeforeunload = false;
 
                 setTimeout(() => {
                     window.location.href = '/secure/blogs';

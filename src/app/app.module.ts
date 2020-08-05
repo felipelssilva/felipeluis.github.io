@@ -28,6 +28,10 @@ import { SocialMediasComponentPage } from './pages/social-medias/social-medias.c
 import { MyResumeComponent } from './pages/my-resume/my-resume.component';
 import { MyProjectsComponentPage } from './pages/my-projects/my-projects.component';
 import { BlogComponent } from './pages/blog/blog.component';
+import { BlogDetailsComponent } from './pages/blog-details/blog-details.component';
+import { DateAgoPipe } from './common/pipes/date-ago.pipe';
+import { LoadingComponent } from './common/loading/loading.component';
+import { CardComponent } from './common/card/card.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,11 @@ import { BlogComponent } from './pages/blog/blog.component';
     SocialMediasComponentPage,
     MyResumeComponent,
     MyProjectsComponentPage,
-    BlogComponent
+    BlogComponent,
+    BlogDetailsComponent,
+    DateAgoPipe,
+    LoadingComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

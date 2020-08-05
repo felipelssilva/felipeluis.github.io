@@ -10,8 +10,8 @@ import { BlogsService } from '../../common/services/blogs.service';
 })
 export class BlogDetailsComponent implements OnInit {
   loading: Boolean;
-  permalink: String;
-  blog: Blogs;
+  id: String;
+  blogs: Blogs;
   //faCircleNotch = faCircleNotch;
 
   constructor(
@@ -21,13 +21,13 @@ export class BlogDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = true;
-    this.permalink = this.route.snapshot.params.permalink;
+    this.id = this.route.snapshot.params.id;
 
     this.blogsService
-      .loadBlog(this.permalink)
-      .subscribe(blog => {
+      .loadBlog(this.id)
+      .subscribe(blogs => {
         this.loading = false;
-        this.blog = blog[0];
+        this.blogs = blogs;
       });
 
   }

@@ -15,6 +15,10 @@ const schema = new Schema({
     type: String,
     required: true
   },
+  short_content: {
+    type: String,
+    required: true
+  },
   created_at: {
     type: Date
   },

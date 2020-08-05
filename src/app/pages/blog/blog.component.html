@@ -8,13 +8,25 @@
   <div class="row">
     <div class="col">
 
-      <div *ngFor="let blog of blogs">
-        <p>
-          <a routerLink="/blog/{{blog.permalink}}">{{blog.title}}</a>
-        </p>
-      </div>
+      <!-- <div class="list-group">
+        <a *ngFor="let blog of blogs" routerLink="/blog/{{blog._id}}"
+          class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{blog.title}}</h5>
+            <small>{{blog.created_at | dateAgo}}</small>
+          </div>
+          <p class="mb-1">{{blog.description}}</p>
+          <small>ler mais...</small>
+        </a>
+      </div> -->
 
-      <div *ngIf="loading">Loading...</div>
+      <!-- <div class="row d-flex justify-content-center cards-components" *ngFor="let blog of blogs"> -->
+        <app-card [data]="blogs"></app-card>
+      <!-- </div> -->
+
+      <div *ngIf="loading">
+        <app-loading></app-loading>
+      </div>
 
     </div>
   </div>

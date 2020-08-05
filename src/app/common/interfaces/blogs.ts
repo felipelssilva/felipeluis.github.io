@@ -3,6 +3,7 @@ export interface Blogs {
   permalink: string;
   title?: string;
   content?: string;
+  short_content?: string;
   created_at?: Date;
   updated_at?: Date;
   deleted_at?: Date;
