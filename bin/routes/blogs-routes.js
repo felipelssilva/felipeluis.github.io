@@ -4,9 +4,11 @@ const { check } = require('express-validator');
 const blogsController = require('../controllers/blogs-controller');
 const { verifyJWT } = require('../auth');
 
+//.get('/:id', blogsController.details)
+
 router
-    .get('/', verifyJWT, blogsController.page)
-    .get('/:id', verifyJWT, blogsController.details)
+    .get('/', blogsController.page)
+    .get('/:permalink', blogsController.detailsByPermalink)
     .get('/:id/edit', verifyJWT, blogsController.details)
     .delete('/:id', verifyJWT, blogsController.delete)
     .put('/:id/save', verifyJWT, [

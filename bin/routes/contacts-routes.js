@@ -7,7 +7,7 @@ const { verifyJWT } = require('../auth');
 router
     .get('/', verifyJWT, contactsController.list)
     .get('/:id', verifyJWT, contactsController.details)
-    .post('/', verifyJWT, [
+    .post('/', [
         check('name')
             .isLength({ min: 4 })
             .withMessage("Your name isn't correct, the minimum is 4 letters"),

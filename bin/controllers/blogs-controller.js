@@ -24,7 +24,18 @@ exports.details = async (req, res) => {
         const data = await repository.details(req.params.id);
         res.status(200).send(data);
     } catch (e) {
-        res.status(500).send({ message: 'Failed to load the blogs info!' });
+        res.status(500).send({ message: 'Failed to load the blog info!' });
+    }
+};
+
+exports.detailsByPermalink = async (req, res) => {
+    try {
+        const data = await repository.detailsByPermalink({
+            permalink: this.permalink(req.params.permalink)
+        });
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({ message: 'Failed to load the blog info!' });
     }
 };
 

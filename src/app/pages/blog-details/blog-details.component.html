@@ -1,0 +1,19 @@
+<section class="container my-3">
+
+  <div *ngIf="loading">Loading...</div>
+
+  <div class="row my-5 text-center">
+    <div class="col">
+      <h4 class="display-4">
+        {{blog.title}}
+      </h4>
+      <hr />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div [innerHTML]="blog.content"></div>
+    </div>
+  </div>
+  
+</section>

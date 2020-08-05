@@ -16,6 +16,12 @@ exports.details = async (id, callback) => {
   return res;
 }
 
+exports.detailsByPermalink = async (data, callback) => {
+  const query = { permalink: data.permalink };
+  const res = await Blogs.find(query, callback);
+  return res;
+}
+
 exports.saving = async (data, callback) => {
   const query = { _id: data.id };
   const res = await Blogs.findOneAndUpdate(query, data, callback);

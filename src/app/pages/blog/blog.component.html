@@ -1,13 +1,21 @@
 <section class="container my-3">
-    <div class="row my-5 text-center">
-      <div class="col">
-        <h4 class="display-4">Blog</h4>
-        <hr />
-      </div>
+  <div class="row my-5 text-center">
+    <div class="col">
+      <h4 class="display-4">Blog</h4>
+      <hr />
     </div>
-    <div class="row">
-      <div class="col">
-          Comming soon my blog.
+  </div>
+  <div class="row">
+    <div class="col">
+
+      <div *ngFor="let blog of blogs">
+        <p>
+          <a routerLink="/blog/{{blog.permalink}}">{{blog.title}}</a>
+        </p>
       </div>
+
+      <div *ngIf="loading">Loading...</div>
+
     </div>
-  </section>
+  </div>
+</section>

@@ -4,14 +4,18 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from "@angular/common";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 
 import { ConstantsService } from './common/services/constants.service';
+import { BlogsService } from './common/services/blogs.service';
+
 import { AboutMeComponent } from './common/about-me/about-me.component';
 import { ContactFormComponent } from './common/contact-form/contact-form.component';
 import { SocialMediasComponent } from './common/social-medias/social-medias.component';
@@ -49,9 +53,13 @@ import { BlogComponent } from './pages/blog/blog.component';
     FontAwesomeModule,
     NgxExtendedPdfViewerModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
-  providers: [ConstantsService],
+  providers: [
+    ConstantsService,
+    BlogsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
