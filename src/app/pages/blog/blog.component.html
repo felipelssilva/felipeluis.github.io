@@ -9,10 +9,8 @@
     <div class="col">
 
       <div *ngIf="blogs?.length === 0">
-        <div class="alert alert-secondary" role="alert">
-          <fa-icon [icon]="faExclamation"></fa-icon>
-          <h5>I'm still working on the posts, we'll have content here soon.</h5>
-        </div>
+        <fa-icon [icon]="faExclamation" size="10x" class="info-icon user-select-none"></fa-icon>
+        <h5 class="mx-4 py-5">I'm still working on the posts, we'll have content here soon.</h5>
       </div>
 
       <app-card [data]="blogs"></app-card>
