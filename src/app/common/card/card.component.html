@@ -12,17 +12,17 @@
                         {{blog.title}}
                     </a>
                 </h3>
-                <small>
+                <small class="text-muted">
                     Created: {{blog.created_at | dateAgo}}
                 </small>
-                <small *ngIf="blog.updated_at">
+                <small *ngIf="blog.updated_at" class="text-muted">
                     | Updated: {{blog.updated_at | dateAgo}}
                 </small>
                 <hr />
-                <div [innerHTML]="blog.short_content"></div>
+                <p class="pb-0 mb-0">{{'<'+blog.short_content+'/>'}}</p>
             </div>
             <div class="card-footer bg-transparent">
-                <a routerLink="/blog/{{blog._id}}" class="btn btn-secondary">
+                <a routerLink="/blog/{{blog._id}}/{{blog.permalink}}" class="btn btn-secondary">
                     read more
                 </a>
             </div>

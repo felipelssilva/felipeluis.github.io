@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Blogs } from '../../common/interfaces/blogs';
 import { BlogsService } from '../../common/services/blogs.service';
+import { faExclamation } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-blog',
@@ -9,7 +10,8 @@ import { BlogsService } from '../../common/services/blogs.service';
 })
 export class BlogComponent implements OnInit {
   loading: Boolean;
-  blogs: Blogs;
+  blogs: any;
+  faExclamation = faExclamation;
 
   constructor(
     private blogsService: BlogsService

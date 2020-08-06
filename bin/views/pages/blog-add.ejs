@@ -28,7 +28,7 @@
                     </div>
                     <div class="form-group">
                         <label for="short_content">Conteúdo menor</label>
-                        <textarea class="form-control" id="short_content" name="short_content"></textarea>
+                        <input type="text" class="form-control" id="short_content" name="short_content">
                     </div>
                     <div class="form-group">
                         <label for="content">Conteúdo</label>
@@ -97,8 +97,8 @@
             $form = _doc.find('form'),
             data = {
                 title: $form.find('input[name=title]').val().trim(),
-                content: tinymce.editors[1].getContent(),
-                short_content: tinymce.editors[0].getContent()
+                content: tinymce.activeEditor.getContent(),
+                short_content: $form.find('input[name=short_content]').val().trim()
             };
 
         $.ajax({
