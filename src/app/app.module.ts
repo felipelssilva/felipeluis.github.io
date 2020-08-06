@@ -4,14 +4,18 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from "@angular/common";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 
 import { ConstantsService } from './common/services/constants.service';
+import { BlogsService } from './common/services/blogs.service';
+
 import { AboutMeComponent } from './common/about-me/about-me.component';
 import { ContactFormComponent } from './common/contact-form/contact-form.component';
 import { SocialMediasComponent } from './common/social-medias/social-medias.component';
@@ -24,6 +28,10 @@ import { SocialMediasComponentPage } from './pages/social-medias/social-medias.c
 import { MyResumeComponent } from './pages/my-resume/my-resume.component';
 import { MyProjectsComponentPage } from './pages/my-projects/my-projects.component';
 import { BlogComponent } from './pages/blog/blog.component';
+import { BlogDetailsComponent } from './pages/blog-details/blog-details.component';
+import { DateAgoPipe } from './common/pipes/date-ago.pipe';
+import { LoadingComponent } from './common/loading/loading.component';
+import { CardComponent } from './common/card/card.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +49,11 @@ import { BlogComponent } from './pages/blog/blog.component';
     SocialMediasComponentPage,
     MyResumeComponent,
     MyProjectsComponentPage,
-    BlogComponent
+    BlogComponent,
+    BlogDetailsComponent,
+    DateAgoPipe,
+    LoadingComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
@@ -49,9 +61,13 @@ import { BlogComponent } from './pages/blog/blog.component';
     FontAwesomeModule,
     NgxExtendedPdfViewerModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule
   ],
-  providers: [ConstantsService],
+  providers: [
+    ConstantsService,
+    BlogsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

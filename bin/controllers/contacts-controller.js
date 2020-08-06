@@ -13,7 +13,7 @@ exports.list = async (req, res) => {
 
 exports.details = async (req, res) => {
     try {
-        const data = await repository.details(req.param('id'));
+        const data = await repository.details(req.params.id);
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({ message: 'Failed to load the contact info!' });
@@ -33,7 +33,8 @@ exports.create = async (req, res) => {
             name: req.body.name,
             email: req.body.email,
             subject: req.body.subject,
-            message: req.body.message
+            message: req.body.message,
+            date: Date.now()
         });
         return res.status(201).send({ message: 'Contact successfully registered!' });
     } catch (e) {

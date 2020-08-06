@@ -1,0 +1,24 @@
+<section class="container my-3">
+
+  <div *ngIf="blogs">
+    <div class="row my-5 text-center">
+      <div class="col">
+        <h4 class="display-4">
+          {{blogs.title}}
+        </h4>
+        <p class="text-muted">{{'<'+blogs.short_content+'/>'}}</p>
+        <hr />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div [innerHTML]="blogs.content"></div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="loading">
+    <app-loading></app-loading>
+  </div>
+
+</section>

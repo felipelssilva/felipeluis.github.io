@@ -3,6 +3,8 @@ const repository = require('../repositories/admins-repository');
 const passport = require("passport");
 const Admins = require('../models/admins');
 const LocalStrategy = require('passport-local').Strategy;
+const jwt = require('jsonwebtoken');
+const { verifyJWT } = require('../auth');
 
 // list
 exports.list = async (req, res) => {
@@ -28,8 +30,23 @@ exports.list = async (req, res) => {
 // };
 
 exports.isLoggedIn = function (req, res, next) {
-    if (req.isAuthenticated()) return next();
-    res.redirect("/secure/login");
+    if (req.isAuthenticated() && verifyJWT) return next();
+    res.redirect("/secure/logout");
+}
+
+exports.loggedinSuccess = function (req, res) {
+    const userId = req.user._id;
+    let token = jwt.sign({ userId }, process.env.SECRET, {
+        expiresIn: '1d'
+    });
+    res.setHeader('Set-Cookie', [`x-access-token=${token}`]);
+    return res.json({ auth: true, token: token });
+}
+
+exports.logout = function (req, res, next) {
+    req.logout();
+    res.setHeader('Set-Cookie', [`x-access-token=''`]);
+    res.redirect('/secure/login');
 }
 
 passport.serializeUser(function (username, done) {
@@ -46,7 +63,7 @@ passport.use(new LocalStrategy(async (username, password, done) => {
     const data = await repository.getUserByUsername(username, function (err, admin) {
         if (err) throw err;
         if (!admin) {
-            return done(null, false, { message: 'Usuário não existente.' });
+            return done(null, false, { message: 'Usuário ou senha não existentem.' });
         }
 
         repository.comparePassword(password, admin.password, function (err, isMatch) {
@@ -54,7 +71,7 @@ passport.use(new LocalStrategy(async (username, password, done) => {
             if (isMatch) {
                 return done(null, admin);
             } else {
-                return done(null, false, { message: 'Senha inválida' });
+                return done(null, false, { message: 'Usuário ou senha inválidos.' });
             }
         });
     });
