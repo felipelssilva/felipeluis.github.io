@@ -7,9 +7,9 @@ import { Graduations } from '../interfaces/graduations';
 @Injectable()
 export class ConstantsService {
   readonly author: string = 'Felipe Luis'
-  readonly title: string = 'Felipe Luis - SAP C/4HANA Front-end Developer';
-  readonly description: string = 'I\'m working on with development for SAP C/4HANA Front-end';
-  readonly keywords: string = 'job, dev, developer, freelancer, freela, web, desenvolvimento, front-end, frontend, sap, hybris, c4hana, hana, c4, c4 hana, jQuery, JavaScript, Vanilla, ES6, ES5, React, Angular, Grunt, Gulp, SASS, Less, CSS3';
+  readonly title: string = 'Felipe Luis - SAP C/4HANA Front-end Engineer';
+  readonly description: string = 'I\'m a front-end engineer SAP C/4HANA';
+  readonly keywords: string = 'job, dev, engineer, developer, freelancer, freela, web, desenvolvimento, front-end, frontend, sap, hybris, c4hana, hana, c4, c4 hana, jQuery, JavaScript, Vanilla, ES6, ES5, React, Angular, Grunt, Gulp, SASS, Less, CSS3';
   readonly urlBase: string = window.location.pathname;
   readonly actualUrl: string = window.location.href;
   readonly year: number = new Date().getFullYear();
