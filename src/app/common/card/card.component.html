@@ -1,30 +1,28 @@
-<div class="row d-flex justify-content-left cards-components">
-    <div class="col-xs-12 col-md-6 card-deck" *ngFor="let blog of data">
-        <div class="card mb-4 shadow-sm">
+<div class="row cards-components">
+    <div class="col-12" *ngFor="let blog of data">
+        <div class="card border-0">
             <!-- <div class="image"
                 style="background-image: -webkit-radial-gradient(90% 130%, circle cover, #50587b1c, #303549d6 100%), url('/assets/img/projects/');">
             </div> -->
             <!-- {{project.image}} -->
 
             <div class="card-body">
-                <h3>
-                    <a routerLink="/blog/{{blog._id}}/{{blog.permalink}}">
+                <a routerLink="/blog/{{blog._id}}/{{blog.permalink}}">
+                    <h1 class="font-weight-bold">
                         {{blog.title}}
-                    </a>
-                </h3>
-                <small class="text-muted">
-                    Created: {{blog.created_at | dateAgo}}
-                </small>
-                <small *ngIf="blog.updated_at" class="text-muted">
-                    | Updated: {{blog.updated_at | dateAgo}}
-                </small>
-                <hr />
-                <p class="pb-0 mb-0">{{'<'+blog.short_content+'/>'}}</p>
-            </div>
-            <div class="card-footer bg-transparent">
-                <a routerLink="/blog/{{blog._id}}/{{blog.permalink}}" class="btn btn-secondary">
-                    read more
+                    </h1>
                 </a>
+                <p class="text-muted">
+                    {{'<'+blog.short_content+'/>'}}
+                </p>
+                <p>
+                    <small *ngIf="!blog.updated_at" class="text-muted">
+                        Created: {{blog.created_at | dateAgo}}
+                    </small>
+                    <small *ngIf="blog.updated_at" class="text-muted">
+                        Updated: {{blog.updated_at | dateAgo}}
+                    </small>
+                </p>
             </div>
         </div>
     </div>

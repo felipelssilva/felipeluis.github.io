@@ -1,28 +1,33 @@
 <section class="container my-3">
   <div *ngIf="blogs">
-    <div class="row my-5 text-center">
+
+    <div class="row mt-5 mb-3 text-center">
       <div class="col">
-        <h4 class="display-4">
+        <h1 class="display-4 font-weight-bold">
           {{blogs.title}}
-        </h4>
+        </h1>
         <p class="text-muted">{{'<'+blogs.short_content+'/>'}}</p>
         <hr />
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div class="col-12 col-md-8 col-lg-9">
         <div [innerHTML]="blogs.content"></div>
+        <hr>
+
+        <disqus [identifier]="blogsId" [title]="blogsTitle" [url]="getUrl()"></disqus>
+
       </div>
+      <aside class="col-12 col-md-4 col-lg-3">
+        lateral
+      </aside>
     </div>
+
   </div>
 
-
-
   <div *ngIf="loading">
-    <!-- <app-loading></app-loading> -->
-
-    <ngx-content-loading [speed]="'1500ms'" [width]="1000" [height]="400" [primaryColor]="'#ccc'"
-      [secondaryColor]="'#ddd'">
+    <ngx-content-loading class="d-block d-md-none" [speed]="'1500ms'" [width]="400" [height]="400"
+      [primaryColor]="'#ccc'" [secondaryColor]="'#ddd'">
       <svg:g ngx-rect width="100%" height="30" y="60" x="0" rx="10" ry="10"></svg:g>
       <svg:g ngx-rect width="50%" height="30" y="100" x="25%" rx="10" ry="10"></svg:g>
       <svg:g ngx-rect width="20%" height="6" y="140" x="41%" rx="5" ry="5"></svg:g>
@@ -32,8 +37,23 @@
       <svg:g ngx-rect width="70%" height="6" y="220" x="0" rx="5" ry="5"></svg:g>
       <svg:g ngx-rect width="97%" height="6" y="240" x="0" rx="5" ry="5"></svg:g>
       <svg:g ngx-rect width="50%" height="6" y="260" x="0" rx="5" ry="5"></svg:g>
-      <svg:g ngx-rect width="80%" height="6" y="380" x="0" rx="5" ry="5"></svg:g>
+      <svg:g ngx-rect width="80%" height="6" y="280" x="0" rx="5" ry="5"></svg:g>
     </ngx-content-loading>
+
+    <ngx-content-loading class="d-none d-md-block" [speed]="'1500ms'" [width]="1000" [height]="400"
+      [primaryColor]="'#ccc'" [secondaryColor]="'#ddd'">
+      <svg:g ngx-rect width="100%" height="30" y="60" x="0" rx="10" ry="10"></svg:g>
+      <svg:g ngx-rect width="50%" height="30" y="100" x="25%" rx="10" ry="10"></svg:g>
+      <svg:g ngx-rect width="20%" height="6" y="140" x="41%" rx="5" ry="5"></svg:g>
+      <svg:g ngx-rect width="100%" height="2" y="160" x="0" rx="5" ry="5"></svg:g>
+      <svg:g ngx-rect width="100%" height="6" y="180" x="0" rx="5" ry="5"></svg:g>
+      <svg:g ngx-rect width="97%" height="6" y="200" x="0" rx="5" ry="5"></svg:g>
+      <svg:g ngx-rect width="70%" height="6" y="220" x="0" rx="5" ry="5"></svg:g>
+      <svg:g ngx-rect width="97%" height="6" y="240" x="0" rx="5" ry="5"></svg:g>
+      <svg:g ngx-rect width="50%" height="6" y="260" x="0" rx="5" ry="5"></svg:g>
+      <svg:g ngx-rect width="80%" height="6" y="280" x="0" rx="5" ry="5"></svg:g>
+    </ngx-content-loading>
+
   </div>
 
 </section>

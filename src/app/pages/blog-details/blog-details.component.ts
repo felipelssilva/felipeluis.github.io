@@ -12,7 +12,8 @@ export class BlogDetailsComponent implements OnInit {
   loading: Boolean;
   id: String;
   blogs: Blogs;
-  //faCircleNotch = faCircleNotch;
+  blogsId: String;
+  blogsTitle: String;
 
   constructor(
     private route: ActivatedRoute,
@@ -28,8 +29,13 @@ export class BlogDetailsComponent implements OnInit {
       .subscribe(blogs => {
         this.loading = false;
         this.blogs = blogs;
+        this.blogsId = blogs.id
+        this.blogsTitle = blogs.title
       });
+  }
 
+  getUrl(): string {
+    return window.location.href;
   }
 
 }

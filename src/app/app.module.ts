@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from "@angular/common";
 import { NgxContentLoadingModule } from 'ngx-content-loading';
+import { DisqusModule } from "ngx-disqus";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -64,7 +65,8 @@ import { CardComponent } from './common/card/card.component';
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
-    NgxContentLoadingModule
+    NgxContentLoadingModule,
+    DisqusModule.forRoot('felipeluis')
   ],
   providers: [
     ConstantsService,
