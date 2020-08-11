@@ -2,10 +2,14 @@
   <h4 class="display-4 p-0 m-0">Blog</h4>
 </section>
 
-<section class="container mb-3">
+<a (click)="scrollToPosts($event)" href="#">
+  <fa-icon [icon]="faAngleDown" size="3x" class="down-icon text-white" title="read more"></fa-icon>
+</a>
+
+<section class="container mb-3 blogs-list">
   <div class="row">
     <div class="col-12 col-md-8 col-lg-9">
-      
+
       <div *ngIf="blogs?.length === 0">
         <fa-icon [icon]="faExclamation" size="10x" class="info-icon user-select-none"></fa-icon>
         <h5 class="mx-4 py-5">I'm still working on the posts, we'll have content here soon.</h5>
@@ -19,7 +23,7 @@
 
     </div>
     <aside class="col-12 col-md-4 col-lg-3">
-      lateral
+      <app-blogs-side></app-blogs-side>
     </aside>
   </div>
 </section>

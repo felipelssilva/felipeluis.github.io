@@ -31,10 +31,10 @@ export class DateAgoPipe implements PipeTransform {
         if (counter > 0) {
           if (counter === 1) {
             return counter + ' ' + i + ' ago'; // singular (1 day ago)
-          } else if (counter > 1 && counter < 3) {
-            return counter + ' ' + i + 's ago'; // plural (2 days ago)
+          // } else if (counter > 1 && counter < 3) {
           } else {
-            return new Date(value); // date
+            return counter + ' ' + i + 's ago'; // plural (2 days ago)
+          //   return new Date(value); // date
           }
         }
       }

@@ -1,7 +1,6 @@
-<section class="container my-3">
+<section class="container my-3 blog-details-section">
   <div *ngIf="blogs">
-
-    <div class="row mt-5 mb-3 text-center">
+    <div class="row mt-5 mb-3 text-center title">
       <div class="col">
         <h1 class="display-4 font-weight-bold">
           {{blogs.title}}
@@ -10,7 +9,7 @@
         <hr />
       </div>
     </div>
-    <div class="row">
+    <div class="row content">
       <div class="col-12 col-md-8 col-lg-9">
         <div [innerHTML]="blogs.content"></div>
         <hr>
@@ -19,7 +18,7 @@
 
       </div>
       <aside class="col-12 col-md-4 col-lg-3">
-        lateral
+        <app-blogs-side></app-blogs-side>
       </aside>
     </div>
 

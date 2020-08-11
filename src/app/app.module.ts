@@ -34,6 +34,7 @@ import { BlogDetailsComponent } from './pages/blog-details/blog-details.componen
 import { DateAgoPipe } from './common/pipes/date-ago.pipe';
 import { LoadingComponent } from './common/loading/loading.component';
 import { CardComponent } from './common/card/card.component';
+import { BlogsSideComponent } from './common/blogs-side/blogs-side.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { CardComponent } from './common/card/card.component';
     BlogDetailsComponent,
     DateAgoPipe,
     LoadingComponent,
-    CardComponent
+    CardComponent,
+    BlogsSideComponent
   ],
   imports: [
     BrowserModule,
