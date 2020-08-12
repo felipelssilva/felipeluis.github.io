@@ -1,13 +1,12 @@
-<section class="mb-5 d-flex justify-content-center  align-items-center title">
-  <h4 class="display-4 p-0 m-0">Blog</h4>
-</section>
+<section class="container mb-3">
+  <div class="row my-5 text-center">
+    <div class="col">
+      <h4 class="display-4">Blog</h4>
+      <hr />
+    </div>
+  </div>
 
-<a (click)="scrollToPosts($event)" href="#">
-  <fa-icon [icon]="faAngleDown" size="3x" class="down-icon text-white" title="read more"></fa-icon>
-</a>
-
-<section class="container mb-3 blogs-list">
-  <div class="row">
+  <div class="row  blogs-list">
     <div class="col-12 col-md-8 col-lg-9">
 
       <div *ngIf="blogs?.length === 0">

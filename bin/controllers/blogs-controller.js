@@ -31,7 +31,7 @@ exports.details = async (req, res) => {
         const data = await repository.details(req.params.id);
         res.status(200).send(data);
     } catch (e) {
-        res.status(500).send({ message: 'Failed to load the blog info!' });
+        res.status(500).send({ error: true, message: 'Failed to load the blog info!' });
     }
 };
 

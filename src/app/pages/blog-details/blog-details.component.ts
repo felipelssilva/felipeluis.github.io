@@ -10,6 +10,7 @@ import { BlogsService } from '../../common/services/blogs.service';
 })
 export class BlogDetailsComponent implements OnInit {
   loading: Boolean;
+  error: String;
   id: String;
   blogs: Blogs;
   blogsId: String;
@@ -31,7 +32,12 @@ export class BlogDetailsComponent implements OnInit {
         this.blogs = blogs;
         this.blogsId = blogs.id
         this.blogsTitle = blogs.title
-      });
+      },
+        e => {
+          this.loading = false;
+          this.error = 'error message';
+        }
+      );
   }
 
   getUrl(): string {
