@@ -1,5 +1,5 @@
 <div class="row cards-components">
-    <div class="col-12" *ngFor="let blog of data">
+    <div class="col-12" *ngFor="let blog of data | slice:0:20">
         <div class="card border-0">
             <!-- <div class="image"
                 style="background-image: -webkit-radial-gradient(90% 130%, circle cover, #50587b1c, #303549d6 100%), url('/assets/img/projects/');">

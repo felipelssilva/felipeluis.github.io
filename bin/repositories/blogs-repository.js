@@ -6,6 +6,13 @@ exports.list = async () => {
   return res;
 };
 
+exports.lastsPosts = async () => {
+  const res = await Blogs
+    .find({ deleted_at: { $exists: false } }, 'title permalink')
+    .sort([['created_at', -1]]);
+  return res;
+};
+
 exports.page = async () => {
   const res = await Blogs
     .find({ deleted_at: { $exists: false } }, 'title permalink short_content created_at updated_at deleted_at')

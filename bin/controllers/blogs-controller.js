@@ -10,6 +10,15 @@ exports.list = async (req, res) => {
     }
 };
 
+exports.lastsPosts = async (req, res) => {
+    try {
+        const data = await repository.lastsPosts();
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({ message: 'Failed to load more post!' });
+    }
+};
+
 exports.page = async (req, res) => {
     try {
         const data = await repository.page();
