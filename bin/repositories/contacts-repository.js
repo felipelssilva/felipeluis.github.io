@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Contacts = mongoose.model('Contacts');
 
 exports.list = async () => {
-  const res = await Contacts.find({}, 'name email subject message');
+  const res = await Contacts.find({}, 'name email subject message date');
   return res;
 };
 

@@ -1,7 +1,7 @@
 // Variables
 
 @theme-primary: #303549;
-@theme-dark: #222222;
+@theme-dark   : #222222;
 
 
 
@@ -10,21 +10,21 @@
 
 .transition-all() {
     -webkit-transition: all 0.35s;
-    -moz-transition: all 0.35s;
-    transition: all 0.35s;
+    -moz-transition   : all 0.35s;
+    transition        : all 0.35s;
 }
 
 .background-cover() {
     -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    -moz-background-size   : cover;
+    background-size        : cover;
+    -o-background-size     : cover;
 }
 
 .button-variant(@color; @background; @border) {
-    color: @color;
+    color           : @color;
     background-color: @background;
-    border-color: @border;
+    border-color    : @border;
     .transition-all;
 
     &:hover,
@@ -32,19 +32,22 @@
     &.focus,
     &:active,
     &.active,
-    .open > .dropdown-toggle& {
-        color: @color;
+    .open>.dropdown-toggle& {
+        color           : @color;
         background-color: darken(@background, 5%);
-        border-color: darken(@border, 7%);
+        border-color    : darken(@border, 7%);
     }
+
     &:active,
     &.active,
-    .open > .dropdown-toggle& {
+    .open>.dropdown-toggle& {
         background-image: none;
     }
+
     &.disabled,
     &[disabled],
     fieldset[disabled] & {
+
         &,
         &:hover,
         &:focus,
@@ -52,12 +55,12 @@
         &:active,
         &.active {
             background-color: @background;
-            border-color: @border;
+            border-color    : @border;
         }
     }
 
     .badge {
-        color: @background;
+        color           : @background;
         background-color: @color;
     }
 }
@@ -408,19 +411,29 @@ body {
     }
 
     .carousel-caption {
-      @media (min-width: 768px) {
-        margin-bottom: 100px;
-      }
+        @media (min-width: 768px) {
+            margin-bottom: 100px;
+        }
     }
 
     .btn-primary {
-      background-color: #303549;
-      background-image: -webkit-radial-gradient(90% 130%, circle cover, #50587b, #303549 100%);
+        background-color: #303549;
+        background-image: -webkit-radial-gradient(90% 130%, circle cover, #50587b, #303549 100%);
 
-      &:hover {
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-      }
+        &:hover {
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        }
     }
+
+
+    .carousel-item {
+        &.active {
+            >img {
+                filter: brightness(0.3) blur(1.1px);
+            }
+        }
+    }
+
 }
 
 #social-medias {
@@ -432,7 +445,7 @@ body {
     }
 
     .row {
-        display: flex;
+        display        : flex;
         justify-content: center;
     }
 
@@ -456,78 +469,78 @@ body {
     }
 
     .title {
-      h2 {
-        font-size: 150px;
-        line-height: 125px;
-        font-weight: bold;
-        color: #4b5373;
-        opacity: .5;
+        h2 {
+            font-size  : 150px;
+            line-height: 125px;
+            font-weight: bold;
+            color      : #4b5373;
+            opacity    : .5;
 
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: -moz-none;
-        -o-user-select: none;
-        user-select: none;
-      }
+            -webkit-user-select: none;
+            -khtml-user-select : none;
+            -moz-user-select   : -moz-none;
+            -o-user-select     : none;
+            user-select        : none;
+        }
 
-      position: absolute;
+        position: absolute;
 
-      transform: translate(-50%, -35%);
+        transform: translate(-50%, -35%);
 
-      @media all and (min-wdth: 1400px) {
-        transform: translate(-100%, -35%);
-      }
+        @media all and (min-wdth: 1400px) {
+            transform: translate(-100%, -35%);
+        }
 
-      width: 100px;
-      z-index: 10;
+        width  : 100px;
+        z-index: 10;
     }
 
     .content {
-      &>div {
-        z-index: 11;
-      }
+        &>div {
+            z-index: 11;
+        }
     }
 }
 
 #contact {
-  background-color: #ffffff;
-  background-image: -webkit-radial-gradient(90% 130%, circle cover, #d5d6dc, #ffffff 100%);
+    background-color: #ffffff;
+    background-image: -webkit-radial-gradient(90% 130%, circle cover, #d5d6dc, #ffffff 100%);
 }
 
 #about-me {
-  background-color: #ffffff;
-  background-image: -webkit-radial-gradient(90% 130%, circle cover, #f7f7f7, #ffffff 100%);
+    background-color: #ffffff;
+    background-image: -webkit-radial-gradient(90% 130%, circle cover, #f7f7f7, #ffffff 100%);
 
-  .title {
-    h2 {
-      font-size: 150px;
-      line-height: 125px;
-      font-weight: bold;
-      color: #4b5373;
-      opacity: .2;
+    .title {
+        h2 {
+            font-size  : 150px;
+            line-height: 125px;
+            font-weight: bold;
+            color      : #4b5373;
+            opacity    : .2;
 
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: -moz-none;
-      -o-user-select: none;
-      user-select: none;
+            -webkit-user-select: none;
+            -khtml-user-select : none;
+            -moz-user-select   : -moz-none;
+            -o-user-select     : none;
+            user-select        : none;
+        }
+
+        position: absolute;
+
+        transform: translate(-50%, -15%);
+
+        @media all and (min-wdth: 1400px) {
+            transform: translate(-100%, -15%);
+        }
+
+        width  : 100px;
+        z-index: 10;
     }
 
-    position: absolute;
-
-    transform: translate(-50%, -15%);
-
-    @media all and (min-wdth: 1400px) {
-      transform: translate(-100%, -15%);
+    .content {
+        &>div {
+            z-index: 11;
+        }
     }
-
-    width: 100px;
-    z-index: 10;
-  }
-
-  .content {
-    &>div {
-      z-index: 11;
-    }
-  }
 }

@@ -1,13 +1,28 @@
-<section class="container my-3">
-    <div class="row my-5 text-center">
-      <div class="col">
-        <h4 class="display-4">Blog</h4>
-        <hr />
-      </div>
+<section class="container mb-3">
+  <div class="row my-5 text-center">
+    <div class="col">
+      <h4 class="display-4">Blog</h4>
+      <hr />
     </div>
-    <div class="row">
-      <div class="col">
-          Comming soon my blog.
+  </div>
+
+  <div class="row  blogs-list">
+    <div class="col-12 col-md-8 col-lg-9">
+
+      <div *ngIf="blogs?.length === 0">
+        <fa-icon [icon]="faExclamation" size="10x" class="info-icon user-select-none"></fa-icon>
+        <h5 class="mx-4 py-5">I'm still working on the posts, we'll have content here soon.</h5>
       </div>
+
+      <app-card [data]="blogs"></app-card>
+
+      <div *ngIf="loading">
+        <app-loading></app-loading>
+      </div>
+
     </div>
-  </section>
+    <aside class="col-12 col-md-4 col-lg-3">
+      <app-blogs-side></app-blogs-side>
+    </aside>
+  </div>
+</section>

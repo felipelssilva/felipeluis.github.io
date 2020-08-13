@@ -1,0 +1,29 @@
+<div class="row cards-components">
+    <div class="col-12" *ngFor="let blog of data">
+        <div class="card border-0">
+            <!-- <div class="image"
+                style="background-image: -webkit-radial-gradient(90% 130%, circle cover, #50587b1c, #303549d6 100%), url('/assets/img/projects/');">
+            </div> -->
+            <!-- {{project.image}} -->
+
+            <div class="card-body">
+                <a routerLink="/blog/{{blog._id}}/{{blog.permalink}}">
+                    <h1 class="font-weight-bold">
+                        {{blog.title}}
+                    </h1>
+                </a>
+                <p class="text-muted">
+                    {{'<'+blog.short_content+'/>'}}
+                </p>
+                <p>
+                    <small *ngIf="!blog.updated_at" class="text-muted">
+                        Created: {{blog.created_at | dateAgo}}
+                    </small>
+                    <small *ngIf="blog.updated_at" class="text-muted">
+                        Updated: {{blog.updated_at | dateAgo}}
+                    </small>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
