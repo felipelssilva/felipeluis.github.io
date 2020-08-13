@@ -4,27 +4,24 @@
 </div>
 
 <div class="p-4 mb-3 bg-light rounded">
-    <h4 class="font-italic">More post's</h4>
-    <ol class="list-unstyled mb-0">
-        <li><a routerLink="/blog/5f2c63961beeee270370c08c/fh-company">FH Company</a></li>
-        <li><a routerLink="/blog/5f2c66201beeee270370c08d/sap-hybris-what-is-it-">SAP Hybris what is it?</a></li>
-    </ol>
-</div>
+    <h4 class="font-italic">Latest posts</h4>
 
-<!-- <div class="p-4">
-    <h4 class="font-italic">Archives</h4>
-    <ol class="list-unstyled mb-0">
-        <li><a href="#">March 2014</a></li>
-        <li><a href="#">February 2014</a></li>
-        <li><a href="#">January 2014</a></li>
-        <li><a href="#">December 2013</a></li>
-        <li><a href="#">November 2013</a></li>
-        <li><a href="#">October 2013</a></li>
-        <li><a href="#">September 2013</a></li>
-        <li><a href="#">August 2013</a></li>
-        <li><a href="#">July 2013</a></li>
-        <li><a href="#">June 2013</a></li>
-        <li><a href="#">May 2013</a></li>
-        <li><a href="#">April 2013</a></li>
+    <ol class="list-unstyled mt-3 mb-0" *ngIf="!error && !loading">
+        <li *ngFor="let blog of blogs | slice:0:5">
+            <a href="/blog/{{blog._id}}/{{blog.permalink}}">
+                {{blog.title}}
+            </a>
+        </li>
     </ol>
-</div> -->
+
+    <div *ngIf="!!error">
+        <small>
+            <strong>Sorry, something went wrong</strong> <br>
+            Please, refresh the page or click <a (click)="refreshPosts($event)" href="#">here</a>
+        </small>
+    </div>
+
+    <div *ngIf="loading && !error" class="p-4">
+        <app-loading></app-loading>
+    </div>
+</div>

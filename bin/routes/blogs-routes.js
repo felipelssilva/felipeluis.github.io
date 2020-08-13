@@ -8,6 +8,7 @@ const { verifyJWT } = require('../auth');
 
 router
     .get('/', blogsController.page)
+    .get('/lasts-posts', blogsController.lastsPosts)
     .get('/:id', blogsController.details)
     .get('/:id/edit', verifyJWT, blogsController.details)
     .delete('/:id', verifyJWT, blogsController.delete)

@@ -10,7 +10,7 @@ import { BlogsService } from '../../common/services/blogs.service';
 })
 export class BlogDetailsComponent implements OnInit {
   loading: Boolean;
-  error: String;
+  error: Boolean;
   id: String;
   blogs: Blogs;
   blogsId: String;
@@ -23,6 +23,7 @@ export class BlogDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = true;
+    this.error = false;
     this.id = this.route.snapshot.params.id;
 
     this.blogsService
@@ -35,7 +36,7 @@ export class BlogDetailsComponent implements OnInit {
       },
         e => {
           this.loading = false;
-          this.error = 'error message';
+          this.error = true;
         }
       );
   }

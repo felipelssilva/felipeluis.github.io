@@ -15,4 +15,8 @@ export class BlogsService {
     listBlog() {
         return this.http.get<Blogs>('/api/blogs');
     }
+
+    lastsPosts() {
+        return this.http.get<Blogs>('/api/blogs/lasts-posts');
+    }
 }
