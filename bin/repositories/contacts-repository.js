@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 const Contacts = mongoose.model('Contacts');
 
 exports.list = async () => {
-  const res = await Contacts.find({}, 'name email subject message date');
+  const res = await Contacts
+    .find({}, 'name email subject message date')
+    .sort([['date', -1]]);
   return res;
 };
 
