@@ -14,6 +14,7 @@ const env = process.env.NODE_ENV
 const Contacts = require('./models/contacts');
 const Admins = require("./models/admins");
 const Blogs = require("./models/blogs");
+const Abouts = require("./models/about");
 
 // App
 const app = express();
@@ -49,6 +50,7 @@ const secureRoutes = require('./routes/secure-routes');
 const apiRoutes = require('./routes/api-routes');
 const contactsRoutes = require('./routes/contacts-routes');
 const blogsRoutes = require('./routes/blogs-routes');
+const aboutRoutes = require('./routes/about-routes');
 
 app.use(express.static(`dist/${nomeApp}`));
 app.use('/', indexRoutes);
@@ -57,6 +59,7 @@ app.use('/secure', secureRoutes);
 app.use('/api', apiRoutes);
 app.use('/api/contacts', contactsRoutes);
 app.use('/api/blogs', blogsRoutes);
+app.use('/api/about', aboutRoutes);
 
 app.use('/secure/*', (req, res) => {
     res.status(404).render(path.resolve(`bin/views/index`),
