@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Abouts = mongoose.model('Abouts');
 
 exports.list = async () => {
-  const res = await Abouts.find({}, 'description updated_at -_id');
+  const res = await Abouts.find({}, 'description updated_at');
   return res;
 };
 

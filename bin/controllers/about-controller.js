@@ -21,9 +21,11 @@ exports.details = async (req, res) => {
 exports.saving = async (req, res) => {
     try {
         await repository.saving({
-            description: req.body.description
+            id: req.params.id,
+            description: req.body.description,
+            updated_at: Date.now()
         });
-        res.status(200).send({ message: `About me (${req.body.description}) successfully updated!` });
+        res.status(200).send({ message: `About me successfully updated!` });
     } catch (e) {
         res.status(500).send({ message: 'Failed to save the about me! - ' + e });
     }
