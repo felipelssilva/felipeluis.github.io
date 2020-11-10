@@ -12,12 +12,15 @@ export class AboutMeComponentPage implements OnInit {
   certificates: Certificates[];
   graduations: Graduations[];
 
-  constructor(private _constant: ConstantsService) {
+  constructor(
+    private _constant: ConstantsService,
+  ) {
     this.certificates = this._constant.certificates;
     this.graduations = this._constant.graduations;
   }
 
   ngOnInit(): void {
   }
+
 
 }

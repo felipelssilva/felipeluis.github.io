@@ -47,6 +47,12 @@ router
             { user: req.user, page: 'blog-add' }
         )
     })
+    .get("/configurations", adminsController.isLoggedIn, (req, res) => {
+        res.render(
+            path.resolve(`bin/views/index.ejs`),
+            { user: req.user, page: 'configurations' }
+        )
+    })
     .get("/login", (req, res) => {
         res.render(
             path.resolve(`bin/views/index.ejs`),

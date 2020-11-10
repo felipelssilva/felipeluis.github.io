@@ -1,7 +1,20 @@
-<p class="lead">I'm a front-end engineer at <a routerLink="/blog/5f2c63961beeee270370c08c/fh-company">FH Company</a>, today I
-  develop projects using the <a routerLink="/blog/5f2c66201beeee270370c08d/sap-hybris-what-is-it-">SAP C/4HANA</a> platform (old name Hybris).</p>
-<p class="lead">jQuery, JavaScript (Vanilla, ES6), React, Angular, Grunt, Gulp, SASS, Less, CSS3, HTML5 are some of the
-  programming languages that ​​I've worked on.</p>
+
+<div *ngIf="!error && !loading">
+  <div *ngFor="let am of aboutMe">
+    <div [innerHTML]="am.description"></div>
+  </div>
+</div>
+
+<div *ngIf="!!error">
+  <small>
+    <strong>Sorry, something went wrong</strong> <br>
+    Please, refresh the page or click <a (click)="refreshPosts($event)" href="#">here</a>
+  </small>
+</div>
+
+<div *ngIf="loading && !error" class="p-4">
+  <app-loading></app-loading>
+</div>
 
 <ng-template [ngIf]="!isForPage">
   <a routerLink="/about-me" class="btn btn-primary btn-lg">See more about me</a>
