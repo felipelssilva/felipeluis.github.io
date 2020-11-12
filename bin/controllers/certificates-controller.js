@@ -71,6 +71,7 @@ exports.create = async (req, res) => {
             name: req.body.name,
             url: req.body.url,
             description: req.body.description,
+            img: req.body.img,
             order: 1,
             created_at: Date.now()
         });

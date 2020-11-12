@@ -66,7 +66,7 @@ function send() {
     data = {
         name: $form.find('input[name=name]').val().trim(),
         url: $form.find('input[name=url]').val().trim(),
-        img: imageUrl,
+        img: _self.imageUrl,
         description: tinymce.activeEditor.getContent(),
     };
     
