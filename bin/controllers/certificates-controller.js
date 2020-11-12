@@ -1,7 +1,5 @@
 const { validationResult } = require('express-validator');
 const repository = require('../repositories/certificates-repository');
-const formidable = require('formidable');
-const fs = require('fs');
 
 exports.list = async (req, res) => {
     try {
