@@ -64,8 +64,8 @@
         let message = '';
 
         if (handler.type === 'error') {
-            if (typeof handler.data.message !== 'string') {
-                handler.data.message.forEach(element => {
+            if (typeof handler.data.responseJSON.message !== 'string') {
+                handler.data.responseJSON.message.forEach(element => {
                     message += `<li>${element.msg}</li>`;
                 });
             } else {

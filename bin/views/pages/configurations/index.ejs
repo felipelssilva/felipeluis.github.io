@@ -38,6 +38,7 @@
                 data.forEach(element => {
                     html = `
                     <label for="aboutme">Sobre min</label>
+                    <input type="hidden" value="${element._id}" id="id" name="id">
                     <textarea class="form-control" id="aboutme" name="aboutme">
                         ${element.description}
                     </textarea>
@@ -64,7 +65,8 @@
                     a11y_advanced_options: true,
                 });
 
-                $doc.on('submit', 'form', e => save(e));
+                $(handlers.container).attr('data-type', 'about-me-save');
+                handlers.doc.on('submit', 'form', e => save(e, handlers));
 
 
             })
@@ -77,7 +79,7 @@
     }
 
     function getApiUrl(handlers) {
-        let type = $(handlers.container).data('type'),
+        let type = $('.js-about-me').attr('data-type'),
             url = '';
 
         switch (type) {
@@ -85,7 +87,7 @@
                 url = '/api/about';
                 break;
             case 'about-me-save':
-                url = '/api/about/id/save';
+                url = `/api/about/${handlers.id}/save`;
                 break;
             default:
                 url = '';
@@ -95,17 +97,20 @@
         return url;
     }
 
-    function save(evt) {
+    function save(evt, handlers) {
         evt.stopPropagation();
         evt.preventDefault();
 
-        const _doc = $(document),
-            _self = this,
-            $form = _doc.find('form'),
+        const _self = this,
+            $form = handlers.doc.find('form'),
             data = {
-                id: $form.find('input[name=id]').val().trim(),
                 description: tinymce.activeEditor.getContent()
             };
+
+        handlers.id = $form.find('input[name=id]').val().trim();
+
+        $form.find('button.js-save-about-me').attr('disabled', true);
+        $form.find('button.js-save-about-me').append('<span>&nbsp;<i class="fas fa-circle-notch fa-spin"></i></span>');
 
         $.ajax({
             type: 'PUT',
@@ -128,6 +133,8 @@
                 toast({ data: err, type: 'error' });
             })
             .always(function () {
+                $form.find('button.js-save-about-me').removeAttr('disabled');
+                $form.find('button.js-save-about-me span').remove();
             });
 
     }
