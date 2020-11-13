@@ -36,6 +36,14 @@
 <%- include('pages/certificates/index') %>
 <% } %>
   
+<% if(page == "certificates-details"){ %>
+<%- include('pages/certificates/details') %>
+<% } %>
+
+<% if(page == "certificates-edit"){ %>
+<%- include('pages/certificates/edit') %>
+<% } %>
+
 <% if(page == "certificates-add"){ %>
 <%- include('pages/certificates/add') %>
 <% } %>

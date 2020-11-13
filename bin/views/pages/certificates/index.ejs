@@ -83,8 +83,8 @@
 
     function getHtmlActions(data) {
         const btn = `
-            <a class="btn btn-link" href="/secure/certificates/${data._id}" title="Abrir"><i class="far fa-eye"></i></a>
-            <a class="btn btn-link" href="/secure/certificates/${data._id}/edit" title="Editar"><i class="far fa-edit"></i></a>
+            <a class="btn btn-link" href="/secure/certificate/${data._id}" title="Abrir"><i class="far fa-eye"></i></a>
+            <a class="btn btn-link" href="/secure/certificate/${data._id}/edit" title="Editar"><i class="far fa-edit"></i></a>
             <a class="btn btn-link text-danger ${!!data.deleted_at ? 'd-none' : ''}" href="#" title="Deletar" data-toggle="modal" data-target="#deleteModal_${data._id}" >
                 <i class="far fa-trash-alt"></i>
             </a>

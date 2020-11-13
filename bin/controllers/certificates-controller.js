@@ -29,18 +29,24 @@ exports.details = async (req, res) => {
 };
 
 exports.saving = async (req, res) => {
+    const { errors } = validationResult(req);
+
+    if (errors.length > 0) {
+        return res.status(400).send({ message: errors })
+    }
+
     try {
         await repository.saving({
             name: req.body.name,
             url: req.body.url,
-            img: req.body.img,
             description: req.body.description,
-            order: 1,
+            img: req.body.img,
+            order: 2,
             updated_at: Date.now()
         });
-        res.status(200).send({ message: `Certificates (${req.body.name}) successfully updated!` });
+        return res.status(200).send({ message: `Certificates (${req.body.name}) successfully updated!` });
     } catch (e) {
-        res.status(500).send({ message: 'Failed to save the certificates info! - ' + e });
+        return res.status(500).send({ message: 'Failed to save the certificates info! - ' + e });
     }
 };
 
@@ -79,5 +85,4 @@ exports.create = async (req, res) => {
     } catch (e) {
         return res.status(500).send({ message: 'Failed to register certificate.' });
     }
-
 };
