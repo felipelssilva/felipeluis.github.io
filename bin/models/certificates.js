@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const schema = new Schema({
   name: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
   url: {
     type: String,
@@ -14,7 +15,7 @@ const schema = new Schema({
     type: String
   },
   order: {
-    type: Number
+    type: String
   },
   description: {
     type: String,
@@ -24,6 +25,9 @@ const schema = new Schema({
     type: Date
   },
   updated_at: {
+    type: Date
+  },
+  deleted_at: {
     type: Date
   }
 });

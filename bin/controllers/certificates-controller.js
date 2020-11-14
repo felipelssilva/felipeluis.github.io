@@ -29,14 +29,9 @@ exports.details = async (req, res) => {
 };
 
 exports.saving = async (req, res) => {
-    const { errors } = validationResult(req);
-
-    if (errors.length > 0) {
-        return res.status(400).send({ message: errors })
-    }
-
     try {
         await repository.saving({
+            id: req.params.id,
             name: req.body.name,
             url: req.body.url,
             description: req.body.description,
@@ -44,9 +39,9 @@ exports.saving = async (req, res) => {
             order: 2,
             updated_at: Date.now()
         });
-        return res.status(200).send({ message: `Certificates (${req.body.name}) successfully updated!` });
+        res.status(200).send({ message: `Certificates (${req.body.name}) successfully updated!` });
     } catch (e) {
-        return res.status(500).send({ message: 'Failed to save the certificates info! - ' + e });
+        res.status(500).send({ message: 'Failed to save the certificates info! - ' + e });
     }
 };
 
