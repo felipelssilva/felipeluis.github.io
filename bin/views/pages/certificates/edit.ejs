@@ -92,9 +92,9 @@
                             <input type="text" class="form-control" id="url" name="url" value="${handler.url}">
                         </div>
                         <div class="form-group">
-                            <p><img src="${handler.img}"/></p>
+                            <p><img src="${!handler.img ? "https://via.placeholder.com/300x300" : handler.img}"  width="300" /></p>
                             <label for="title">Imagem</label>
-                            <input type="file" id="img" name="img">
+                            <input type="file" class="form-control" id="img" name="img">
                         </div>
                         <div class="form-group">
                             <label for="content">Descrição</label>
@@ -126,18 +126,20 @@
     function uploadImage() {
         const self = this;
         let photo = document.getElementById("img").files[0];
-        let formData = new FormData();
-        
-        formData.append("image", photo, photo.name);
-        
-        fetch('/api/upload/image', {method: "POST", body: formData})
-        .then(res => res.json())
-        .then(res => {
-            self.imageHasUploaded = true;
-            self.imageUrl = res.image_url;
-            self.send();
-        })
-        .catch(err => imageHasUploaded = false);
+
+        if(!!photo) {
+            let formData = new FormData();
+            formData.append("image", photo, photo.name);
+            
+            fetch('/api/upload/image', {method: "POST", body: formData})
+            .then(res => res.json())
+            .then(res => {
+                self.imageHasUploaded = true;
+                self.imageUrl = res.image_url;
+                self.send();
+            })
+            .catch(err => imageHasUploaded = false);
+        }
     }
 
     function send() {

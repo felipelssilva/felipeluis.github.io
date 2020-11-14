@@ -15,7 +15,7 @@ const schema = new Schema({
     type: String
   },
   order: {
-    type: String
+    type: Number
   },
   description: {
     type: String,

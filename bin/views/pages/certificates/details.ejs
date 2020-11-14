@@ -39,6 +39,7 @@
             minute: '2-digit',
         };
         let created_at = new Date(handler.created_at).toLocaleDateString('pt-br', options);
+        let updated_at = !! handler.updated_at ? new Date(handler.updated_at).toLocaleDateString('pt-br', options) : '';
 
         const html = `
             <div class="card">
