@@ -18,6 +18,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { ConstantsService } from './common/services/constants.service';
 import { BlogsService } from './common/services/blogs.service';
 import { AboutMeService } from './common/services/aboutme.service';
+import { CertificatesService } from './common/services/certificates.service';
 
 import { AboutMeComponent } from './common/about-me/about-me.component';
 import { ContactFormComponent } from './common/contact-form/contact-form.component';
@@ -36,6 +37,7 @@ import { DateAgoPipe } from './common/pipes/date-ago.pipe';
 import { LoadingComponent } from './common/loading/loading.component';
 import { CardComponent } from './common/card/card.component';
 import { BlogsSideComponent } from './common/blogs-side/blogs-side.component';
+import { CertificatesComponent } from './common/certificates/certificates.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,8 @@ import { BlogsSideComponent } from './common/blogs-side/blogs-side.component';
     DateAgoPipe,
     LoadingComponent,
     CardComponent,
-    BlogsSideComponent
+    BlogsSideComponent,
+    CertificatesComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +77,8 @@ import { BlogsSideComponent } from './common/blogs-side/blogs-side.component';
   providers: [
     ConstantsService,
     BlogsService,
-    AboutMeService
+    AboutMeService,
+    CertificatesService
   ],
   bootstrap: [AppComponent]
 })

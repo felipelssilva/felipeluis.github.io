@@ -1,0 +1,30 @@
+<div *ngIf="!error && !loading">
+    <div class="row row-cols-1 row-cols-md-4">
+        <div class="col mb-4" *ngFor="let certificate of certificates; let i = index">
+            <div class="card h-100">
+                <a href="{{certificate.url}}" target="_blank">
+                    <img src="{{certificate.img}}" class="card-img-top"
+                    alt="Certificate - {{certificate.name}}">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{certificate.name}}</h5>
+                    <div [innerHTML]="certificate.description"></div>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-block btn-primary" href="{{certificate.url}}" target="_blank">Open certificate</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!!error">
+    <small>
+        <strong>Sorry, something went wrong</strong> <br>
+        Please, refresh the page or click <a (click)="refresh($event)" href="#">here</a>
+    </small>
+</div>
+
+<div *ngIf="loading && !error" class="p-4">
+    <app-loading></app-loading>
+</div>

@@ -1,7 +1,10 @@
 export interface Certificates {
-  title: string;
-  image: string;
-  description: string;
-  company: string;
+  name: string;
   url: string;
+  description: string;
+  img: string;
+  order: string;
+  created_at: Date;
+  updated_at: Date;
+  deleted_at: Date;
 }

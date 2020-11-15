@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AboutMe } from '../interfaces/aboutme';
-import { ConstantsService } from '../services/constants.service';
 import { AboutMeService } from '../services/aboutme.service';
 
 @Component({
@@ -15,7 +14,6 @@ export class AboutMeComponent implements OnInit {
   aboutMe: AboutMe;
 
   constructor(
-    private _constant: ConstantsService,
     private aboutMeService: AboutMeService
   ) {
   }

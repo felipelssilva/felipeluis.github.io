@@ -43,7 +43,7 @@ export class ConstantsService {
       'url': 'http://verbal.com.br/'
     }
   ];
-  readonly certificates: Certificates[] = [
+  /*readonly certificates: Certificates[] = [
     {
       'title': 'Routing in Spartacus',
       'description': '<ul><li>HTML & CSS (SASS)</li><li>TypeScript</li><li>Angular 9 +</li><li>RxJS</li><li>Yarn</li></ul>',
@@ -79,7 +79,7 @@ export class ConstantsService {
       'company': 'Alura',
       'url': 'https://cursos.alura.com.br/certificate/f42bc7a1-d716-4fc0-85e0-d8ad8250bb46'
     }
-  ];
+  ];*/
   readonly graduations: Graduations[] = [
     {
       'title': 'Analysis and Systems Development (in progress)',
