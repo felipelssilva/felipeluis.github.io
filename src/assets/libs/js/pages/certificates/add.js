@@ -31,14 +31,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     
     _doc.on('submit', 'form', e => save(e));
+    
+    loadOrder();
 });
 
 function save(evt) {
     evt.stopPropagation();
     evt.preventDefault();
- 
+    
     const _self = this;
- 
+    
     _self.uploadImage();
 }
 
@@ -94,4 +96,25 @@ function send() {
         .always(function () {
         });
     }
+}
+
+function loadOrder(){
+    const _doc = $(document),
+    _orderContainer = _doc.find('.js-order'),
+    _self = this;
+    
+    fetch('/api/certificates', {method: "GET"})
+    .then(res => res.json())
+    .then(res => {
+        let qty = res.length;
+        let select = _orderContainer.find('select');
+        
+        res.forEach((element, i) => {
+            select.append(`<option value="${i}">${i}</option>`)
+        });
+        
+        select.append(`<option selected value="${qty}">${qty}</option>`)
+        
+    })
+    .catch(err => console.error(err));
 }

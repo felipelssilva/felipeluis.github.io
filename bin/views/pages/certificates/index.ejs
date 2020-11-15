@@ -63,9 +63,9 @@
                         <td>${btn}</td>
                     </tr>`;
 
-                    /*handlers.doc
+                    handlers.doc
                         .off('click', `.js-delete-blog[data-id=${element._id}]`)
-                        .on('click', `.js-delete-blog[data-id=${element._id}]`, e => deleteEntry(e));*/
+                        .on('click', `.js-delete-blog[data-id=${element._id}]`, e => deleteEntry(e));
 
                 });
 
@@ -118,5 +118,41 @@
         return btn + modal;
     }
 
+    function deleteEntry(evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+
+        const target = $(evt.currentTarget),
+            id = target.data('id'),
+            title = target.data('title'),
+            btnText = 'Deletando <i class="fas fa-circle-notch fa-spin"></i>',
+            $doc = $(document),
+            certificatesContainer = $doc.find('.js-certificates');
+
+        $.ajax({
+            type: 'DELETE',
+            url: `/api/certificates/${id}`,
+            headers: {
+                'x-access-token': getCookie('x-access-token')
+            },
+            beforeSend: () => {
+                target.html(btnText);
+            }
+        })
+            .done(function (data) {
+                toast({ data: { message: `<li>Certificate deletado!</li>` }, type: 'success' });
+            })
+            .fail(function (err) {
+                toast({ data: err, type: 'error' });
+            })
+            .always(function () {
+                $(`#deleteModal_${id}`).modal('hide');
+
+                setTimeout(() => {
+                    self.loadeContainers({ doc: $doc, container: certificatesContainer });
+                }, 500);
+            });
+
+    }
 
 </script>
