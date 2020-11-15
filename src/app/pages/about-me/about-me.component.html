@@ -18,23 +18,7 @@
       <hr />
     </div>
   </div>
-  <div class="row row-cols-1 row-cols-md-4">
-    <div class="col mb-4" *ngFor="let certificate of certificates; let i = index">
-      <div class="card h-100">
-        <a href="{{certificate.url}}" target="_blank">
-          <img src="/assets/img/certificates/{{certificate.image}}" class="card-img-top"
-            alt="{{certificate.company}} - Certificate - {{certificate.title}}">
-        </a>
-        <div class="card-body">
-          <h5 class="card-title text-center">{{certificate.title}}</h5>
-          <div [innerHTML]="certificate.description"></div>
-        </div>
-        <div class="card-footer">
-          <a class="btn btn-block btn-primary" href="{{certificate.url}}" target="_blank">Open certificate</a>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-certificates></app-certificates>
 
   <div class="row my-5 text-center">
     <div class="col">

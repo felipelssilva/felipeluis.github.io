@@ -53,10 +53,22 @@ router
             { user: req.user, page: 'certificates' }
         )
     })
+    .get("/certificate/:id", adminsController.isLoggedIn, (req, res) => {
+        res.render(
+            path.resolve(`bin/views/index.ejs`),
+            { user: req.user, page: 'certificates-details', id: req.params.id }
+        )
+    })
+    .get("/certificate/:id/edit", adminsController.isLoggedIn, (req, res) => {
+        res.render(
+            path.resolve(`bin/views/index.ejs`),
+            { user: req.user, page: 'certificates-edit', id: req.params.id }
+        )
+    })
     .get("/certificates/add", adminsController.isLoggedIn, (req, res) => {
         res.render(
             path.resolve(`bin/views/index.ejs`),
-            { user: req.user, page: 'certificates-add' }
+            { user: req.user, page: 'certificate-add' }
         )
     })
     .get("/configurations", adminsController.isLoggedIn, (req, res) => {

@@ -2,14 +2,16 @@ const mongoose = require('mongoose');
 const Certificates = mongoose.model('Certificates');
 
 exports.list = async () => {
-  const res = await Certificates.find({}, 'name description url img created_at order');
+  const res = await Certificates
+  .find({ deleted_at: { $exists: false } }, 'name description url img order deleted_at')
+  .sort([['order', -1]]);
   return res;
 };
 
 exports.page = async () => {
   const res = await Certificates
-    .find({ deleted_at: { $exists: false } }, 'name description url img created_at order')
-    .sort([['created_at', -1]]);
+    .find({ deleted_at: { $exists: false } }, 'name description url img order created_at updated_at deleted_at')
+    .sort([['order']]);
   return res;
 };
 
