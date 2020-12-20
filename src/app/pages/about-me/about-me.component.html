@@ -29,8 +29,9 @@
   <div class="row row-cols-1 row-cols-md-3">
     <div class="col mb-4" *ngFor="let graduation of graduations; let i = index">
       <div class="card h-100">
-          <img src="/assets/img/graduations/{{graduation.image}}" class="card-img-top"
-            alt="{{graduation.title}}">
+          <app-lazy-load-image [image]='"/assets/img/graduations/" + graduation.image' 
+            [title]='graduation.title'
+            [style]='"card-img-top"'></app-lazy-load-image>
         <div class="card-body">
           <h5 class="card-title text-center">{{graduation.title}}</h5>
           <div [innerHTML]="graduation.description"></div>
