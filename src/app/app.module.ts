@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from "@angular/common";
 import { NgxContentLoadingModule } from 'ngx-content-loading';
 import { DisqusModule } from "ngx-disqus";
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +39,7 @@ import { LoadingComponent } from './common/loading/loading.component';
 import { CardComponent } from './common/card/card.component';
 import { BlogsSideComponent } from './common/blogs-side/blogs-side.component';
 import { CertificatesComponent } from './common/certificates/certificates.component';
+import { LazyLoadImageComponent } from './common/lazy-load-image/lazy-load-image.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,8 @@ import { CertificatesComponent } from './common/certificates/certificates.compon
     LoadingComponent,
     CardComponent,
     BlogsSideComponent,
-    CertificatesComponent
+    CertificatesComponent,
+    LazyLoadImageComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,8 @@ import { CertificatesComponent } from './common/certificates/certificates.compon
     HttpClientModule,
     CommonModule,
     NgxContentLoadingModule,
-    DisqusModule.forRoot('felipeluis')
+    DisqusModule.forRoot('felipeluis'),
+    LazyLoadImageModule
   ],
   providers: [
     ConstantsService,
