@@ -16,6 +16,7 @@ const Admins = require("./models/admins");
 const Blogs = require("./models/blogs");
 const Abouts = require("./models/about");
 const Certificates = require("./models/certificates");
+const Projects = require("./models/projects");
 
 // App
 const app = express();
