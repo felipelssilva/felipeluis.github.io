@@ -4,33 +4,37 @@
 <%- include('pages/home') %>
 <% } %>
 
+
 <% if(page == "login"){ %>
 <%- include('pages/login') %>
 <% } %>
 
+
 <% if(page == "contacts"){ %>
-<%- include('pages/contacts') %>
+<%- include('pages/contacts/view') %>
 <% } %>
 
 <% if(page == "contacts-details"){ %>
-<%- include('pages/contact-details') %>
+<%- include('pages/contacts/details') %>
 <% } %>
 
+
 <% if(page == "blogs"){ %>
-<%- include('pages/blogs') %>
+<%- include('pages/blogs/view') %>
 <% } %>
 
 <% if(page == "blogs-details"){ %>
-<%- include('pages/blogs-details') %>
+<%- include('pages/blogs/details') %>
 <% } %>
 
 <% if(page == "blogs-edit"){ %>
-<%- include('pages/blogs-edit') %>
+<%- include('pages/blogs/edit') %>
 <% } %>
 
 <% if(page == "blog-add"){ %>
-<%- include('pages/blog-add') %>
+<%- include('pages/blogs/add') %>
 <% } %>
+
 
 <% if(page == "certificates"){ %>
 <%- include('pages/certificates/index') %>
@@ -48,9 +52,11 @@
 <%- include('pages/certificates/add') %>
 <% } %>
 
+
 <% if(page == "configurations"){ %>
 <%- include('pages/configurations/index') %>
 <% } %>
+
 
 <% if(page == "error"){ %>
 <%- include('pages/error') %>
