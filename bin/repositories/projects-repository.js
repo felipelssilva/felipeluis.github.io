@@ -4,7 +4,7 @@ const Projects = mongoose.model('Projects');
 exports.list = async () => {
   const res = await Projects
   .find({ deleted_at: { $exists: false } }, 'name description url image released deleted_at')
-  .sort([['ordreleaseder', -1]]);
+  .sort([['released', -1]]);
   return res;
 };
 
