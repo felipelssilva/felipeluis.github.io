@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
     _doc.on('submit', 'form', e => save(e));
     
-    loadOrder();
 });
 
 function save(evt) {
@@ -41,7 +40,12 @@ function save(evt) {
     
     const _self = this;
     
-    _self.uploadImage();
+    if (document.getElementById("img").files.length > 0) {
+        _self.uploadImage();
+    } else {
+        _self.send();
+    }
+
 }
 
 function uploadImage() {
@@ -70,9 +74,10 @@ function send() {
         url: $form.find('input[name=url]').val().trim(),
         img: _self.imageUrl,
         description: tinymce.activeEditor.getContent(),
+        released: $form.find('input[type=radio][name=released]:checked').val().trim()
     };
     
-    if(_self.imageHasUploaded) {
+    //if(_self.imageHasUploaded) {
         $.ajax({
             type: 'PUT',
             headers: {
@@ -95,26 +100,5 @@ function send() {
         })
         .always(function () {
         });
-    }
-}
-
-function loadOrder(){
-    const _doc = $(document),
-    _orderContainer = _doc.find('.js-order'),
-    _self = this;
-    
-    fetch('/api/projects', {method: "GET"})
-    .then(res => res.json())
-    .then(res => {
-        let qty = res.length;
-        let select = _orderContainer.find('select');
-        
-        res.forEach((element, i) => {
-            select.append(`<option value="${i}">${i}</option>`)
-        });
-        
-        select.append(`<option selected value="${qty}">${qty}</option>`)
-        
-    })
-    .catch(err => console.error(err));
+    //}
 }

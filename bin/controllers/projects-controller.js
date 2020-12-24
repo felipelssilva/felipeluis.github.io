@@ -39,13 +39,13 @@ exports.saving = async (req, res) => {
     try {
         let data = {};
 
-        if(req.body.image) {
+        if(req.body.img) {
             data = {
                 id: req.params.id,
                 name: req.body.name,
                 url: req.body.url,
                 description: req.body.description,
-                image: req.body.image,
+                img: req.body.img,
                 released: req.body.released,
                 updated_at: Date.now()
             };
@@ -95,12 +95,12 @@ exports.create = async (req, res) => {
     try {
         let data = {};
 
-        if(req.body.image) {
+        if(req.body.img) {
             data = {
                 name: req.body.name,
                 url: req.body.url,
                 description: req.body.description,
-                image: req.body.image,
+                img: req.body.img,
                 released: req.body.released,
                 created_at: Date.now()
             };
@@ -113,6 +113,7 @@ exports.create = async (req, res) => {
                 created_at: Date.now()
             };
         }
+        console.log(data);
 
         await repository.create(data);
 
@@ -120,7 +121,7 @@ exports.create = async (req, res) => {
         return res.status(201).send({ message: 'Project successfully registered!' });
 
     } catch (e) {
-        LOG('Failed to register certificate.');
-        return res.status(500).send({ message: 'Failed to register certificate.' });
+        LOG('Failed to register project.');
+        return res.status(500).send({ message: 'Failed to register project.' });
     }
 };

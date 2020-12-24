@@ -12,9 +12,8 @@ const schema = new Schema({
     required: true,
     trim: true
   },
-  image: {
-    type: String,
-    required: true
+  img: {
+    type: String
   },
   url: {
     type: String,
