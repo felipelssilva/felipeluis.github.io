@@ -1,0 +1,158 @@
+<h1>
+    Certificados
+    <a class="ml-4 btn btn-primary" href="/secure/certificates/add" title="Novo">Novo Certificado</a>
+</h1>
+
+<div class="my-3 js-certificates">
+    <i class="fas fa-circle-notch fa-spin fa-3x"></i>
+</div>
+
+<script type="text/javascript">
+    const self = this;
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const $doc = $(document),
+        certificatesContainer = $doc.find('.js-certificates');
+
+        self.loadeContainers({ doc: $doc, container: certificatesContainer });
+    });
+
+
+    function loadeContainers(handlers) {
+        $.ajax({
+            type: 'GET',
+            url: '/api/certificates',
+            headers: {
+                'x-access-token': getCookie('x-access-token')
+            },
+            beforeSend: () => {
+                handlers.container.html('<i class="fas fa-circle-notch fa-spin fa-3x"></i>');
+            }
+        })
+            .done(function (data) {
+                let html = `<div><table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Criado</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table></div>`;
+
+                let tbody = '';
+
+                data.forEach(element => {
+                    let btn = getHtmlActions(element);
+                    let options = {
+                        day: 'numeric',
+                        month: 'numeric',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                    };
+                    let created_at = new Date(element.created_at).toLocaleDateString('pt-br', options);
+                    let updated_at = new Date(element.updated_at).toLocaleDateString('pt-br', options);
+
+                    tbody += `
+                    <tr>
+                        <td>${element.name}</td>
+                        <td>${!!element.created_at ? created_at : '-'}</td>
+                        <td>${btn}</td>
+                    </tr>`;
+
+                    handlers.doc
+                        .off('click', `.js-delete-blog[data-id=${element._id}]`)
+                        .on('click', `.js-delete-blog[data-id=${element._id}]`, e => deleteEntry(e));
+
+                });
+
+                html = $(html).find('tbody').html(tbody).parents('div').html();
+                handlers.container.html(html);
+            })
+            .fail(function (err) {
+                toast({ data: err, type: 'error' });
+            })
+            .always(function () {
+                handlers.container.find('table').DataTable({ "order": [[1, "desc"]] });
+            });
+    }
+
+
+    function getHtmlActions(data) {
+        const btn = `
+            <a class="btn btn-link" href="/secure/certificate/${data._id}" title="Abrir"><i class="far fa-eye"></i></a>
+            <a class="btn btn-link" href="/secure/certificate/${data._id}/edit" title="Editar"><i class="far fa-edit"></i></a>
+            <a class="btn btn-link text-danger ${!!data.deleted_at ? 'd-none' : ''}" href="#" title="Deletar" data-toggle="modal" data-target="#deleteModal_${data._id}" >
+                <i class="far fa-trash-alt"></i>
+            </a>
+            `,
+            modal = `
+            <div class="modal fade" id="deleteModal_${data._id}" tabindex="-1" 
+            role="dialog" aria-labelledby="deleteModal_${data._id}Label" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModal_${data._id}Label">Atenção!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Você tem certeza que deseja deletar o certificado: <br> <strong>${data.name}</strong>?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-danger js-delete-blog"
+                            data-id="${data._id}" 
+                            data-title="${data.title}" 
+                        >Deletar</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        return btn + modal;
+    }
+
+    function deleteEntry(evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+
+        const target = $(evt.currentTarget),
+            id = target.data('id'),
+            title = target.data('title'),
+            btnText = 'Deletando <i class="fas fa-circle-notch fa-spin"></i>',
+            $doc = $(document),
+            certificatesContainer = $doc.find('.js-certificates');
+
+        $.ajax({
+            type: 'DELETE',
+            url: `/api/certificates/${id}`,
+            headers: {
+                'x-access-token': getCookie('x-access-token')
+            },
+            beforeSend: () => {
+                target.html(btnText);
+            }
+        })
+            .done(function (data) {
+                toast({ data: { message: `<li>Certificate deletado!</li>` }, type: 'success' });
+            })
+            .fail(function (err) {
+                toast({ data: err, type: 'error' });
+            })
+            .always(function () {
+                $(`#deleteModal_${id}`).modal('hide');
+
+                setTimeout(() => {
+                    self.loadeContainers({ doc: $doc, container: certificatesContainer });
+                }, 500);
+            });
+
+    }
+
+</script>

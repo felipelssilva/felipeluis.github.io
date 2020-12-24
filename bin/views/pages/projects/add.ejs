@@ -1,0 +1,66 @@
+<h1>
+    <a href="/secure/certificates/" class="btn btn-link"> <i class="fas fa-chevron-left"></i></a>
+    Adicionando novo Ceritificado
+</h1>
+
+<div class="my-3 js-certificates-add">
+    <form enctype="multipart/form-data">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col">
+                        <a href="/secure/certificates/" class="btn btn-danger btn-block">
+                            Cancelar
+                        </a>
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Salvar alterações
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="title">Nome</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Url</label>
+                        <input type="text" class="form-control" id="url" name="url">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Imagem</label>
+                        <input type="file" id="img" name="img" class="form-control-file">
+                    </div>
+                    <div class="form-group">
+                        <label for="content">Descrição</label>
+                        <textarea class="form-control" id="description" name="description"></textarea>
+                    </div>
+                    <div class="form-group js-order">
+                        <label for="content">Ordem</label>
+                        <select class="form-control" id="order" name="order">
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <div class="row">
+                    <div class="col">
+                        <a href="/secure/certificates/" class="btn btn-danger btn-block">
+                            Cancelar
+                        </a>
+                    </div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Salvar alterações
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="/assets/libs/js/pages/certificates/add.js"></script>
