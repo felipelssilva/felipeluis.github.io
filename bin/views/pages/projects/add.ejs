@@ -1,15 +1,15 @@
 <h1>
-    <a href="/secure/certificates/" class="btn btn-link"> <i class="fas fa-chevron-left"></i></a>
-    Adicionando novo Ceritificado
+    <a href="/secure/projects/" class="btn btn-link"> <i class="fas fa-chevron-left"></i></a>
+    Adicionando novo Projeto
 </h1>
 
-<div class="my-3 js-certificates-add">
+<div class="my-3 js-projects-add">
     <form enctype="multipart/form-data">
         <div class="card">
             <div class="card-header">
                 <div class="row">
                     <div class="col">
-                        <a href="/secure/certificates/" class="btn btn-danger btn-block">
+                        <a href="/secure/projects/" class="btn btn-danger btn-block">
                             Cancelar
                         </a>
                     </div>
@@ -38,17 +38,26 @@
                         <label for="content">Descrição</label>
                         <textarea class="form-control" id="description" name="description"></textarea>
                     </div>
-                    <div class="form-group js-order">
-                        <label for="content">Ordem</label>
-                        <select class="form-control" id="order" name="order">
-                        </select>
+                    <div class="form-group">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="released" id="released1" value="true" checked>
+                                Released
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="released" id="released2" value="false">
+                                Not Released Yet
+                            </label>
+                        </div>
                     </div>
                 </form>
             </div>
             <div class="card-footer">
                 <div class="row">
                     <div class="col">
-                        <a href="/secure/certificates/" class="btn btn-danger btn-block">
+                        <a href="/secure/projects/" class="btn btn-danger btn-block">
                             Cancelar
                         </a>
                     </div>
@@ -63,4 +72,4 @@
     </form>
 </div>
 
-<script src="/assets/libs/js/pages/certificates/add.js"></script>
+<script src="/assets/libs/js/pages/projects/add.js"></script>

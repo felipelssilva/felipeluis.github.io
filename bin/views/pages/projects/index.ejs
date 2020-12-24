@@ -1,9 +1,9 @@
 <h1>
-    Certificados
-    <a class="ml-4 btn btn-primary" href="/secure/certificates/add" title="Novo">Novo Certificado</a>
+    Projetos
+    <a class="ml-4 btn btn-primary" href="/secure/projects/add" title="Novo">Novo Projeto</a>
 </h1>
 
-<div class="my-3 js-certificates">
+<div class="my-3 js-projects">
     <i class="fas fa-circle-notch fa-spin fa-3x"></i>
 </div>
 
@@ -12,16 +12,15 @@
 
     document.addEventListener("DOMContentLoaded", function () {
         const $doc = $(document),
-        certificatesContainer = $doc.find('.js-certificates');
+        projectsContainer = $doc.find('.js-projects');
 
-        self.loadeContainers({ doc: $doc, container: certificatesContainer });
+        self.loadeContainers({ doc: $doc, container: projectsContainer });
     });
-
 
     function loadeContainers(handlers) {
         $.ajax({
             type: 'GET',
-            url: '/api/certificates',
+            url: '/api/projects',
             headers: {
                 'x-access-token': getCookie('x-access-token')
             },
@@ -80,11 +79,10 @@
             });
     }
 
-
     function getHtmlActions(data) {
         const btn = `
-            <a class="btn btn-link" href="/secure/certificate/${data._id}" title="Abrir"><i class="far fa-eye"></i></a>
-            <a class="btn btn-link" href="/secure/certificate/${data._id}/edit" title="Editar"><i class="far fa-edit"></i></a>
+            <a class="btn btn-link" href="/secure/project/${data._id}" title="Abrir"><i class="far fa-eye"></i></a>
+            <a class="btn btn-link" href="/secure/project/${data._id}/edit" title="Editar"><i class="far fa-edit"></i></a>
             <a class="btn btn-link text-danger ${!!data.deleted_at ? 'd-none' : ''}" href="#" title="Deletar" data-toggle="modal" data-target="#deleteModal_${data._id}" >
                 <i class="far fa-trash-alt"></i>
             </a>
@@ -101,7 +99,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Você tem certeza que deseja deletar o certificado: <br> <strong>${data.name}</strong>?
+                        Você tem certeza que deseja deletar o projeto: <br> <strong>${data.name}</strong>?
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -127,11 +125,11 @@
             title = target.data('title'),
             btnText = 'Deletando <i class="fas fa-circle-notch fa-spin"></i>',
             $doc = $(document),
-            certificatesContainer = $doc.find('.js-certificates');
+            projectsContainer = $doc.find('.js-projects');
 
         $.ajax({
             type: 'DELETE',
-            url: `/api/certificates/${id}`,
+            url: `/api/projects/${id}`,
             headers: {
                 'x-access-token': getCookie('x-access-token')
             },
@@ -140,7 +138,7 @@
             }
         })
             .done(function (data) {
-                toast({ data: { message: `<li>Certificate deletado!</li>` }, type: 'success' });
+                toast({ data: { message: `<li>Projeto deletado!</li>` }, type: 'success' });
             })
             .fail(function (err) {
                 toast({ data: err, type: 'error' });
@@ -149,7 +147,7 @@
                 $(`#deleteModal_${id}`).modal('hide');
 
                 setTimeout(() => {
-                    self.loadeContainers({ doc: $doc, container: certificatesContainer });
+                    self.loadeContainers({ doc: $doc, container: projectsContainer });
                 }, 500);
             });
 

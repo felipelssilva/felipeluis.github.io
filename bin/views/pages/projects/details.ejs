@@ -1,26 +1,26 @@
 <h1>
-    <a href="/secure/certificates/" class="btn btn-link"> <i class="fas fa-chevron-left"></i></a>
-    Detalhes do Certificado
+    <a href="/secure/projects/" class="btn btn-link"> <i class="fas fa-chevron-left"></i></a>
+    Detalhes do Projeto
 </h1>
 
-<div class="my-3 js-certificates-detail">
+<div class="my-3 js-projects-detail">
     <i class="fas fa-circle-notch fa-spin fa-3x"></i>
 </div>
 
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function () {
         const $doc = $(document),
-            certificatesContainer = $doc.find('.js-certificates-detail');
+            projectsContainer = $doc.find('.js-projects-detail');
 
         $.ajax({
             type: 'GET',
             headers: {
                 'x-access-token': getCookie('x-access-token')
             },
-            url: "/api/certificates/<%= id %>",
+            url: "/api/projects/<%= id %>",
         })
             .done(function (data) {
-                certificatesContainer.html(bodyHtml(data));
+                projectsContainer.html(bodyHtml(data));
             })
             .fail(function (err) {
                 toast({ data: err, type: 'error' });
@@ -45,17 +45,17 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col">
-                            <a href="/secure/certificate/${handler._id}/edit" 
+                            <a href="/secure/project/${handler._id}/edit" 
                                 class="btn btn-primary btn-block"> Editar</a>
                         </div>
                         <div class="col">
-                            <a href="/secure/certificate/${handler._id}/delete" 
+                            <a href="/secure/project/${handler._id}/delete" 
                                 class="btn btn-danger btn-block"> Deletar</a>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
-                    <p><strong>Título</strong></p>
+                    <p><strong>Nome</strong></p>
                     <p>${handler.name}</p>
                     
                     <p><strong>Alterado</strong></p>
@@ -64,7 +64,7 @@
                     <p><strong>Criado</strong></p>
                     <p>${!!handler.created_at ? created_at : '-'}</p>
 
-                    <p><strong>Conteúdo</strong></p>
+                    <p><strong>Descrição</strong></p>
                     <p>${handler.description}</p>
 
                     <p><strong>URL</strong></p>
@@ -73,8 +73,8 @@
                     <p><strong>Imagem</strong></p>
                     <p><img src="${!handler.img ? "https://via.placeholder.com/300x300" : handler.img}" width="300" /></p>
 
-                    <p><strong>Ordem</strong></p>
-                    <p>${handler.order}</p>
+                    <p><strong>Released?</strong></p>
+                    <p>${handler.released}</p>
                     
                 </div>
             </div>

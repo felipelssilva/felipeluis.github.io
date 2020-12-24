@@ -64,8 +64,8 @@
                     </tr>`;
 
                     handlers.doc
-                        .off('click', `.js-delete-blog[data-id=${element._id}]`)
-                        .on('click', `.js-delete-blog[data-id=${element._id}]`, e => deleteEntry(e));
+                        .off('click', `.js-delete-certificate[data-id=${element._id}]`)
+                        .on('click', `.js-delete-certificate[data-id=${element._id}]`, e => deleteEntry(e));
 
                 });
 
@@ -105,7 +105,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-danger js-delete-blog"
+                        <button type="button" class="btn btn-danger js-delete-certificate"
                             data-id="${data._id}" 
                             data-title="${data.title}" 
                         >Deletar</button>
