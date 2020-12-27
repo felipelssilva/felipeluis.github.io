@@ -20,6 +20,7 @@ import { ConstantsService } from './common/services/constants.service';
 import { BlogsService } from './common/services/blogs.service';
 import { AboutMeService } from './common/services/aboutme.service';
 import { CertificatesService } from './common/services/certificates.service';
+import { ProjectsService } from './common/services/projects.service';
 
 import { AboutMeComponent } from './common/about-me/about-me.component';
 import { ContactFormComponent } from './common/contact-form/contact-form.component';
@@ -40,6 +41,7 @@ import { CardComponent } from './common/card/card.component';
 import { BlogsSideComponent } from './common/blogs-side/blogs-side.component';
 import { CertificatesComponent } from './common/certificates/certificates.component';
 import { LazyLoadImageComponent } from './common/lazy-load-image/lazy-load-image.component';
+import { ProjectsComponent } from './common/projects/projects.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,8 @@ import { LazyLoadImageComponent } from './common/lazy-load-image/lazy-load-image
     CardComponent,
     BlogsSideComponent,
     CertificatesComponent,
-    LazyLoadImageComponent
+    LazyLoadImageComponent,
+    ProjectsComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +85,8 @@ import { LazyLoadImageComponent } from './common/lazy-load-image/lazy-load-image
     ConstantsService,
     BlogsService,
     AboutMeService,
-    CertificatesService
+    CertificatesService,
+    ProjectsService
   ],
   bootstrap: [AppComponent]
 })

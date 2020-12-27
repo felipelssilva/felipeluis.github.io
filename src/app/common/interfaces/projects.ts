@@ -1,7 +1,10 @@
 export interface Projects {
-  title: string;
+  name: string;
   released: boolean;
-  image: string;
   description: string;
   url: string;
+  img: string;
+  created_at: Date;
+  updated_at: Date;
+  deleted_at: Date;
 }

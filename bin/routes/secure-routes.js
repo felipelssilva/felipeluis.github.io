@@ -71,6 +71,30 @@ router
             { user: req.user, page: 'certificate-add' }
         )
     })
+    .get("/projects", adminsController.isLoggedIn, (req, res) => {
+        res.render(
+            path.resolve(`bin/views/index.ejs`),
+            { user: req.user, page: 'projects' }
+        )
+    })
+    .get("/project/:id", adminsController.isLoggedIn, (req, res) => {
+        res.render(
+            path.resolve(`bin/views/index.ejs`),
+            { user: req.user, page: 'projects-details', id: req.params.id }
+        )
+    })
+    .get("/project/:id/edit", adminsController.isLoggedIn, (req, res) => {
+        res.render(
+            path.resolve(`bin/views/index.ejs`),
+            { user: req.user, page: 'projects-edit', id: req.params.id }
+        )
+    })
+    .get("/projects/add", adminsController.isLoggedIn, (req, res) => {
+        res.render(
+            path.resolve(`bin/views/index.ejs`),
+            { user: req.user, page: 'projects-add' }
+        )
+    })
     .get("/configurations", adminsController.isLoggedIn, (req, res) => {
         res.render(
             path.resolve(`bin/views/index.ejs`),

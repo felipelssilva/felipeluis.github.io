@@ -16,6 +16,7 @@ const Admins = require("./models/admins");
 const Blogs = require("./models/blogs");
 const Abouts = require("./models/about");
 const Certificates = require("./models/certificates");
+const Projects = require("./models/projects");
 
 // App
 const app = express();
@@ -53,6 +54,7 @@ const contactsRoutes = require('./routes/contacts-routes');
 const blogsRoutes = require('./routes/blogs-routes');
 const aboutRoutes = require('./routes/about-routes');
 const certificatesRoutes = require('./routes/certificates-routes');
+const projectsRoutes = require('./routes/projects-routes');
 
 app.use(express.static(`dist/${nomeApp}`));
 app.use('/', indexRoutes);
@@ -63,6 +65,7 @@ app.use('/api/contacts', contactsRoutes);
 app.use('/api/blogs', blogsRoutes);
 app.use('/api/about', aboutRoutes);
 app.use('/api/certificates', certificatesRoutes);
+app.use('/api/projects', projectsRoutes);
 
 app.use('/secure/*', (req, res) => {
     res.status(404).render(path.resolve(`bin/views/index`),
