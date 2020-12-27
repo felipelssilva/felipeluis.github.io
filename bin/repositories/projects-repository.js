@@ -3,15 +3,15 @@ const Projects = mongoose.model('Projects');
 
 exports.list = async () => {
   const res = await Projects
-  .find({ deleted_at: { $exists: false } }, 'name description url image released deleted_at')
+  .find({ deleted_at: { $exists: false } }, 'name description url img released deleted_at')
   .sort([['released', -1]]);
   return res;
 };
 
 exports.page = async () => {
   const res = await Projects
-    .find({ deleted_at: { $exists: false } }, 'name description url image released created_at updated_at deleted_at')
-    .sort([['released']]);
+    .find({ deleted_at: { $exists: false } }, 'name description url img released created_at updated_at deleted_at')
+    .sort([['released', -1]]);
   return res;
 };
 

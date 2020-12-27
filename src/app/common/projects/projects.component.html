@@ -1,0 +1,61 @@
+<div *ngIf="!error && !loading">
+
+
+    <div class="row d-flex justify-content-center projects">
+        <div class="col-xs-12 col-md-6 card-deck" *ngFor="let project of projects; let i = index">
+            <div class="card mb-4 shadow-sm">
+
+                <app-lazy-load-image [image]='project.img' 
+                        [title]='"Projects - " + project.name' 
+                        [style]='"card-img-top"'></app-lazy-load-image>
+
+                <!-- <span *ngIf="project.img">
+                    has img
+                </span>
+                <span *ngIf="!project.img">
+                    Not has img
+                </span>
+
+                <div class="image"
+                    style="background-image: -webkit-radial-gradient(90% 130%, circle cover, #50587b1c, #303549d6 100%), url('{{project.img}}');">
+                </div> -->
+
+                <div class="card-body">
+                    <p class="card-text">
+                        {{project.name}}
+                    </p>
+
+                    <div [innerHTML]="project.description"></div>
+
+                    <p>
+                        <strong>URL:</strong> {{project.url}}
+                    </p>
+                </div>
+
+                <div class="card-footer bg-transparent">
+                    <a (click)="doNothing($event)" href="#" class="btn btn-block {{project.released ? 'btn-primary' : 'btn-secondary'}} ">
+                        <span *ngIf="project.released">
+                            Released
+                        </span>
+                        <span *ngIf="!project.released">
+                            Not fully released yet
+                        </span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div *ngIf="!!error">
+    <small>
+        <strong>Sorry, something went wrong</strong> <br>
+        Please, refresh the page or click <a (click)="refresh($event)" href="#">here</a>
+    </small>
+</div>
+
+<div *ngIf="loading && !error" class="p-4">
+    <app-loading></app-loading>
+</div>

@@ -133,12 +133,6 @@
         </div>
         `;
         
-        /*
-        <label for="content">Ordem</label>
-        <input type="hidden" class="js-order-selected" value="${handler.order}" />
-        <select class="form-control" id="order" name="order"></select>
-        */
-
         return html;
     }
     
@@ -150,7 +144,7 @@
         _self = this,
         $form = _doc.find('form'),
         checkbox = $form.find('input[type=checkbox]').is(':checked');
-
+debugger
         if(checkbox) {
             _self.uploadImage();
         } else {
@@ -190,20 +184,20 @@
             data = {
                 name: $form.find('input[name=name]').val().trim(),
                 url: $form.find('input[name=url]').val().trim(),
-                image: _self.imageUrl,
+                img: _self.imageUrl,
                 description: tinymce.activeEditor.getContent(),
-                order: parseInt($form.find('select[name="order"] option:selected').val().trim())
+                released: $form.find('input[name="released"]:checked').val()
             };
         } else {
             data = {
                 name: $form.find('input[name=name]').val().trim(),
                 url: $form.find('input[name=url]').val().trim(),
                 description: tinymce.activeEditor.getContent(),
-                order: parseInt($form.find('select[name="order"] option:selected').val().trim())
+                released: $form.find('input[name="released"]:checked').val()
             };
         }
         
-        if(_self.imageHasUploaded) {
+        // if(_self.imageHasUploaded) {
             $.ajax({
                 type: 'PUT',
                 headers: {
@@ -226,7 +220,7 @@
             })
             .always(function () {
             });
-        }
+        // }
     }
     
 </script>

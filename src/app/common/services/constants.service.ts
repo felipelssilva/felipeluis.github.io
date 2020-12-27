@@ -13,7 +13,7 @@ export class ConstantsService {
   readonly urlBase: string = window.location.pathname;
   readonly actualUrl: string = window.location.href;
   readonly year: number = new Date().getFullYear();
-  readonly projects: Projects[] = [
+  /*readonly projects: Projects[] = [
     {
       'title': 'In my old website I used some these frameworks, languages and preprocessors:',
       'released': true,
@@ -42,7 +42,7 @@ export class ConstantsService {
       'description': '<ul><li>PHP</li><li>JavaScript</li><li>jQuery</li><li>CSS</li><li>Bootstrap 3</li><li>Fixed some layout bug\'s</li></ul>',
       'url': 'http://verbal.com.br/'
     }
-  ];
+  ];*/
   /*readonly certificates: Certificates[] = [
     {
       'title': 'Routing in Spartacus',

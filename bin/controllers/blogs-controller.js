@@ -31,8 +31,6 @@ exports.page = async (req, res) => {
 exports.details = async (req, res) => {
     try {
         // let data = '';
-        // console.log(req.params);
-        // console.log(typeof req.params.id);
         // data = await repository.details({
         //     id: req.params.id,
         //     permalink: req.params.id

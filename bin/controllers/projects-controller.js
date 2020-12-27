@@ -113,7 +113,6 @@ exports.create = async (req, res) => {
                 created_at: Date.now()
             };
         }
-        console.log(data);
 
         await repository.create(data);
 
