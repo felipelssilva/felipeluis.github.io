@@ -114,13 +114,13 @@
                     <div class="form-group">
                         <div class="radio">
                             <label>
-                                <input type="radio" name="released" id="released1" value="true" checked>
+                                <input type="radio" name="released" id="released1" value="true" ${handler.released === true ? 'checked' : ''}>
                                 Released
                             </label>
                         </div>
                         <div class="radio">
                             <label>
-                                <input type="radio" name="released" id="released2" value="false">
+                                <input type="radio" name="released" id="released2" value="false" ${handler.released === false ? 'checked' : ''}>
                                 Not Released Yet
                             </label>
                         </div>
