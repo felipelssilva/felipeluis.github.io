@@ -12,15 +12,15 @@ import { BlogDetailsComponent } from './pages/blog-details/blog-details.componen
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponentPage },
-  { path: 'my-projects', component: MyProjectsComponentPage },
-  { path: 'blog', component: BlogComponent },
-  { path: 'blog/:id', component: BlogDetailsComponent },
-  { path: 'blog/:id/:permalink', component: BlogDetailsComponent },
-  { path: 'about-me', component: AboutMeComponentPage },
-  { path: 'social-medias', component: SocialMediasComponentPage },
-  { path: 'contact', component: ContactComponentPage },
-  { path: '**', component: NotFoundComponentPage },
+  { path: 'home', component: HomeComponentPage, data: { title: 'Home' } },
+  { path: 'my-projects', component: MyProjectsComponentPage, data: { title: 'My Projects' } },
+  { path: 'blog', component: BlogComponent, data: { title: 'Blog' } },
+  { path: 'blog/:id', component: BlogDetailsComponent, data: { title: 'Blog' } },
+  { path: 'blog/:id/:permalink', component: BlogDetailsComponent, data: { title: 'Blog' } },
+  { path: 'about-me', component: AboutMeComponentPage, data: { title: 'About Me' } },
+  { path: 'social-medias', component: SocialMediasComponentPage, data: { title: 'My Social Medias' } },
+  { path: 'contact', component: ContactComponentPage, data: { title: 'Contact Me' } },
+  { path: '**', component: NotFoundComponentPage, data: { title: '' } },
 ];
 
 @NgModule({

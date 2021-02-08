@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Meta, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
@@ -86,7 +86,9 @@ import { ProjectsComponent } from './common/projects/projects.component';
     BlogsService,
     AboutMeService,
     CertificatesService,
-    ProjectsService
+    ProjectsService,
+    Title,
+    Meta
   ],
   bootstrap: [AppComponent]
 })

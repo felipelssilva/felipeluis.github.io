@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Site } from 'src/app/common/interfaces/site';
 import { ConstantsService } from '../../common/services/constants.service';
 
 @Component({
@@ -7,12 +8,12 @@ import { ConstantsService } from '../../common/services/constants.service';
   styleUrls: ['./footer.component.less']
 })
 export class FooterComponent implements OnInit {
+  site: Site[];
   year: number;
-  author: string;
 
   constructor(private _constant: ConstantsService) {
     this.year = this._constant.year;
-    this.author = this._constant.author;
+    this.site = this._constant.site;
    }
 
   ngOnInit(): void {
