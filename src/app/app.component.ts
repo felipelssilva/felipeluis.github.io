@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
@@ -12,6 +13,7 @@ import { Site } from './common/interfaces/site';
 })
 export class AppComponent implements OnInit {
   site: Site[];
+  window: any;
 
   public constructor(
     private router: Router,
@@ -19,9 +21,10 @@ export class AppComponent implements OnInit {
     private titleService: Title,
     private metaService: Meta,
     private _constant: ConstantsService,
-
+    @Inject(DOCUMENT) private document: Document
   ) {
     this.site = this._constant.site;
+    this.window = this.document.defaultView;
   }
 
   ngOnInit() {
@@ -58,12 +61,12 @@ export class AppComponent implements OnInit {
   }
 
   public onActivate(evt: any) {
-    let scrollToTop = window.setInterval(() => {
-      let pos = window.pageYOffset;
+    let scrollToTop = this.window.setInterval(() => {
+      let pos = this.window.pageYOffset;
       if (pos > 0) {
-        window.scrollTo(0, pos - 20);
+        this.window.scrollTo(0, pos - 20);
       } else {
-        window.clearInterval(scrollToTop);
+        this.window.clearInterval(scrollToTop);
       }
     }, 16);
   }

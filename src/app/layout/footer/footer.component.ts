@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Site } from 'src/app/common/interfaces/site';
 import { ConstantsService } from '../../common/services/constants.service';
 
@@ -10,11 +11,13 @@ import { ConstantsService } from '../../common/services/constants.service';
 export class FooterComponent implements OnInit {
   site: Site[];
   year: number;
+  window: any;
 
-  constructor(private _constant: ConstantsService) {
+  constructor(private _constant: ConstantsService, @Inject(DOCUMENT) private document: Document) {
     this.year = this._constant.year;
     this.site = this._constant.site;
-   }
+    this.window = this.document.defaultView;
+  }
 
   ngOnInit(): void {
   }
@@ -22,12 +25,12 @@ export class FooterComponent implements OnInit {
   scrollToTop(evt) {
     evt.preventDefault();
 
-    let scrollToTop = window.setInterval(() => {
-      let pos = window.pageYOffset;
+    let scrollToTop = this.window.setInterval(() => {
+      let pos = this.window.pageYOffset;
       if (pos > 0) {
-        window.scrollTo(0, pos - 20);
+        this.window.scrollTo(0, pos - 20);
       } else {
-        window.clearInterval(scrollToTop);
+        this.window.clearInterval(scrollToTop);
       }
     }, 1);
   }

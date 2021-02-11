@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Blogs } from '../../common/interfaces/blogs';
 import { BlogsService } from '../../common/services/blogs.service';
 import { faExclamation, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-blog',
@@ -13,11 +14,14 @@ export class BlogComponent implements OnInit {
   blogs: any;
   faExclamation = faExclamation;
   faAngleDown = faAngleDown;
-  // <i class="fas fa-angle-down"></i>
+  window: any;
 
   constructor(
-    private blogsService: BlogsService
-  ) { }
+    private blogsService: BlogsService,
+    @Inject(DOCUMENT) private document: Document
+  ) {
+    this.window = this.document.defaultView;
+  }
 
   ngOnInit(): void {
     this.loading = true;
@@ -33,12 +37,12 @@ export class BlogComponent implements OnInit {
   scrollToPosts(evt) {
     evt.preventDefault();
 
-    let scrollToTop = window.setInterval(() => {
-      let pos = document.querySelector('.cards-components').getBoundingClientRect().top;
-      if (pos > window.pageYOffset) {
-        window.scrollTo(0, pos - 20);
+    let scrollToTop = this.window.setInterval(() => {
+      let pos = this.document.querySelector('.cards-components').getBoundingClientRect().top;
+      if (pos > this.window.pageYOffset) {
+        this.window.scrollTo(0, pos - 20);
       } else {
-        window.clearInterval(scrollToTop);
+        this.window.clearInterval(scrollToTop);
       }
     }, 1);
   }

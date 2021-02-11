@@ -1,12 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 //import { Projects } from '../interfaces/projects';
 //import { Certificates } from '../interfaces/certificates';
 import { Graduations } from '../interfaces/graduations';
 import { Site } from '../interfaces/site';
+import { DOCUMENT } from '@angular/common';
 
 
 @Injectable()
 export class ConstantsService {
+  window: any;
+
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    this.window = this.document.defaultView;
+  }
+
   readonly site: Site[] = [
     {
       author: 'Felipe Luis',
@@ -16,10 +23,10 @@ export class ConstantsService {
     }
   ];
 
-  readonly urlBase: string = window.location.pathname;
-  readonly actualUrl: string = window.location.href;
+  readonly urlBase: any = () => "/";
+  readonly actualUrl: any = () => this.window.location.href;
   readonly year: number = new Date().getFullYear();
-  
+
   /*readonly projects: Projects[] = [
     {
       'title': 'In my old website I used some these frameworks, languages and preprocessors:',
