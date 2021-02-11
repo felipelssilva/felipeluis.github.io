@@ -56,7 +56,7 @@ const aboutRoutes = require('./routes/about-routes');
 const certificatesRoutes = require('./routes/certificates-routes');
 const projectsRoutes = require('./routes/projects-routes');
 
-app.use(express.static(`dist/${nomeApp}`));
+app.use(express.static(`dist/${nomeApp}/browser`));
 app.use('/', indexRoutes);
 app.use('/secure', secureRoutes);
 
@@ -68,9 +68,7 @@ app.use('/api/certificates', certificatesRoutes);
 app.use('/api/projects', projectsRoutes);
 
 app.use('/secure/*', (req, res) => {
-    res.status(404).render(path.resolve(`bin/views/index`),
-        { user: req.user, page: 'error', response: res.statusCode }
-    )
+    res.status(404).render(path.resolve(`bin/views/index`), { user: req.user, page: 'error', response: res.statusCode })
 })
 
 module.exports = app;

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Projects } from '../interfaces/projects';
 import { ProjectsService } from '../services/projects.service';
 
@@ -11,10 +12,14 @@ export class ProjectsComponent implements OnInit {
   loading: Boolean;
   error: Boolean;
   projects: Projects;
+  window: any;
 
   constructor(
-    private projectsService: ProjectsService
-  ) { }
+    private projectsService: ProjectsService,
+    @Inject(DOCUMENT) private document: Document
+  ) {
+    this.window = this.document.defaultView;
+   }
 
   ngOnInit(): void {
     this.loadProjects();
@@ -24,7 +29,7 @@ export class ProjectsComponent implements OnInit {
     evt.preventDefault();
     evt.stopPropagation();
 
-    window.location.reload()
+    this.window.location.reload()
   }
 
   doNothing(evt): void {

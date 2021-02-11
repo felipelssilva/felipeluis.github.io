@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { AboutMe } from '../interfaces/aboutme';
 import { AboutMeService } from '../services/aboutme.service';
 
@@ -12,10 +13,13 @@ export class AboutMeComponent implements OnInit {
   loading: Boolean;
   error: Boolean;
   aboutMe: AboutMe;
+  window: any;
 
   constructor(
-    private aboutMeService: AboutMeService
+    private aboutMeService: AboutMeService,
+    @Inject(DOCUMENT) private document: Document
   ) {
+    this.window = this.document.defaultView;
   }
 
   ngOnInit(): void {
@@ -26,7 +30,7 @@ export class AboutMeComponent implements OnInit {
     evt.preventDefault();
     evt.stopPropagation();
 
-    window.location.reload()
+    this.window.location.reload();
   }
 
   loadAboutMe(): void {

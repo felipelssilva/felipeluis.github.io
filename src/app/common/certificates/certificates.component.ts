@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Certificates } from '../interfaces/certificates';
 import { CertificatesService } from '../services/certificates.service';
 
@@ -11,10 +12,14 @@ export class CertificatesComponent implements OnInit {
   loading: Boolean;
   error: Boolean;
   certificates: Certificates;
-  
+  window: any;
+
   constructor(
-    private certificatesService: CertificatesService
-  ) { }
+    private certificatesService: CertificatesService,
+    @Inject(DOCUMENT) private document: Document
+  ) {
+    this.window = this.document.defaultView;
+   }
 
   ngOnInit(): void {
     this.loadCertificates();
@@ -24,7 +29,7 @@ export class CertificatesComponent implements OnInit {
     evt.preventDefault();
     evt.stopPropagation();
 
-    window.location.reload()
+    this.window.location.reload()
   }
 
   loadCertificates(): void {
