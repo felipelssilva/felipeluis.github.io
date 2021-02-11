@@ -1,18 +1,32 @@
-import { Injectable } from '@angular/core';
-import { Projects } from '../interfaces/projects';
-import { Certificates } from '../interfaces/certificates';
+import { Inject, Injectable } from '@angular/core';
+//import { Projects } from '../interfaces/projects';
+//import { Certificates } from '../interfaces/certificates';
 import { Graduations } from '../interfaces/graduations';
+import { Site } from '../interfaces/site';
+import { DOCUMENT } from '@angular/common';
 
 
 @Injectable()
 export class ConstantsService {
-  readonly author: string = 'Felipe Luis'
-  readonly title: string = 'Felipe Luis - SAP C/4HANA Front-end Engineer';
-  readonly description: string = 'I\'m a front-end engineer SAP C/4HANA';
-  readonly keywords: string = 'job, dev, engineer, developer, freelancer, freela, web, desenvolvimento, front-end, frontend, sap, hybris, c4hana, hana, c4, c4 hana, jQuery, JavaScript, Vanilla, ES6, ES5, React, Angular, Grunt, Gulp, SASS, Less, CSS3';
-  readonly urlBase: string = window.location.pathname;
-  readonly actualUrl: string = window.location.href;
+  window: any;
+
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    this.window = this.document.defaultView;
+  }
+
+  readonly site: Site[] = [
+    {
+      author: 'Felipe Luis',
+      title: 'SAP C/4Hana (Hybris) Front-end Engineer',
+      description: 'I\'m a front-end engineer SAP C/4HANA',
+      keywords: 'job, dev, engineer, developer, freelancer, freela, web, desenvolvimento, front-end, frontend, sap, hybris, c4hana, hana, c4, c4 hana, jQuery, JavaScript, Vanilla, ES6, ES5, React, Angular, Grunt, Gulp, SASS, Less, CSS3'
+    }
+  ];
+
+  readonly urlBase: any = () => "/";
+  readonly actualUrl: any = () => this.window.location.href;
   readonly year: number = new Date().getFullYear();
+
   /*readonly projects: Projects[] = [
     {
       'title': 'In my old website I used some these frameworks, languages and preprocessors:',

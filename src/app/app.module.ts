@@ -1,7 +1,6 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Meta, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from "@angular/common";
@@ -31,7 +30,6 @@ import { HomeComponentPage } from './pages/home/home.component';
 import { NotFoundComponentPage } from './pages/not-found/not-found.component';
 import { AboutMeComponentPage } from './pages/about-me/about-me.component';
 import { SocialMediasComponentPage } from './pages/social-medias/social-medias.component';
-import { MyResumeComponent } from './pages/my-resume/my-resume.component';
 import { MyProjectsComponentPage } from './pages/my-projects/my-projects.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { BlogDetailsComponent } from './pages/blog-details/blog-details.component';
@@ -57,7 +55,6 @@ import { ProjectsComponent } from './common/projects/projects.component';
     SocialMediasComponent,
     AboutMeComponentPage,
     SocialMediasComponentPage,
-    MyResumeComponent,
     MyProjectsComponentPage,
     BlogComponent,
     BlogDetailsComponent,
@@ -70,10 +67,9 @@ import { ProjectsComponent } from './common/projects/projects.component';
     ProjectsComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     FontAwesomeModule,
-    NgxExtendedPdfViewerModule,
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
@@ -86,7 +82,9 @@ import { ProjectsComponent } from './common/projects/projects.component';
     BlogsService,
     AboutMeService,
     CertificatesService,
-    ProjectsService
+    ProjectsService,
+    Title,
+    Meta
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { BlogsService } from '../services/blogs.service';
 import { ActivatedRoute } from '@angular/router';
 import { Blogs } from '../interfaces/blogs';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-blogs-side',
@@ -14,11 +15,15 @@ export class BlogsSideComponent implements OnInit {
   blogs: Blogs;
   blogsId: String;
   blogsTitle: String;
+  window: any;
 
   constructor(
     private route: ActivatedRoute,
-    private blogsService: BlogsService
-  ) { }
+    private blogsService: BlogsService,
+    @Inject(DOCUMENT) private document: Document
+  ) {
+    this.window = this.document.defaultView;
+  }
 
 
   ngOnInit(): void {
@@ -48,6 +53,6 @@ export class BlogsSideComponent implements OnInit {
     evt.preventDefault();
     evt.stopPropagation();
 
-    window.location.reload()
+    this.window.location.reload()
   }
 }

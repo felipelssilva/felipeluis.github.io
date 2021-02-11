@@ -1,7 +1,8 @@
 import { ActivatedRoute } from "@angular/router";
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Blogs } from '../../common/interfaces/blogs';
 import { BlogsService } from '../../common/services/blogs.service';
+import { DOCUMENT } from "@angular/common";
 
 @Component({
   selector: 'app-blog-details',
@@ -15,11 +16,15 @@ export class BlogDetailsComponent implements OnInit {
   blogs: Blogs;
   blogsId: String;
   blogsTitle: String;
+  window: any;
 
   constructor(
     private route: ActivatedRoute,
-    private blogsService: BlogsService
-  ) { }
+    private blogsService: BlogsService,
+    @Inject(DOCUMENT) private document: Document
+  ) {
+    this.window = this.document.defaultView;
+   }
 
   ngOnInit(): void {
     this.loading = true;
@@ -42,7 +47,7 @@ export class BlogDetailsComponent implements OnInit {
   }
 
   getUrl(): string {
-    return window.location.href;
+    return this.window.location.href;
   }
 
 }

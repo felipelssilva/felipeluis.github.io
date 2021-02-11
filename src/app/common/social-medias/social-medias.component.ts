@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 import {
   faFacebookSquare,
@@ -7,6 +7,7 @@ import {
   faLinkedin,
   faGithubSquare
 } from '@fortawesome/free-brands-svg-icons';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-social-medias',
@@ -20,16 +21,18 @@ export class SocialMediasComponent implements OnInit {
   faLinkedin = faLinkedin;
   faGithubSquare = faGithubSquare;
   isSocialMediasPage: boolean;
+  window: any;
 
-  constructor() { }
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    this.window = this.document.defaultView;
+  }
 
   ngOnInit(): void {
     this.isSocialMediasPage = this.getCurrentPage();
   }
 
   getCurrentPage() {
-    return window.location.pathname === '/social-medias';
+    return this.window.location.href.indexOf('/social-medias') > 0;
   }
-
 
 }
