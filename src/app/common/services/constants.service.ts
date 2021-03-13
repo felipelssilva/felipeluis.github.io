@@ -17,8 +17,8 @@ export class ConstantsService {
   readonly site: Site[] = [
     {
       author: 'Felipe Luis',
-      title: 'SAP C/4Hana (Hybris) Front-end Engineer',
-      description: 'I\'m a front-end engineer SAP C/4HANA',
+      title: 'Front-end Engineer',
+      description: 'I\'m a front-end engineer',
       keywords: 'job, dev, engineer, developer, freelancer, freela, web, desenvolvimento, front-end, frontend, sap, hybris, c4hana, hana, c4, c4 hana, jQuery, JavaScript, Vanilla, ES6, ES5, React, Angular, Grunt, Gulp, SASS, Less, CSS3'
     }
   ];
