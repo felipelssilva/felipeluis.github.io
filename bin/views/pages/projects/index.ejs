@@ -10,25 +10,28 @@
 <script type="text/javascript">
     const self = this;
 
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function() {
         const $doc = $(document),
-        projectsContainer = $doc.find('.js-projects');
+            projectsContainer = $doc.find('.js-projects');
 
-        self.loadeContainers({ doc: $doc, container: projectsContainer });
+        self.loadeContainers({
+            doc: $doc,
+            container: projectsContainer
+        });
     });
 
     function loadeContainers(handlers) {
         $.ajax({
-            type: 'GET',
-            url: '/api/projects',
-            headers: {
-                'x-access-token': getCookie('x-access-token')
-            },
-            beforeSend: () => {
-                handlers.container.html('<i class="fas fa-circle-notch fa-spin fa-3x"></i>');
-            }
-        })
-            .done(function (data) {
+                type: 'GET',
+                url: '/api/projects',
+                headers: {
+                    'x-access-token': getCookie('x-access-token')
+                },
+                beforeSend: () => {
+                    handlers.container.html('<i class="fas fa-circle-notch fa-spin fa-3x"></i>');
+                }
+            })
+            .done(function(data) {
                 let html = `<div><table class="table table-striped table-bordered">
                     <thead>
                         <tr>
@@ -71,11 +74,18 @@
                 html = $(html).find('tbody').html(tbody).parents('div').html();
                 handlers.container.html(html);
             })
-            .fail(function (err) {
-                toast({ data: err, type: 'error' });
+            .fail(function(err) {
+                toast({
+                    data: err,
+                    type: 'error'
+                });
             })
-            .always(function () {
-                handlers.container.find('table').DataTable({ "order": [[1, "desc"]] });
+            .always(function() {
+                handlers.container.find('table').DataTable({
+                    "order": [
+                        [1, "asc"]
+                    ]
+                });
             });
     }
 
@@ -128,29 +138,39 @@
             projectsContainer = $doc.find('.js-projects');
 
         $.ajax({
-            type: 'DELETE',
-            url: `/api/projects/${id}`,
-            headers: {
-                'x-access-token': getCookie('x-access-token')
-            },
-            beforeSend: () => {
-                target.html(btnText);
-            }
-        })
-            .done(function (data) {
-                toast({ data: { message: `<li>Projeto deletado!</li>` }, type: 'success' });
+                type: 'DELETE',
+                url: `/api/projects/${id}`,
+                headers: {
+                    'x-access-token': getCookie('x-access-token')
+                },
+                beforeSend: () => {
+                    target.html(btnText);
+                }
             })
-            .fail(function (err) {
-                toast({ data: err, type: 'error' });
+            .done(function(data) {
+                toast({
+                    data: {
+                        message: `<li>Projeto deletado!</li>`
+                    },
+                    type: 'success'
+                });
             })
-            .always(function () {
+            .fail(function(err) {
+                toast({
+                    data: err,
+                    type: 'error'
+                });
+            })
+            .always(function() {
                 $(`#deleteModal_${id}`).modal('hide');
 
                 setTimeout(() => {
-                    self.loadeContainers({ doc: $doc, container: projectsContainer });
+                    self.loadeContainers({
+                        doc: $doc,
+                        container: projectsContainer
+                    });
                 }, 500);
             });
 
     }
-
 </script>
