@@ -50,7 +50,7 @@
         "express-session": "^1.17.1",
         "express-validator": "^6.14.0",
         "jsonwebtoken": "^8.5.1",
-        "mongoose": "^5.9.25",
+        "mongoose": "^5.13.14",
         "multer": "^1.4.2",
         "ng-lazyload-image": "^9.1.0",
         "ngx-content-loading": "^0.1.3",
