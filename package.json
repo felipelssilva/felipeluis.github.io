@@ -9,12 +9,12 @@
         "lint": "ng lint",
         "e2e": "ng e2e",
         "start": "node bin/server",
-        "postinstall": "ng build --prod && ng run felipeluis:server:production",
-        "prod": "ng build --aot --prod",
+        "postinstall": "ng build --configuration production && ng run felipeluis:server:production",
+        "prod": "ng build --aot --configuration production",
         "dev": "node node_modules/nodemon/bin/nodemon bin/server",
         "dev:ssr": "ng run felipeluis:serve-ssr",
         "serve:ssr": "node dist/felipeluis/server/main.js",
-        "build:ssr": "ng build --prod && ng run felipeluis:server:production",
+        "build:ssr": "ng build --configuration production && ng run felipeluis:server:production",
         "prerender": "ng run felipeluis:prerender"
     },
     "engines": {
