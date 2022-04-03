@@ -14,7 +14,8 @@
     "dev:ssr": "ng run felipeluis:serve-ssr",
     "serve:ssr": "node dist/felipeluis/server/main.js",
     "build:ssr": "ng build --configuration production && ng run felipeluis:server:production",
-    "prerender": "ng run felipeluis:prerender"
+    "prerender": "ng run felipeluis:prerender",
+    "postinstall": "ng build --configuration production && ng run felipeluis:server:production"
   },
   "engines": {
     "node": "12.20.2",
