@@ -9,7 +9,6 @@
         "lint": "ng lint",
         "e2e": "ng e2e",
         "start": "node bin/server",
-        "postinstall": "ng build --configuration production && ng run felipeluis:server:production",
         "prod": "ng build --aot --configuration production",
         "dev": "node node_modules/nodemon/bin/nodemon bin/server",
         "dev:ssr": "ng run felipeluis:serve-ssr",
