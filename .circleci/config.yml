@@ -4,13 +4,13 @@ orbs:
   heroku: circleci/heroku@1.2.6
 
 workflows:
-  version: 2.1
-  heroku_deploy:
+  heroku_deploy:  
     jobs:
       - heroku/deploy-via-git:
         requires:
           force:
             default: true
+          parallelism: 4
           filters:
             branches:
               only: master
