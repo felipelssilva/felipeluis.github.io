@@ -9,6 +9,8 @@ workflows:
     jobs:
       - heroku/deploy-via-git:
         requires:
+          force:
+            default: true
           filters:
             branches:
               only: master
