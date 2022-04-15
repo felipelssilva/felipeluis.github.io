@@ -11,22 +11,14 @@
       <app-about-me [isForPage]=true></app-about-me>
     </div>
   </div>
-
-  <div class="row my-5 text-center">
-    <div class="col">
-      <h4 class="display-4">Certificates</h4>
-      <hr />
-    </div>
-  </div>
-  <app-certificates></app-certificates>
-
+  
   <div class="row my-5 text-center">
     <div class="col">
       <h4 class="display-4">Graduation</h4>
       <hr />
     </div>
   </div>
-  <div class="row row-cols-1 row-cols-md-3">
+  <div class="row row-cols-1 row-cols-md-2">
     <div class="col mb-4" *ngFor="let graduation of graduations; let i = index">
       <div class="card h-100">
           <app-lazy-load-image [image]='"/assets/img/graduations/" + graduation.image' 
@@ -39,5 +31,13 @@
       </div>
     </div>
   </div>
+
+  <div class="row my-5 text-center">
+    <div class="col">
+      <h4 class="display-4">Certificates</h4>
+      <hr />
+    </div>
+  </div>
+  <app-certificates></app-certificates>
   
 </section>

@@ -96,7 +96,7 @@ export class ConstantsService {
   ];*/
   readonly graduations: Graduations[] = [
     {
-      'title': 'Analysis and Systems Development (in progress)',
+      'title': 'Analysis and Systems Development',
       'image': 'puc-pr.png',
       'description': 'Pontifícia Universidade Católica do Paraná - PUCPR'
     }

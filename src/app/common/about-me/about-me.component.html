@@ -5,7 +5,7 @@
   </div>
 </div>
 
-<div *ngIf="!!error">
+<div *ngIf="!!error" class="pb-4">
   <small>
     <strong>Sorry, something went wrong</strong> <br>
     Please, refresh the page or click <a (click)="refreshPosts($event)" href="#">here</a>
@@ -16,6 +16,6 @@
   <app-loading></app-loading>
 </div>
 
-<ng-template [ngIf]="!isForPage">
+<ng-template [ngIf]="!isForPage && !error && !loading">
   <a routerLink="/about-me" class="btn btn-primary btn-lg">See more about me</a>
 </ng-template>
