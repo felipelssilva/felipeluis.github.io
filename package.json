@@ -4,17 +4,16 @@
   "scripts": {
     "ng": "ng",
     "server": "ng serve --proxy-config proxy.config.js",
-    "start": "node server.js",
+    "start": "ng serve",
     "build": "ng build --aot --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "ng build --aot --prod && ng run felipeluis:server:production",
-    "prod": "ng build --aot --prod",
     "dev:ssr": "ng run felipeluis:serve-ssr",
-    "serve:ssr": "node dist/felipeluis/server/main.js",
     "build:ssr": "ng build --prod && ng run felipeluis:server:production",
-    "prerender": "ng run felipeluis:prerender"
+    "prerender": "ng run felipeluis:prerender",
+    "watch": "ng build --watch --configuration development"
   },
   "engines": {
     "node": "12.18.2",
