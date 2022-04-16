@@ -13,7 +13,7 @@ export class AboutMeService {
     }
 
     listAboutMe() {
-        return this.http.get<AboutMe>('/api/about');
+        return this.http.get<AboutMe>('https://quiet-harbor-71572.herokuapp.com/api/about');
     }
 
 }
