@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { 
+      "source": "/api/(.*)",
+      "destination": "https://quiet-harbor-71572.herokuapp.com/api"
+    }
+  ]
+}
