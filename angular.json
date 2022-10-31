@@ -50,7 +50,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -187,7 +186,6 @@
       }
     }
   },
-  "defaultProject": "felipeluis",
   "cli": {
     "analytics": "da3766ce-131f-4aa9-a44a-c4bf6fcff2dd"
   }

@@ -3,8 +3,8 @@
         <div class="col mb-4" *ngFor="let certificate of certificates; let i = index">
             <div class="card h-100">
                 <a href="{{certificate.url}}" target="_blank">
-                    <app-lazy-load-image [image]='certificate.img' 
-                        [title]='"Certificate - " + certificate.name' 
+                    <app-lazy-load-image [image]='certificate.img'
+                        [title]='"Certificate - " + certificate.name'
                         [style]='"card-img-top"'></app-lazy-load-image>
                 </a>
                 <div class="card-body">
