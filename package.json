@@ -16,8 +16,8 @@
     "watch": "ng build --watch --configuration development"
   },
   "engines": {
-    "node": "16.18.0",
-    "npm": "8.19.2"
+    "node": "16",
+    "npm": "8"
   },
   "private": true,
   "dependencies": {
