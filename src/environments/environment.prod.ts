@@ -1,4 +1,4 @@
 export const environment = {
-  apiURL: `${process.env.URL_API}/api`,
+  apiURL: `https://api-my-website-flame.vercel.app/api`,
   production: true,
 };

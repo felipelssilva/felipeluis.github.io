@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiURL: `${process.env.URL_API}/api`,
+  apiURL: `https://api-my-website-flame.vercel.app/api`,
   imageUrl: '/assets/img',
 };
 

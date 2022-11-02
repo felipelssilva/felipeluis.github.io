@@ -1,7 +1,7 @@
 const proxy = [
   {
     context: "/api",
-    target: `${process.env.URL_API}/api`,
+    target: `https://api-my-website-flame.vercel.app/api`,
     pathRewrite: { "^/api": "" },
     changeOrigin: true,
   },
