@@ -4,9 +4,7 @@
 
 export const environment = {
   production: false,
-  // apiURL: 'http://localhost:3000/api',
-  apiURL: 'https://quiet-harbor-71572.herokuapp.com/api',
-  // production: true,
+  apiURL: `${process.env.URL_API}/api`,
   imageUrl: '/assets/img',
 };
 

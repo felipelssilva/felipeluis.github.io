@@ -1,11 +1,10 @@
 const proxy = [
-    {
-        context: '/api',
-        // target: 'http://localhost:3000/api',
-        target: 'https://quiet-harbor-71572.herokuapp.com/api',
-        pathRewrite: { '^/api': '' },
-        changeOrigin: true
-    }
+  {
+    context: "/api",
+    target: `${process.env.URL_API}/api`,
+    pathRewrite: { "^/api": "" },
+    changeOrigin: true,
+  },
 ];
 
 module.exports = proxy;
