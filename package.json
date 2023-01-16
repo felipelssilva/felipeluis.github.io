@@ -72,7 +72,7 @@
     "@angular/cli": "~15.0.1",
     "@angular/compiler-cli": "~14.2.8",
     "@nguniversal/builders": "^14.2.3",
-    "@types/express": "^4.17.14",
+    "@types/express": "^4.17.15",
     "@types/jasmine": "~4.3.1",
     "@types/jasminewd2": "~2.0.10",
     "@types/node": "^18.11.18",
