@@ -1,24 +1,18 @@
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
 
-    <a class="navbar-brand"  routerLink="/home">
-      
+    <a class="navbar-brand" routerLink="/home">
+
     </a>
 
-    <button class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarCollapse"
-            aria-controls="navbarCollapse"
-            aria-label="Toggle navigation"
-            (click)="isCollapsed = !isCollapsed"
-            [attr.aria-expanded]="!isCollapsed"
-      >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+      aria-controls="navbarCollapse" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed"
+      [attr.aria-expanded]="!isCollapsed">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse {{!isCollapsed ? '' : 'show'}}" id="navbarCollapse">
-      <ul class="navbar-nav ml-auto mr-3">
+      <ul class="navbar-nav m-3 mx-md-auto m-md-1 mr-md-3">
 
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="/home">Home</a>
@@ -36,10 +30,10 @@
           <a class="nav-link" routerLink="/my-projects">My Projects</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="https://my-blog-kappa-eight.vercel.app/" >The Blog</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" routerLink="/blog">My Blog</a>
         </li>
-        
+
         <li class="nav-item" routerLinkActive="active">
           <a class="nav-link" routerLink="/contact">Contact me</a>
         </li>

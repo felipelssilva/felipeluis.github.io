@@ -1,23 +1,24 @@
 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="w-100 form-horizontal">
-  <div class="form-group row">
+  <div class="mb-3 row">
     <label for="name" class="col-xs-10 offset-xs-1 col-md-2 offset-md-0 control-label">Your name</label>
     <div class="col-xs-10 offset-xs-1 col-md-9 offset-md-0">
       <input class="form-control" name="name" type="text" id="name" size="20" required="required"
         placeholder="Your name here" formControlName="name" />
     </div>
   </div>
-  <div class="form-group row">
+  <div class="mb-3 row">
     <label for="_replyto" class="col-xs-10 offset-xs-1 col-md-2 offset-md-0 control-label">Your e-mail</label>
     <div class="col-xs-10 offset-xs-1 col-md-9 offset-md-0">
       <input class="form-control" name="_replyto" type="email" id="_replyto" size="20" required="required"
         placeholder="email@server.com" formControlName="email" />
     </div>
   </div>
-  <div class="form-group row">
+  <div class="mb-3 row">
     <label for="subject" class="col-xs-10 offset-xs-1 col-md-2 offset-md-0 control-label">Subject</label>
     <div class="col-xs-10 offset-xs-1 col-md-9 offset-md-0">
-      <select class="form-control" name="subject" id="subject" formControlName="subject" required>
-        <option selected="selected">Choose an option</option>
+      <select class="form-select" name="subject" id="subject" formControlName="subject" required
+        aria-label="Choose an option">
+        <option selected disabled>Choose an option</option>
         <option value="Doubts">Doubts</option>
         <option value="Suggestions">Suggestions</option>
         <option value="Development">Development</option>
@@ -25,16 +26,15 @@
       </select>
     </div>
   </div>
-  <div class="form-group row">
+  <div class="mb-3 row">
     <label for="message" class="col-xs-10 offset-xs-1 col-md-2 offset-md-0 control-label">Message</label>
     <div class="col-xs-10 offset-xs-1 col-md-9 offset-md-0">
       <textarea class="form-control" name="message" id="message" formControlName="message" required rows="8"></textarea>
     </div>
   </div>
-  <div class="form-group row">
+  <div class="mb-3 row">
     <div class="offset-xs-1 col-xs-10 col-md-9 offset-md-2">
-      <button [disabled]="!contactForm.valid || loading" type="submit" 
-      class="btn btn-primary btn-lg btn-block">
+      <button [disabled]="!contactForm.valid || loading" type="submit" class="btn btn-primary btn-lg btn-block">
         <span *ngIf="!loading">Send contact!</span>
         <span *ngIf="loading">Loading!</span>
       </button>

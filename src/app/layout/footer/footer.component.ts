@@ -25,14 +25,14 @@ export class FooterComponent implements OnInit {
   scrollToTop(evt) {
     evt.preventDefault();
 
-    let scrollToTop = this.window.setInterval(() => {
-      let pos = this.window.pageYOffset;
-      if (pos > 0) {
-        this.window.scrollTo(0, pos - 20);
-      } else {
-        this.window.clearInterval(scrollToTop);
-      }
-    }, 1);
+    // let scrollToTop = this.window.setInterval(() => {
+    //   let pos = this.window.pageYOffset;
+    //   if (pos > 0) {
+        this.window.scrollTo(0, 0);
+    //   } else {
+    //     this.window.clearInterval(scrollToTop);
+    //   }
+    // }, 0);
   }
 
 }
