@@ -1,4 +1,4 @@
-<section class="container my-3">
+<section class="container pt-3 my-5">
 
   <div class="row my-5 text-center">
     <div class="col">
@@ -11,7 +11,7 @@
       <app-about-me [isForPage]=true></app-about-me>
     </div>
   </div>
-  
+
   <div class="row my-5 text-center">
     <div class="col">
       <h4 class="display-4">Graduation</h4>
@@ -20,12 +20,10 @@
   </div>
   <div class="row row-cols-1 row-cols-md-2">
     <div class="col mb-4" *ngFor="let graduation of graduations; let i = index">
-      <div class="card h-100">
-          <app-lazy-load-image [image]='"/assets/img/graduations/" + graduation.image' 
-            [title]='graduation.title'
-            [style]='"card-img-top"'></app-lazy-load-image>
-        <div class="card-body">
-          <h5 class="card-title text-center">{{graduation.title}}</h5>
+      <div class="card">
+        <app-lazy-load-image [style]='"card-img-top"' [image]='"/assets/img/graduations/" + graduation.image' [title]='graduation.title'></app-lazy-load-image>
+        <div class="card-body text-center">
+          <h5 class="card-title">{{graduation.title}}</h5>
           <div [innerHTML]="graduation.description"></div>
         </div>
       </div>
@@ -39,5 +37,5 @@
     </div>
   </div>
   <app-certificates></app-certificates>
-  
+
 </section>

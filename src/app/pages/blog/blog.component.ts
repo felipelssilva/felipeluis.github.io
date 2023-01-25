@@ -37,14 +37,14 @@ export class BlogComponent implements OnInit {
   scrollToPosts(evt) {
     evt.preventDefault();
 
-    let scrollToTop = this.window.setInterval(() => {
-      let pos = this.document.querySelector('.cards-components').getBoundingClientRect().top;
-      if (pos > this.window.pageYOffset) {
-        this.window.scrollTo(0, pos - 20);
-      } else {
-        this.window.clearInterval(scrollToTop);
-      }
-    }, 1);
+    // let scrollToTop = this.window.setInterval(() => {
+    //   let pos = this.document.querySelector('.cards-components').getBoundingClientRect().top;
+    //   if (pos > this.window.pageYOffset) {
+        this.window.scrollTo(0, 0);
+    //   } else {
+    //     this.window.clearInterval(scrollToTop);
+    //   }
+    // }, 1);
   }
 
 }

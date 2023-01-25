@@ -61,13 +61,13 @@ export class AppComponent implements OnInit {
   }
 
   public onActivate(evt: any) {
-    let scrollToTop = this.window.setInterval(() => {
-      let pos = this.window.pageYOffset;
-      if (pos > 0) {
-        this.window.scrollTo(0, pos - 20);
-      } else {
-        this.window.clearInterval(scrollToTop);
-      }
-    }, 16);
+    // let scrollToTop = this.window.setInterval(() => {
+    //   let pos = this.window.pageYOffset;
+    //   if (pos > 0) {
+        this.window.scrollTo(0, 0);
+    //   } else {
+    //     this.window.clearInterval(scrollToTop);
+    //   }
+    // }, 16);
   }
 }

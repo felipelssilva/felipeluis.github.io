@@ -13,7 +13,14 @@
 </div>
 
 <div *ngIf="loading && !error" class="p-4">
-  <app-loading></app-loading>
+  <ngx-content-loading class="d-none d-md-block" [speed]="'1500ms'" [width]="600" [height]="70"
+  [primaryColor]="'#ccc'" [secondaryColor]="'#ddd'">
+  <svg:g ngx-rect width="97%" height="6" y="0" x="0" rx="2" ry="2"></svg:g>
+  <svg:g ngx-rect width="70%" height="6" y="10" x="0" rx="2" ry="2"></svg:g>
+  <svg:g ngx-rect width="97%" height="6" y="30" x="0" rx="2" ry="2"></svg:g>
+  <svg:g ngx-rect width="50%" height="6" y="40" x="0" rx="2" ry="2"></svg:g>
+  <svg:g ngx-rect width="80%" height="6" y="60" x="0" rx="2" ry="2"></svg:g>
+</ngx-content-loading>
 </div>
 
 <ng-template [ngIf]="!isForPage && !error && !loading">
