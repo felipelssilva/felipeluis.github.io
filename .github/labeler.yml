@@ -1,0 +1,31 @@
+# Add 'repo' label to any root file changes
+repo:
+  - "*"
+
+# Add 'test' label to any change to *.spec.js files within the source dir
+test:
+  - src/**/*.spec.ts
+
+# Add 'source' label to any change to src files within the source dir EXCEPT for the docs sub-folder
+source:
+  - any: ["src/**"]
+
+# Add 'frontend` label to any change to *.js files
+frontend:
+  - any: ["src/**/*.ts"]
+
+# Add 'html` label to any change to *.js files
+html:
+  - any: ["src/**/*.html"]
+
+# Add 'less` label to any change to *.js files
+less:
+  - any: ["src/**/*.less"]
+
+# Add 'graphql` label to any change to *.gql files
+graphql:
+  - any: ["src/**/*.gql"]
+
+# Add 'doc` label to any change to *.md files
+doc:
+  - any: ["**/*.md"]
