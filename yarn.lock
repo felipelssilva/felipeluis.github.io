@@ -2704,10 +2704,10 @@ bs-snippet-injector@^2.0.1:
   resolved "https://registry.yarnpkg.com/bs-snippet-injector/-/bs-snippet-injector-2.0.1.tgz#61b5393f11f52559ed120693100343b6edb04dd5"
   integrity sha512-4u8IgB+L9L+S5hknOj3ddNSb42436gsnGm1AuM15B7CdbkpQTyVWgIM5/JUBiKiRwGOR86uo0Lu/OsX+SAlJmw==
 
-bson@^5.3.0:
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/bson/-/bson-5.3.0.tgz#37b006df4cd91ed125cb686467c1dd6d4606b514"
-  integrity sha512-ukmCZMneMlaC5ebPHXIkP8YJzNl5DC41N5MAIvKDqLggdao342t4McltoJBQfQya/nHBWAcSsYRqlXPoQkTJag==
+bson@^5.4.0:
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/bson/-/bson-5.4.0.tgz#0eea77276d490953ad8616b483298dbff07384c6"
+  integrity sha512-WRZ5SQI5GfUuKnPTNmAYPiKIof3ORXAF4IRU5UcgmivNIon01rWQlw5RUH954dpu8yGL8T59YShVddIPaU/gFA==
 
 buffer-equal-constant-time@1.0.1:
   version "1.0.1"
@@ -6377,25 +6377,25 @@ mongodb-connection-string-url@^2.6.0:
     "@types/whatwg-url" "^8.2.1"
     whatwg-url "^11.0.0"
 
-mongodb@5.6.0:
-  version "5.6.0"
-  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-5.6.0.tgz#caff5278341bfc0f1ef6f394bb403d207de03d1e"
-  integrity sha512-z8qVs9NfobHJm6uzK56XBZF8XwM9H294iRnB7wNjF0SnY93si5HPziIJn+qqvUR5QOff/4L0gCD6SShdR/GtVQ==
+mongodb@5.7.0:
+  version "5.7.0"
+  resolved "https://registry.yarnpkg.com/mongodb/-/mongodb-5.7.0.tgz#e16d2fcdfd9f8503ec2d88288392dc3235bb3ecc"
+  integrity sha512-zm82Bq33QbqtxDf58fLWBwTjARK3NSvKYjyz997KSy6hpat0prjeX/kxjbPVyZY60XYPDNETaHkHJI2UCzSLuw==
   dependencies:
-    bson "^5.3.0"
+    bson "^5.4.0"
     mongodb-connection-string-url "^2.6.0"
     socks "^2.7.1"
   optionalDependencies:
     saslprep "^1.0.3"
 
-mongoose@^7.3.2:
-  version "7.3.2"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-7.3.2.tgz#0dcc720fbc684d21d391e5e8a8edad2df7236313"
-  integrity sha512-Z86m5ASwYYFyT++wPQTtuTl5Jh052w6G1IM8LxPu/6iuqxQo6nUOaEoGZfMy0ovw3Dyw3415Jue3pYXkRqPkfA==
+mongoose@^7.4.5:
+  version "7.4.5"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-7.4.5.tgz#7c843c6e3e8dcd22b0ff0f0981aca69b863e7723"
+  integrity sha512-X7Mw7KHUYZmyOQmlu7D9TnZh/3vOrAYmZwEpXDU0VDvLPKT0T7PF6blwiv3aXOEMwv9T3rLTC9lJb3C5dWld2A==
   dependencies:
-    bson "^5.3.0"
+    bson "^5.4.0"
     kareem "2.5.1"
-    mongodb "5.6.0"
+    mongodb "5.7.0"
     mpath "0.9.0"
     mquery "5.0.0"
     ms "2.1.3"
