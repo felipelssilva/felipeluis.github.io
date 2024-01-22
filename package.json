@@ -60,7 +60,7 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^8.0.0",
     "path": "^0.12.7",
-    "prettier": "^2.8.8",
+    "prettier": "^3.2.4",
     "rxjs": "~7.8.1",
     "sweetalert2": "^11.7.32",
     "tslib": "^2.5.3",
