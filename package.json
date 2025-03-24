@@ -35,7 +35,7 @@
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@nguniversal/express-engine": "^14.2.3",
-    "bcryptjs": "^2.4.3",
+    "bcryptjs": "^3.0.2",
     "body-parser": "^1.20.2",
     "bootstrap": "^5.3.3",
     "connect-flash": "^0.1.1",
