@@ -41,7 +41,7 @@
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.6",
     "debug": "^4.4.3",
-    "dotenv": "^16.3.1",
+    "dotenv": "^17.2.3",
     "dotenv-safe": "^9.1.0",
     "ejs": "^3.1.10",
     "eslint": "^8.51.0",
